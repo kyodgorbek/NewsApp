@@ -21,6 +21,9 @@ import java.util.List;
 
 public class ArticleAdapter extends ArrayAdapter<Article> {
 
+    private String status;
+    private  Integer results;
+
     List<Article> articleList;
    private   Context context;
     private LayoutInflater mInflater;
