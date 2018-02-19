@@ -113,7 +113,7 @@ public void onResponse(Call<Article> call, Response<Article> response) {
         /**
          * Binding that List to Adapter
          */
-        adapter = new ArticleAdapter((MainActivity.this, articleList);
+        adapter = new ArticleAdapter(MainActivity.this, articleList);
         listView.setAdapter(adapter);
 
         } else {
