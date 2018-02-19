@@ -21,7 +21,7 @@ public class News {
     @Expose
     private List<Article> articles = null;
 
-    public String getStatus() {
+    public List<News> getStatus() {
         return status;
     }
 

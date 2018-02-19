@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.edgar.yodgorbekkomilo.newsapp.Adapter.ArticleAdapter;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.ApiService;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
+import com.edgar.yodgorbekkomilo.newsapp.Pojo.News;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.RetroClient;
 
 
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 private ListView listView;
 private View parentView;
 
-private ArrayList<Article> articleList;
+private ArrayList<News> articleList;
 private ArticleAdapter adapter;
 
 
@@ -59,7 +60,7 @@ protected void onCreate(Bundle savedInstanceState) {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 @Override
 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Snackbar.make(parentView, articleList.get(position).getAuthor() + " => " + articleList.get(position).getSource(), Snackbar.LENGTH_LONG).show();
+        Snackbar.make(parentView, articleList.get(position).getStatus() + " => " + articleList.get(position).getTotalResults(), Snackbar.LENGTH_LONG).show();
         }
         });
 
@@ -95,14 +96,14 @@ final ProgressDialog dialog;
         /**
          * Calling JSON
          */
-        Call<Article> call = api.getMyJSON();
+        Call<News> call = api.getMyJSON();
 
         /**
          * Enqueue Callback will be call when get response...
          */
-        call.enqueue(new Callback<Article>() {
+        call.enqueue(new Callback<News>() {
 @Override
-public void onResponse(Call<Article> call, Response<Article> response) {
+public void onResponse(Call<News> call, Response<News> response) {
         //Dismiss Dialog
         dialog.dismiss();
 
@@ -110,7 +111,7 @@ public void onResponse(Call<Article> call, Response<Article> response) {
         /**
          * Got Successfully
          */
-      List<Article> articleList = response.body().getAuthor();
+      List<News> articleList = response.body().getStatus();
 
         /**
          * Binding that List to Adapter
@@ -124,7 +125,7 @@ public void onResponse(Call<Article> call, Response<Article> response) {
         }
 
 @Override
-public void onFailure(Call<Article> call, Throwable t) {
+public void onFailure(Call<News> call, Throwable t) {
         dialog.dismiss();
         }
         });
