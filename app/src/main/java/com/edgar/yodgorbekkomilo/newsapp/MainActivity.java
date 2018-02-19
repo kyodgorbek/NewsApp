@@ -36,7 +36,7 @@ private ArrayList<Article> articleList;
 private ArticleAdapter adapter;
 
 
-
+ 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
