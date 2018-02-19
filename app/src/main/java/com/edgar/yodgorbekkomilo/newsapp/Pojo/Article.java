@@ -7,6 +7,8 @@ package com.edgar.yodgorbekkomilo.newsapp.Pojo;
         import com.google.gson.annotations.Expose;
         import com.google.gson.annotations.SerializedName;
 
+        import java.util.List;
+
         import javax.xml.transform.Source;
 
 
@@ -17,7 +19,7 @@ public class Article {
     private Source source;
     @SerializedName("author")
     @Expose
-    private String author;
+    private List<Article> author;
     @SerializedName("title")
     @Expose
     private String title;
@@ -42,11 +44,11 @@ public class Article {
         this.source = source;
     }
 
-    public String getAuthor() {
+    public List<Article> getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(List<Article> author) {
         this.author = author;
     }
 

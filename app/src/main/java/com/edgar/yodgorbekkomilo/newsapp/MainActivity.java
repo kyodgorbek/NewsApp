@@ -16,10 +16,11 @@ import android.widget.Toast;
 import com.edgar.yodgorbekkomilo.newsapp.Adapter.ArticleAdapter;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.ApiService;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
-import com.edgar.yodgorbekkomilo.newsapp.Pojo.RetroClient; 
+import com.edgar.yodgorbekkomilo.newsapp.Pojo.RetroClient;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -109,7 +110,7 @@ public void onResponse(Call<Article> call, Response<Article> response) {
         /**
          * Got Successfully
          */
-      String  articleList = response.body().getAuthor();
+      List<Article> articleList = response.body().getAuthor();
 
         /**
          * Binding that List to Adapter

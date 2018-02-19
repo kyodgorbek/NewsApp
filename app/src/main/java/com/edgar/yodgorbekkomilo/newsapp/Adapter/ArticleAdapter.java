@@ -13,7 +13,6 @@ import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 import com.edgar.yodgorbekkomilo.newsapp.R;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,7 +26,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
     private LayoutInflater mInflater;
 
     // Constructors
-    public ArticleAdapter(Context context, String articles) {
+    public ArticleAdapter(Context context, List<Article> articles) {
         super(context,0, articles);
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
