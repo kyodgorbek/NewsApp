@@ -2,4 +2,7 @@
     <string name="app_name">NewsApp</string>
     <string name="string_some_thing_wrong" />
     <string name="string_internet_connection_not_available" />
+    <string name="string_getting_json_title" />
+    <string name="string_getting_json_message" />
+    <string name="string_click_to_load" />
 </resources>

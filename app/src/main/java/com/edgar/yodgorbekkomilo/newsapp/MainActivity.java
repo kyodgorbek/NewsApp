@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.edgar.yodgorbekkomilo.newsapp.Adapter.ArticleAdapter;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.ApiService;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
-import com.edgar.yodgorbekkomilo.newsapp.Pojo.RetroClient;
+import com.edgar.yodgorbekkomilo.newsapp.Pojo.RetroClient; 
 
 
 import java.util.ArrayList;
