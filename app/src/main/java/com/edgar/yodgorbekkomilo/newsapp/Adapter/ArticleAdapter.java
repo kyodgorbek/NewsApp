@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,19 +20,20 @@ import java.util.List;
  * Created by yodgorbekkomilov on 2/18/18.
  */
 
-public class ArticleAdapter extends ArrayList<Article> {
+public class ArticleAdapter extends ArrayAdapter<Article> {
 
     List<Article> articleList;
-    Context context;
+   private   Context context;
     private LayoutInflater mInflater;
 
     // Constructors
-    public ArticleAdapter(Context context, List<Article> objects) {
-        super(context, 0, objects);
+    public ArticleAdapter(Context context, List<Article> articles) {
+        super(context,0, articles);
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
-        articleList = objects;
+        articleList = articles;
     }
+
 
     @Override
     public Article getItem(int position) {
