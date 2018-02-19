@@ -55,7 +55,7 @@ protected void onCreate(Bundle savedInstanceState) {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 @Override
 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Snackbar.make(parentView, contactList.get(position).getName() + " => " + contactList.get(position).getPhone().getHome(), Snackbar.LENGTH_LONG).show();
+        Snackbar.make(parentView, articleList.get(position).getAuthor() + " => " + articleList.get(position).getSource(), Snackbar.LENGTH_LONG).show();
         }
         });
 
