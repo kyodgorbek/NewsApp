@@ -36,7 +36,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
 
     @Override
     public Article getItem(int position) {
-        return articleList.get(position); 
+        return articleList.get(position);
     }
 
     @Override
