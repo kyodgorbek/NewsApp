@@ -10,5 +10,5 @@ import retrofit2.http.GET;
 public interface ApiService {
 
     @GET("everything/?q=bitcoin&apiKey=6dca4d1389634b61a9d3bb265f9928eb")
-    Call<News> getMyJSON();
+    Call<News> getMyJSON(); 
 }
