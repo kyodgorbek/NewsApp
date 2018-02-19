@@ -36,7 +36,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
 
     @Override
     public Article getItem(int position) {
-        return articleList.get(position);
+        return articleList.get(position); 
     }
 
     @Override
@@ -53,7 +53,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         Article item = getItem(position);
 
         vh.textViewSource.setText((CharSequence) item.getSource());
-        vh.textViewAuthor.setText(item.getAuthor());
+        vh.textViewAuthor.setText((CharSequence) item.getAuthor());
         Picasso.with(context).load(item.getUrlToImage()).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(vh.imageView);
 
         return vh.rootView;
