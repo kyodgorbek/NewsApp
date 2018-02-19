@@ -18,12 +18,13 @@ import com.edgar.yodgorbekkomilo.newsapp.Pojo.ApiService;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.RetroClient;
 
-
+import  com.edgar.yodgorbekkomilo.newsapp.R;
 import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
 
 
 public class MainActivity extends AppCompatActivity {
