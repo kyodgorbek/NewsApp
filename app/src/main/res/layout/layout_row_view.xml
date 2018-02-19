@@ -20,7 +20,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textViewSource"
+            android:id="@+id/textViewStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -28,7 +28,7 @@
             tools:text="TextView" />
 
         <TextView
-            android:id="@+id/textViewAuthor"
+            android:id="@+id/textViewTotalResults"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"

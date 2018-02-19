@@ -69,18 +69,18 @@ public class ArticleAdapter extends ArrayAdapter<News> {
         public final TextView textViewSource;
         public final TextView textViewAuthor;
 
-        private ViewHolder(RelativeLayout rootView, ImageView imageView, TextView textViewSource, TextView textViewAuthor) {
+        private ViewHolder(RelativeLayout rootView, ImageView imageView, TextView textViewStatus, TextView textViewTotalResults) {
             this.rootView = rootView;
             this.imageView = imageView;
-            this.textViewSource = textViewSource;
-            this.textViewAuthor = textViewAuthor;
+            this.textViewSource = textViewStatus;
+            this.textViewAuthor = textViewTotalResults;
         }
 
         public static ViewHolder create(RelativeLayout rootView) {
             ImageView imageView = (ImageView) rootView.findViewById(R.id.imageView);
-            TextView textViewSource = (TextView) rootView.findViewById(R.id.textViewSource);
-            TextView textViewAuthor = (TextView) rootView.findViewById(R.id.textViewAuthor);
-            return new ViewHolder(rootView, imageView, textViewSource, textViewAuthor);
+            TextView textViewStatus = (TextView) rootView.findViewById(R.id.textViewStatus);
+            TextView textViewTotalResults = (TextView) rootView.findViewById(R.id.textViewTotalResults);
+            return new ViewHolder(rootView, imageView, textViewStatus, textViewTotalResults);
         }
     }
 }
