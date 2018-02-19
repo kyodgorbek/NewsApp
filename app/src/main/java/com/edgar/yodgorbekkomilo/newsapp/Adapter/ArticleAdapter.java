@@ -56,8 +56,8 @@ public class ArticleAdapter extends ArrayAdapter<News> {
 
         News item = getItem(position);
 
-        vh.textViewSource.setText( item.getStatus());
-        vh.textViewAuthor.setText(item.getTotalResults());
+        vh.textViewStatus.setText( item.getStatus());
+        vh.textViewTotalResults.setText(item.getTotalResults());
         Picasso.with(context).load(String.valueOf(item.getArticles())).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(vh.imageView);
 
         return vh.rootView;
@@ -66,14 +66,14 @@ public class ArticleAdapter extends ArrayAdapter<News> {
     private static class ViewHolder {
         public final RelativeLayout rootView;
         public final ImageView imageView;
-        public final TextView textViewSource;
-        public final TextView textViewAuthor;
+        public final TextView textViewStatus;
+        public final TextView textViewTotalResults;
 
         private ViewHolder(RelativeLayout rootView, ImageView imageView, TextView textViewStatus, TextView textViewTotalResults) {
             this.rootView = rootView;
             this.imageView = imageView;
-            this.textViewSource = textViewStatus;
-            this.textViewAuthor = textViewTotalResults;
+            this.textViewStatus = textViewStatus;
+            this.textViewTotalResults = textViewTotalResults;
         }
 
         public static ViewHolder create(RelativeLayout rootView) {
