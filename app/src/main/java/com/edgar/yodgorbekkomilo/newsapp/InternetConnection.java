@@ -16,7 +16,7 @@ public class InternetConnection {
         final ConnectivityManager connMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
         NetworkInfo activeNetworkInfo = connMgr.getActiveNetworkInfo();
-
+ 
         if (activeNetworkInfo != null) { // connected to the internet
             Toast.makeText(context, activeNetworkInfo.getTypeName(), Toast.LENGTH_SHORT).show();
 
