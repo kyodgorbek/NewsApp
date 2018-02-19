@@ -112,7 +112,7 @@ public void onResponse(Call<Article> call, Response<Article> response) {
          */
       List<Article> articleList = response.body().getAuthor();
 
-        /**
+        /** 
          * Binding that List to Adapter
          */
         adapter = new ArticleAdapter(MainActivity.this, articleList);
