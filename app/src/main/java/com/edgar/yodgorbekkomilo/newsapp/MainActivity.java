@@ -18,6 +18,7 @@ import com.edgar.yodgorbekkomilo.newsapp.Pojo.ApiService;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.RetroClient;
 
+
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -31,6 +32,7 @@ private View parentView;
 
 private ArrayList<Article> articleList;
 private ArticleAdapter adapter;
+
 
 
 @Override
