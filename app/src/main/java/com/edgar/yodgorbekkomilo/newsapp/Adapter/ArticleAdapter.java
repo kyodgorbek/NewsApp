@@ -30,7 +30,7 @@ public class ArticleAdapter extends ArrayAdapter<News> {
     private LayoutInflater mInflater;
 
     // Constructors
-    public ArticleAdapter(Context context, List<News> articles) {
+    public ArticleAdapter(Context context, String articles) {
         super(context,0, articles);
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
