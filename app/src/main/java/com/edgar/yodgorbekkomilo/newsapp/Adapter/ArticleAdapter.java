@@ -9,12 +9,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.News;
 import com.edgar.yodgorbekkomilo.newsapp.R;
 import com.squareup.picasso.Picasso;
-
-import java.util.List;
 
 /**
  * Created by yodgorbekkomilov on 2/18/18.
@@ -25,13 +22,13 @@ public class ArticleAdapter extends ArrayAdapter<News> {
     private String status;
     private  Integer results;
 
-    List<News> articleList;
+    String articleList;
    private   Context context;
     private LayoutInflater mInflater;
 
     // Constructors
     public ArticleAdapter(Context context, String articles) {
-        super(context,0, articles);
+        super(context,0, Integer.parseInt(articles));
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
         articleList = articles;
