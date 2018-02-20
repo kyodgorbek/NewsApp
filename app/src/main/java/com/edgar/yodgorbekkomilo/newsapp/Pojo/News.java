@@ -12,7 +12,7 @@ import java.util.List;
 
 public class News {
 
-    @SerializedName("status")
+    @SerializedName("status") 
     @Expose
     private String status;
     @SerializedName("totalResults")
