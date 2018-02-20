@@ -111,7 +111,7 @@ public void onResponse(Call<News> call, Response<News> response) {
         /**
          * Got Successfully
          */
-      String articleList = response.body().getStatus();
+      String articleList = String.valueOf(response.body());
 
         /**
          * Binding that List to Adapter

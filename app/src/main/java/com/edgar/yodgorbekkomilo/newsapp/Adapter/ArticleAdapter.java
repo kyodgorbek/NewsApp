@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.edgar.yodgorbekkomilo.newsapp.NewsList;
+import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.News;
 import com.edgar.yodgorbekkomilo.newsapp.R;
 import com.squareup.picasso.Picasso;
@@ -18,7 +19,7 @@ import com.squareup.picasso.Picasso;
  * Created by yodgorbekkomilov on 2/18/18.
  */
 
-public class ArticleAdapter extends ArrayAdapter<NewsList> {
+public class ArticleAdapter extends ArrayAdapter<Article> {
 
     private String status;
     private  Integer results;
@@ -37,7 +38,7 @@ public class ArticleAdapter extends ArrayAdapter<NewsList> {
 
 
     @Override
-    public NewsList getItem(int position) {
+    public Article getItem(int position) {
         return articleList.get(position);
     }
 
@@ -52,7 +53,7 @@ public class ArticleAdapter extends ArrayAdapter<NewsList> {
             vh = (ViewHolder) convertView.getTag();
         }
 
-        News item = getItem(position);
+        Article item = getItem(position);
 
         vh.textViewStatus.setText((CharSequence) item.getStatus());
         vh.textViewTotalResults.setText(item.getTotalResults());
