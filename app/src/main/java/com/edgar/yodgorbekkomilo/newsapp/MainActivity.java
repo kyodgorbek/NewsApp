@@ -114,7 +114,7 @@ public void onResponse(Call<News> call, Response<News> response) {
       String articleList = String.valueOf(response.body());
 
         /**
-         * Binding that List to Adapter
+         * Binding that List to Adapter 
          */
         adapter = new ArticleAdapter(MainActivity.this, articleList);
         listView.setAdapter(adapter);
