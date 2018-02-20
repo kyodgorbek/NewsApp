@@ -3,6 +3,7 @@ package com.edgar.yodgorbekkomilo.newsapp.Pojo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,7 +20,7 @@ public class News {
     private Integer totalResults;
     @SerializedName("articles")
     @Expose
-    private List<Article> articles = null;
+    private ArrayList<Article> articles = null;
 
     public String getStatus() {
         return status;
@@ -37,11 +38,11 @@ public class News {
         this.totalResults = totalResults;
     }
 
-    public List<Article> getArticles() {
+    public ArrayList<Article> getArticles() {
         return articles;
     }
 
-    public void setArticles(List<Article> articles) {
+    public void setArticles(ArrayList<Article> articles) {
         this.articles = articles;
     }
 

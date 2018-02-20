@@ -21,6 +21,7 @@ import com.edgar.yodgorbekkomilo.newsapp.Pojo.RetroClient;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -111,12 +112,22 @@ public void onResponse(Call<News> call, Response<News> response) {
         /**
          * Got Successfully
          */
-      String articleList = String.valueOf(response.body());
+     // String articleList = String.valueOf(response.body());
+      News news = response.body();
 
-        /**
-         * Binding that List to Adapter 
-         */
-        adapter = new ArticleAdapter(MainActivity.this, articleList);
+      ArrayList<Article> articleArrayList = new ArrayList<>();
+             articleArrayList.addAll(news.getArticles());
+
+
+
+
+
+
+
+                /**
+                 * Binding that List to Adapter
+                 */
+        adapter = new ArticleAdapter(MainActivity.this, articleArrayList);
         listView.setAdapter(adapter);
 
         } else {

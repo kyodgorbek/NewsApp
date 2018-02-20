@@ -31,11 +31,11 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
     private LayoutInflater mInflater;
 
     // Constructors
-    public ArticleAdapter(Context context, Article articles){
-        super(context,0, articles);
+    public ArticleAdapter(Context context, ArrayList<Article> articleList){
+        super(context,0, articleList);
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
-        articleList = articles;
+        this.articleList = articleList;
     }
 
 
