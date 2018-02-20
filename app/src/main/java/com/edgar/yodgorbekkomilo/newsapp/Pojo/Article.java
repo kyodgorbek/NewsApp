@@ -9,8 +9,6 @@ package com.edgar.yodgorbekkomilo.newsapp.Pojo;
 
         import java.util.List;
 
-        import javax.xml.transform.Source;
-
 
 public class Article {
 

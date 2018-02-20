@@ -53,7 +53,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
             vh = (ViewHolder) convertView.getTag();
         }
 
-        Article item = getItem(position);
+        Article item = getItem(position); 
 
         vh.textViewStatus.setText((CharSequence) item.getStatus());
         vh.textViewTotalResults.setText(item.getTotalResults());
