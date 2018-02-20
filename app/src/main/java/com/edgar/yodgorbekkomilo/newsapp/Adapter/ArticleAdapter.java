@@ -15,22 +15,24 @@ import com.edgar.yodgorbekkomilo.newsapp.Pojo.News;
 import com.edgar.yodgorbekkomilo.newsapp.R;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+
 /**
  * Created by yodgorbekkomilov on 2/18/18.
  */
 
 public class ArticleAdapter extends ArrayAdapter<Article> {
 
-    private String status;
+    
     private  Integer results;
 
-    String articleList;
+    ArrayList<Article> articleList;
    private   Context context;
     private LayoutInflater mInflater;
 
     // Constructors
-    public ArticleAdapter(Context context, String articles) {
-        super(context,0, Integer.parseInt(articles));
+    public ArticleAdapter(Context context, ArrayList<Article> articles){
+        super(context,0, articles);
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
         articleList = articles;
@@ -53,7 +55,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
             vh = (ViewHolder) convertView.getTag();
         }
 
-        Article item = getItem(position); 
+        Article item = getItem(position);
 
         vh.textViewStatus.setText((CharSequence) item.getStatus());
         vh.textViewTotalResults.setText(item.getTotalResults());
