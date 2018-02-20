@@ -63,7 +63,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         //Picasso.with(context).load(String.valueOf(item.getArticles())).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(vh.imageView);
 
         return vh.rootView;
-    } 
+    }
 
     private static class ViewHolder {
         public final RelativeLayout rootView;

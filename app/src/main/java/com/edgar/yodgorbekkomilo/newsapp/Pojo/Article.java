@@ -17,7 +17,7 @@ public class Article {
     private Source source;
     @SerializedName("author")
     @Expose
-    private List<Article> author;
+    private String author;
     @SerializedName("title")
     @Expose
     private String title;
@@ -42,11 +42,11 @@ public class Article {
         this.source = source;
     }
 
-    public List<Article> getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(List<Article> author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
