@@ -16,6 +16,7 @@ import com.edgar.yodgorbekkomilo.newsapp.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by yodgorbekkomilov on 2/18/18.
@@ -26,7 +27,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
 
     private  Integer results;
 
-    ArrayList<Article> articleList;
+    List<Article> articleList;
    private   Context context;
     private LayoutInflater mInflater;
 
@@ -62,7 +63,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         //Picasso.with(context).load(String.valueOf(item.getArticles())).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(vh.imageView);
 
         return vh.rootView;
-    }
+    } 
 
     private static class ViewHolder {
         public final RelativeLayout rootView;
