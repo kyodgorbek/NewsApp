@@ -58,9 +58,9 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
 
         Article item = getItem(position);
 
-       /// vh.textViewStatus.setText((CharSequence) item.getStatus());
-        //vh.textViewTotalResults.setText(item.getTotalResults());
-        //Picasso.with(context).load(String.valueOf(item.getArticles())).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(vh.imageView);
+       vh.textViewStatus.setText((CharSequence) item.getSource());
+        vh.textViewTotalResults.setText(item.getAuthor());
+        Picasso.with(context).load(String.valueOf(item.getUrlToImage())).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(vh.imageView);
 
         return vh.rootView;
     }

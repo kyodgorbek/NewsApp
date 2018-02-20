@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                                                                  * Got Successfully
                                                                  */
                                                                 // String articleList = String.valueOf(response.body());
-                                                                News news = response.body();
+                                                                News news = response.body(); 
 
                                                                 ArrayList<Article> articleArrayList = new ArrayList<>();
                                                                 articleArrayList.addAll(news.getArticles());
