@@ -31,120 +31,120 @@ import retrofit2.Response;
 
 
 public class MainActivity extends AppCompatActivity {
-private ListView listView;
-private View parentView;
+        private ListView listView;
+        private View parentView;
 
-private ArrayList<News> articleList;
-private ArticleAdapter adapter;
-
-
-
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        /**
-         * Array List for Binding Data from JSON to this List
-         */
-        articleList = new ArrayList<>();
-
-        parentView = findViewById(R.id.parentLayout);
-
-        /**
-         * Getting List and Setting List Adapter
-         */
-        listView = (ListView) findViewById(R.id.listView);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-@Override
-public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Snackbar.make(parentView, articleList.get(position).getStatus() + " => " + articleList.get(position).getTotalResults(), Snackbar.LENGTH_LONG).show();
-        }
-        });
-
-        /**
-         * Just to know onClick and Printing Hello Toast in Center.
-         */
-        Toast toast = Toast.makeText(getApplicationContext(), R.string.string_click_to_load, Toast.LENGTH_LONG);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.show();
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        assert fab != null;
-        fab.setOnClickListener(new View.OnClickListener() {
-@Override
-public void onClick(@NonNull final View view) {
-
-        /**
-         * Checking Internet Connection
-         */
-        if (InternetConnection.checkConnection(getApplicationContext())) {
-final ProgressDialog dialog;
-        /**
-         * Progress Dialog for User Interaction
-         */
-        dialog = new ProgressDialog(MainActivity.this);
-        dialog.setTitle(getString(R.string.string_getting_json_title));
-        dialog.setMessage(getString(R.string.string_getting_json_message));
-        dialog.show();
-
-        //Creating an object of our api interface
-        ApiService api = RetroClient.getApiService();
-
-        /**
-         * Calling JSON
-         */
-        Call<News> call = api.getMyJSON();
-
-        /**
-         * Enqueue Callback will be call when get response...
-         */
-        call.enqueue(new Callback<News>() {
-@Override
-public void onResponse(Call<News> call, Response<News> response) {
-        //Dismiss Dialog
-        dialog.dismiss();
-
-        if(response.isSuccessful()) {
-        /**
-         * Got Successfully
-         */
-     // String articleList = String.valueOf(response.body());
-      News news = response.body();
-
-      ArrayList<Article> articleArrayList = new ArrayList<>();
-             articleArrayList.addAll(news.getArticles());
+        private ArrayList<News> articleList;
+        private ArticleAdapter adapter;
 
 
 
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.activity_main);
 
-
-
+                Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+                setSupportActionBar(toolbar);
 
                 /**
-                 * Binding that List to Adapter
+                 * Array List for Binding Data from JSON to this List
                  */
-        adapter = new ArticleAdapter(MainActivity.this, articleArrayList);
-        listView.setAdapter(adapter);
+                articleList = new ArrayList<>();
 
-        } else {
-        Snackbar.make(parentView, R.string.string_some_thing_wrong, Snackbar.LENGTH_LONG).show();
-        }
-        }
+                parentView = findViewById(R.id.parentLayout);
 
-@Override
-public void onFailure(Call<News> call, Throwable t) {
-        dialog.dismiss();
-        }
-        });
+                /**
+                 * Getting List and Setting List Adapter
+                 */
+                listView = (ListView) findViewById(R.id.listView);
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Snackbar.make(parentView, articleList.get(position).getStatus() + " => " + articleList.get(position).getTotalResults(), Snackbar.LENGTH_LONG).show();
+                        }
+                });
 
-        } else {
-        Snackbar.make(parentView, R.string.string_internet_connection_not_available, Snackbar.LENGTH_LONG).show();
+                /**
+                 * Just to know onClick and Printing Hello Toast in Center.
+                 */
+                Toast toast = Toast.makeText(getApplicationContext(), R.string.string_click_to_load, Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER, 0, 0);
+                toast.show();
+
+                FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+                assert fab != null;
+                fab.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(@NonNull final View view) {
+
+                                /**
+                                 * Checking Internet Connection
+                                 */
+                                if (InternetConnection.checkConnection(getApplicationContext())) {
+                                        final ProgressDialog dialog;
+                                        /**
+                                         * Progress Dialog for User Interaction
+                                         */
+                                        dialog = new ProgressDialog(MainActivity.this);
+                                        dialog.setTitle(getString(R.string.string_getting_json_title));
+                                        dialog.setMessage(getString(R.string.string_getting_json_message));
+                                        dialog.show();
+
+                                        //Creating an object of our api interface
+                                        ApiService api = RetroClient.getApiService();
+
+                                        /**
+                                         * Calling JSON
+                                         */
+                                        Call<News> call = api.getMyJSON();
+
+                                        /**
+                                         * Enqueue Callback will be call when get response...
+                                         */
+                                        call.enqueue(new Callback<News>() {
+                                                @Override
+                                                public void onResponse(Call<News> call, Response<News> response) {
+                                                        //Dismiss Dialog
+                                                        dialog.dismiss();
+
+                                                        if(response.isSuccessful()) {
+                                                                /**
+                                                                 * Got Successfully
+                                                                 */
+                                                                // String articleList = String.valueOf(response.body());
+                                                                News news = response.body();
+
+                                                                ArrayList<Article> articleArrayList = new ArrayList<>();
+                                                                articleArrayList.addAll(news.getArticles());
+
+
+
+
+
+
+
+                                                                /**
+                                                                 * Binding that List to Adapter
+                                                                 */
+                                                                adapter = new ArticleAdapter(MainActivity.this, articleArrayList);
+                                                                listView.setAdapter(adapter);
+
+                                                        } else {
+                                                                Snackbar.make(parentView, R.string.string_some_thing_wrong, Snackbar.LENGTH_LONG).show();
+                                                        }
+                                                }
+
+                                                @Override
+                                                public void onFailure(Call<News> call, Throwable t) {
+                                                        dialog.dismiss();
+                                                }
+                                        });
+
+                                } else {
+                                        Snackbar.make(parentView, R.string.string_internet_connection_not_available, Snackbar.LENGTH_LONG).show();
+                                }
+                        }
+                });
         }
-        }
-        });
-        }
-        }
+}
