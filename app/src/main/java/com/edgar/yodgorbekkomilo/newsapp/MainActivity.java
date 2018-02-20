@@ -134,7 +134,7 @@ public void onResponse(Call<News> call, Response<News> response) {
         Snackbar.make(parentView, R.string.string_some_thing_wrong, Snackbar.LENGTH_LONG).show();
         }
         }
- 
+
 @Override
 public void onFailure(Call<News> call, Throwable t) {
         dialog.dismiss();

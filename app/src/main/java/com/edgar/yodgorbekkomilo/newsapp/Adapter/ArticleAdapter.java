@@ -35,7 +35,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         super(context,0, articleList);
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
-        this.articleList = articleList;
+        this.articleList = articleList; 
     }
 
 
