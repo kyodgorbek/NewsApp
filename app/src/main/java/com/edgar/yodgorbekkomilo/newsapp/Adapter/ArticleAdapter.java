@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class ArticleAdapter extends ArrayAdapter<Article> {
 
-    
+
     private  Integer results;
 
     ArrayList<Article> articleList;
@@ -57,9 +57,9 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
 
         Article item = getItem(position);
 
-        vh.textViewStatus.setText((CharSequence) item.getStatus());
-        vh.textViewTotalResults.setText(item.getTotalResults());
-        Picasso.with(context).load(String.valueOf(item.getArticles())).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(vh.imageView);
+       /// vh.textViewStatus.setText((CharSequence) item.getStatus());
+        //vh.textViewTotalResults.setText(item.getTotalResults());
+        //Picasso.with(context).load(String.valueOf(item.getArticles())).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(vh.imageView);
 
         return vh.rootView;
     }
