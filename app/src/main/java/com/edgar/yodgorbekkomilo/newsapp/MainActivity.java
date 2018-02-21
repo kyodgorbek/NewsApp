@@ -53,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
 
 
                 TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-                tabLayout.addTab(tabLayout.newTab().setText("Tab 1"));
-                tabLayout.addTab(tabLayout.newTab().setText("Tab 2"));
-                tabLayout.addTab(tabLayout.newTab().setText("Tab 3"));
+                tabLayout.addTab(tabLayout.newTab().setText("AllNews"));
+                tabLayout.addTab(tabLayout.newTab().setText(" TechNews"));
+                tabLayout.addTab(tabLayout.newTab().setText("SportNews"));
                 tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
                 final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
@@ -196,6 +196,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
 }
+        }
+
+
 
 
 
