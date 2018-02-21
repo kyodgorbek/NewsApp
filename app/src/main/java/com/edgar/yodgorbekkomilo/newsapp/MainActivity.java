@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 return super.onOptionsItemSelected(item);
-        }
+        
 
                 articleList = new ArrayList<>();
 
@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 }
-        }
+
 
 
 
