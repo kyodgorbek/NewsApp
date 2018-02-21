@@ -94,8 +94,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                 }
 
-                return super.onOptionsItemSelected(item);
-        
+
 
                 articleList = new ArrayList<>();
 
@@ -173,8 +172,7 @@ public class MainActivity extends AppCompatActivity {
 
                                                                 /**
                                                                  * Binding that List to Adapter
-                                                                 */
-                                                                adapter = new ArticleAdapter(MainActivity.this, articleArrayList);
+                                                                 */adapter = new ArticleAdapter(MainActivity.this, articleArrayList);
                                                                 listView.setAdapter(adapter);
 
                                                         } else {
@@ -193,9 +191,14 @@ public class MainActivity extends AppCompatActivity {
                                 }
                         }
                 });
+                return false;
         }
 
 }
+
+
+
+
 
 
 
