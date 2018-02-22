@@ -19,7 +19,7 @@ import com.edgar.yodgorbekkomilo.newsapp.Pojo.ApiService;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.News;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.RetroClient;
-import
+
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -35,20 +35,20 @@ public class AllNewsFragmentTab extends Fragment {
     private ListView listView;
     private View parentView;
 
-    private ArrayList<News> articleList;
+    public ArrayList<News> articleList;
     private ArticleAdapter adapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.all_news_fragment_tab, container, false);
+        View view = inflater.inflate(R.layout.all_news_fragment_tab, container, false);
 
         articleList = new ArrayList<>();
 
-        parentView = container.findViewById(R.id.parentLayout);
+        parentView = view.findViewById(R.id.parentLayout);
 
         /**
          * Getting List and Setting List Adapter
          */
-        listView = (ListView) container.findViewById(R.id.listView);
+        listView = (ListView) listView.findViewById(R.id.listView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -61,7 +61,7 @@ public class AllNewsFragmentTab extends Fragment {
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
 
-        FloatingActionButton fab = (FloatingActionButton)container.findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) container.findViewById(R.id.fab);
         assert fab != null;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +75,7 @@ public class AllNewsFragmentTab extends Fragment {
                     /**
                      * Progress Dialog for User Interaction
                      */
-                    dialog = new ProgressDialog(MainActivity.this);
+                    dialog = new ProgressDialog(getActivity());
                     dialog.setTitle(getString(R.string.string_getting_json_title));
                     dialog.setMessage(getString(R.string.string_getting_json_message));
                     dialog.show();
@@ -97,7 +97,7 @@ public class AllNewsFragmentTab extends Fragment {
                             //Dismiss Dialog
                             dialog.dismiss();
 
-                            if(response.isSuccessful()) {
+                            if (response.isSuccessful()) {
                                 /**
                                  * Got Successfully
                                  */
@@ -108,18 +108,14 @@ public class AllNewsFragmentTab extends Fragment {
                                 articleArrayList.addAll(news.getArticles());
 
 
-
-
-
-
-
                                 /**
                                  * Binding that List to Adapter
-                                 */adapter = new ArticleAdapter(MainActivity.this, articleArrayList);
+                                 */adapter = new ArticleAdapter(getActivity(), articleArrayList);
                                 listView.setAdapter(adapter);
 
                             } else {
                                 Snackbar.make(parentView, R.string.string_some_thing_wrong, Snackbar.LENGTH_LONG).show();
+
                             }
                         }
 
@@ -131,8 +127,10 @@ public class AllNewsFragmentTab extends Fragment {
 
                 } else {
                     Snackbar.make(parentView, R.string.string_internet_connection_not_available, Snackbar.LENGTH_LONG).show();
+
                 }
             }
         });
+        return view;
     }
 }
