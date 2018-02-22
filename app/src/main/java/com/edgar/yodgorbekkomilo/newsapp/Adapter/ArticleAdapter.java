@@ -58,7 +58,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         }
 
         Article item = getItem(position);
- 
+
         Source source = item.getSource();
          vh.textViewStatus.setText(source.getName());
         vh.textViewTotalResults.setText(item.getAuthor());
