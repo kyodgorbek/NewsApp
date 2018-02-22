@@ -56,9 +56,7 @@ public class AllNewsFragmentTab extends Fragment {
             }
         });
 
-        /**
-         * Just to know onClick and Printing Hello Toast in Center.
-         */
+
         Toast toast = Toast.makeText(getApplicationContext(), R.string.string_click_to_load, Toast.LENGTH_LONG);
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
