@@ -65,7 +65,7 @@ public class AllNewsFragmentTab extends Fragment {
         toast.show();
 
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
-        assert fab != null; 
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(@NonNull final View view) {
