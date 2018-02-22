@@ -5,4 +5,5 @@
     <string name="string_getting_json_title" />
     <string name="string_getting_json_message" />
     <string name="string_click_to_load" />
+    <string name="news">News</string>
 </resources>
