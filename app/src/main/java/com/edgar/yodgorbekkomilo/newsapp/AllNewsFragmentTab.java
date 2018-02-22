@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -32,7 +33,7 @@ import retrofit2.Response;
 
 public class AllNewsFragmentTab extends Fragment {
 
-    private ListView listView;
+    private GridView gridView;
     private View parentView;
 
     public ArrayList<News> articleList;
@@ -51,8 +52,8 @@ public class AllNewsFragmentTab extends Fragment {
          *
          */
 
-        listView = (ListView) view.findViewById(R.id.listView);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        final GridView gridView = (GridView) view.findViewById(R.id.listView);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Snackbar.make(parentView, articleList.get(position).getStatus() + " => " + articleList.get(position).getTotalResults(), Snackbar.LENGTH_LONG).show();
@@ -114,7 +115,7 @@ public class AllNewsFragmentTab extends Fragment {
                                 /**
                                  * Binding that List to Adapter
                                  */adapter = new ArticleAdapter(getActivity(), articleArrayList);
-                                listView.setAdapter(adapter);
+                                gridView.setAdapter(adapter);
 
                             } else {
                                 Snackbar.make(parentView, R.string.string_some_thing_wrong, Snackbar.LENGTH_LONG).show();
