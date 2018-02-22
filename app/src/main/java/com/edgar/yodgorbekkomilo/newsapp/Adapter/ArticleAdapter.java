@@ -64,7 +64,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         vh.textViewTotalResults.setText(item.getAuthor());
         Picasso.with(context).load(String.valueOf(item.getUrlToImage())).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(vh.imageView);
 
-        return vh.rootView; 
+        return vh.rootView;
     }
 
     private static class ViewHolder {
