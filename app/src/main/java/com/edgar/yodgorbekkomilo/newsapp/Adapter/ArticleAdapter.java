@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.edgar.yodgorbekkomilo.newsapp.NewsList;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.News;
+import com.edgar.yodgorbekkomilo.newsapp.Pojo.Source;
 import com.edgar.yodgorbekkomilo.newsapp.R;
 import com.squareup.picasso.Picasso;
 
@@ -58,7 +59,8 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
 
         Article item = getItem(position);
 
-       vh.textViewStatus.setText((CharSequence) item.getSource());
+        Source source = item.getSource();
+         vh.textViewStatus.setText(source.getName());
         vh.textViewTotalResults.setText(item.getAuthor());
         Picasso.with(context).load(String.valueOf(item.getUrlToImage())).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(vh.imageView);
 
