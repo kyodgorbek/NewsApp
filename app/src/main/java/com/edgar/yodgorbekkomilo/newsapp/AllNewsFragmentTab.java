@@ -47,7 +47,10 @@ public class AllNewsFragmentTab extends Fragment {
 
         /**
          * Getting List and Setting List Adapter
+         *
+         *
          */
+
         listView = (ListView) view.findViewById(R.id.listView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
