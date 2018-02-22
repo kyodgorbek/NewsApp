@@ -33,7 +33,7 @@ import retrofit2.Response;
 public class AllNewsFragmentTab extends Fragment {
 
     private ListView listView;
-    private View parentView; 
+    private View parentView;
 
     public ArrayList<News> articleList;
     private ArticleAdapter adapter;
