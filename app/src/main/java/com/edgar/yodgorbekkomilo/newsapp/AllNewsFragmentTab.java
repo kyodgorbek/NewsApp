@@ -122,7 +122,7 @@ public class AllNewsFragmentTab extends Fragment {
 
                             }
                         }
- 
+
                         @Override
                         public void onFailure(Call<News> call, Throwable t) {
                             dialog.dismiss();
