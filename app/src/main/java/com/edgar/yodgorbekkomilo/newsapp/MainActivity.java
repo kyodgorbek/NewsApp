@@ -10,28 +10,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
+
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.Toast;
-
-import com.edgar.yodgorbekkomilo.newsapp.Adapter.ArticleAdapter;
-import com.edgar.yodgorbekkomilo.newsapp.Pojo.ApiService;
-import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
-import com.edgar.yodgorbekkomilo.newsapp.Pojo.News;
-import com.edgar.yodgorbekkomilo.newsapp.Pojo.RetroClient;
-
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 
