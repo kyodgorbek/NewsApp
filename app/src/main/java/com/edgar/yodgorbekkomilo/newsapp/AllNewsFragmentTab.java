@@ -19,7 +19,7 @@ import com.edgar.yodgorbekkomilo.newsapp.Pojo.ApiService;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.News;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.RetroClient;
-
+import
 import java.util.ArrayList;
 
 import retrofit2.Call;
@@ -57,7 +57,7 @@ public class AllNewsFragmentTab extends Fragment {
         });
 
 
-        Toast toast = Toast.makeText(getApplicationContext(), R.string.string_click_to_load, Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getActivity().getApplicationContext(), R.string.string_click_to_load, Toast.LENGTH_LONG);
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
 
@@ -70,7 +70,7 @@ public class AllNewsFragmentTab extends Fragment {
                 /**
                  * Checking Internet Connection
                  */
-                if (InternetConnection.checkConnection(getApplicationContext())) {
+                if (InternetConnection.checkConnection(getActivity().getApplicationContext())) {
                     final ProgressDialog dialog;
                     /**
                      * Progress Dialog for User Interaction
