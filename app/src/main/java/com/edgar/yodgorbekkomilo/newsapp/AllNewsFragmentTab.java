@@ -46,7 +46,7 @@ public class AllNewsFragmentTab extends Fragment {
 
         parentView = view.findViewById(R.id.parentLayout);
 
-        /**
+        /** 
          * Getting List and Setting List Adapter
          *
          *
