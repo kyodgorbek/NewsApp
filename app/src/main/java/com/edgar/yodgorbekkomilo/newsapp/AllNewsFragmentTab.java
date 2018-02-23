@@ -90,7 +90,7 @@ public class AllNewsFragmentTab extends Fragment {
                     /**
                      * Calling JSON
                      */
-                    Call<News> call = api.getMyJSON();
+                    Call<News> call = api.getAllNews();
 
                     /**
                      * Enqueue Callback will be call when get response...
