@@ -38,7 +38,7 @@ public class SportNewsFragmentTab extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-         inflater.inflate(R.layout.sport_news_fragment_tab, container, false);
+View  view2 =      inflater.inflate(R.layout.sport_news_fragment_tab, container, false);
         articleSport = new ArrayList<>();
 
         parentView2 = view2.findViewById(R.id.parentLayout);
