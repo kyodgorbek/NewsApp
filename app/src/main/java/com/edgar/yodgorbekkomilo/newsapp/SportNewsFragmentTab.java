@@ -33,14 +33,14 @@ import retrofit2.Response;
 public class SportNewsFragmentTab extends Fragment {
     public ArrayList<News> articleList;
     private ArticleAdapter adapter;
-   View parentView;
+   View parentView2;
     private View view2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.sport_news_fragment_tab, container, false);
 
-        parentView = view2.findViewById(R.id.parentLayout2);
+        parentView2 = view2.findViewById(R.id.parentLayout);
 
         /**
          * Getting List and Setting List Adapter
@@ -52,7 +52,7 @@ public class SportNewsFragmentTab extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Snackbar.make(parentView, articleList.get(position).getStatus() + " => " + articleList.get(position).getTotalResults(), Snackbar.LENGTH_LONG).show();
+                Snackbar.make(parentView2, articleList.get(position).getStatus() + " => " + articleList.get(position).getTotalResults(), Snackbar.LENGTH_LONG).show();
             }
         });
 
@@ -115,7 +115,7 @@ public class SportNewsFragmentTab extends Fragment {
                                 gridView.setAdapter(adapter);
 
                             } else {
-                                Snackbar.make(parentView, R.string.string_some_thing_wrong, Snackbar.LENGTH_LONG).show();
+                                Snackbar.make(parentView2, R.string.string_some_thing_wrong, Snackbar.LENGTH_LONG).show();
 
                             }
                         }
@@ -127,7 +127,7 @@ public class SportNewsFragmentTab extends Fragment {
                     });
 
                 } else {
-                    Snackbar.make(parentView, R.string.string_internet_connection_not_available, Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(parentView2, R.string.string_internet_connection_not_available, Snackbar.LENGTH_LONG).show();
 
                 }
             }

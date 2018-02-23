@@ -35,13 +35,15 @@ public class TechNewsFragmentTab extends Fragment {
 
     public ArrayList<News> articleList;
     private ArticleAdapter adapter;
+    View parentView3;
+    private View view3;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.tech_news_fragment_tab, container, false);
         articleList = new ArrayList<>();
 
-        parentView = view.findViewById(R.id.parentLayout);
+        parentView3 = view3.findViewById(R.id.parentLayout);
 
         /**
          * Getting List and Setting List Adapter
@@ -49,11 +51,11 @@ public class TechNewsFragmentTab extends Fragment {
          *
          */
 
-        final GridView gridView = (GridView) view.findViewById(R.id.listView);
+        final GridView gridView = (GridView) view3.findViewById(R.id.listView);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Snackbar.make(parentView, articleList.get(position).getStatus() + " => " + articleList.get(position).getTotalResults(), Snackbar.LENGTH_LONG).show();
+                Snackbar.make(parentView3, articleList.get(position).getStatus() + " => " + articleList.get(position).getTotalResults(), Snackbar.LENGTH_LONG).show();
             }
         });
 
@@ -62,7 +64,7 @@ public class TechNewsFragmentTab extends Fragment {
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
 
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) view3.findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,7 +117,7 @@ public class TechNewsFragmentTab extends Fragment {
                                 gridView.setAdapter(adapter);
 
                             } else {
-                                Snackbar.make(parentView, R.string.string_some_thing_wrong, Snackbar.LENGTH_LONG).show();
+                                Snackbar.make(parentView3, R.string.string_some_thing_wrong, Snackbar.LENGTH_LONG).show();
 
                             }
                         }
@@ -127,12 +129,12 @@ public class TechNewsFragmentTab extends Fragment {
                     });
 
                 } else {
-                    Snackbar.make(parentView, R.string.string_internet_connection_not_available, Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(parentView3, R.string.string_internet_connection_not_available, Snackbar.LENGTH_LONG).show();
 
                 }
             }
         });
-        return view;
+        return view3;
     }
 }
 
