@@ -33,12 +33,14 @@ import retrofit2.Response;
 public class SportNewsFragmentTab extends Fragment {
     public ArrayList<News> articleList;
     private ArticleAdapter adapter;
+   View parentView;
+    private View view2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.sport_news_fragment_tab, container, false);
 
-        parentView = view.findViewById(R.id.parentLayout);
+        parentView = view2.findViewById(R.id.parentLayout2);
 
         /**
          * Getting List and Setting List Adapter
@@ -46,7 +48,7 @@ public class SportNewsFragmentTab extends Fragment {
          *
          */
 
-        final GridView gridView = (GridView) view.findViewById(R.id.listView);
+        final GridView gridView = (GridView) view2.findViewById(R.id.listView);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -59,7 +61,7 @@ public class SportNewsFragmentTab extends Fragment {
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
 
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) view2.findViewById(R.id.fab);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +70,7 @@ public class SportNewsFragmentTab extends Fragment {
                 /**
                  * Checking Internet Connection
                  */
+
                 if (InternetConnection.checkConnection(getActivity().getApplicationContext())) {
                     final ProgressDialog dialog;
                     /**
@@ -129,7 +132,7 @@ public class SportNewsFragmentTab extends Fragment {
                 }
             }
         });
-        return view;
+        return view2;
     }
 }
 
