@@ -31,14 +31,15 @@ import retrofit2.Response;
  */
 
 public class SportNewsFragmentTab extends Fragment {
-    public ArrayList<News> articleList;
-    private ArticleAdapter adapter;
+    public ArrayList<News> articleSport;
+    private ArticleAdapter adapter; 
    View parentView2;
     private View view2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.sport_news_fragment_tab, container, false);
+         inflater.inflate(R.layout.sport_news_fragment_tab, container, false);
+        articleSport = new ArrayList<>();
 
         parentView2 = view2.findViewById(R.id.parentLayout);
 
@@ -52,7 +53,7 @@ public class SportNewsFragmentTab extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Snackbar.make(parentView2, articleList.get(position).getStatus() + " => " + articleList.get(position).getTotalResults(), Snackbar.LENGTH_LONG).show();
+                Snackbar.make(parentView2, articleSport.get(position).getStatus() + " => " + articleSport.get(position).getTotalResults(), Snackbar.LENGTH_LONG).show();
             }
         });
 
@@ -140,4 +141,4 @@ public class SportNewsFragmentTab extends Fragment {
 
 
 
-}
+

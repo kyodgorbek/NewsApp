@@ -33,15 +33,15 @@ import retrofit2.Response;
 public class TechNewsFragmentTab extends Fragment {
 
 
-    public ArrayList<News> articleSports;
+    public ArrayList<News> articleTech;
     private ArticleAdapter adapter;
     View parentView3;
     private View view3;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.tech_news_fragment_tab, container, false);
-        articleSports = new ArrayList<>();
+         inflater.inflate(R.layout.tech_news_fragment_tab, container, false);
+        articleTech = new ArrayList<>();
 
         parentView3 = view3.findViewById(R.id.parentLayout);
 
@@ -55,7 +55,7 @@ public class TechNewsFragmentTab extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Snackbar.make(parentView3, articleSports.get(position).getStatus() + " => " + articleSports.get(position).getTotalResults(), Snackbar.LENGTH_LONG).show();
+                Snackbar.make(parentView3, articleTech.get(position).getStatus() + " => " + articleTech.get(position).getTotalResults(), Snackbar.LENGTH_LONG).show();
             }
         });
 
