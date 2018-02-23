@@ -32,13 +32,13 @@ import retrofit2.Response;
 
 public class SportNewsFragmentTab extends Fragment {
     public ArrayList<News> articleSport;
+    View parentView2;
     private ArticleAdapter adapter;
-   View parentView2;
     private View view2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-View  view2 =      inflater.inflate(R.layout.sport_news_fragment_tab, container, false);
+        View view2 = inflater.inflate(R.layout.sport_news_fragment_tab, container, false);
         articleSport = new ArrayList<>();
 
         parentView2 = view2.findViewById(R.id.parentLayout);

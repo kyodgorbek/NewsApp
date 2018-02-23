@@ -34,13 +34,13 @@ public class TechNewsFragmentTab extends Fragment {
 
 
     public ArrayList<News> articleTech;
-    private ArticleAdapter adapter;
     View parentView3;
+    private ArticleAdapter adapter;
     private View view3;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-    View view3  =   inflater.inflate(R.layout.tech_news_fragment_tab, container, false);
+        View view3 = inflater.inflate(R.layout.tech_news_fragment_tab, container, false);
         articleTech = new ArrayList<>();
 
         parentView3 = view3.findViewById(R.id.parentLayout);
