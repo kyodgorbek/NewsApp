@@ -62,8 +62,12 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         Source source = item.getSource();
          vh.textViewStatus.setText(source.getName());
         vh.textViewTotalResults.setText(item.getAuthor());
-        Picasso.with(context).load(String.valueOf(item.getUrlToImage())).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(vh.imageView);
-
+        if(item.getUrlToImage().isEmpty()){
+            vh.imageView.setImageResource(R.drawable.news_error);
+        }
+        else {
+            Picasso.with(context).load(String.valueOf(item.getUrlToImage())).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(vh.imageView);
+        }
         return vh.rootView;
     }
 

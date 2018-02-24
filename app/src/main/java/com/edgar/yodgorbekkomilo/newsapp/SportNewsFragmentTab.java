@@ -35,7 +35,7 @@ public class SportNewsFragmentTab extends Fragment {
     View parentView2;
     private ArticleAdapter adapter;
     private View view2;
-    
+    ArrayList<Article> articleArrayList = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -107,7 +107,7 @@ public class SportNewsFragmentTab extends Fragment {
                                 // String articleList = String.valueOf(response.body());
                                 News news = response.body();
 
-                                ArrayList<Article> articleArrayList = new ArrayList<>();
+
                                 articleArrayList.addAll(news.getArticles());
 
 
