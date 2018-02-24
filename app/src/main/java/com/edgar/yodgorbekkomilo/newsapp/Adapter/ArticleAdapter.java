@@ -62,7 +62,7 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         Source source = item.getSource();
          vh.textViewStatus.setText(source.getName());
         vh.textViewTotalResults.setText(item.getAuthor());
-        if(item.getUrlToImage() != null){
+        if(item.getUrlToImage() == null){
             vh.imageView.setImageResource(R.drawable.news_error);
         }
         else {
