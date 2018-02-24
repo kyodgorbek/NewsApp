@@ -35,7 +35,7 @@ public class AllNewsFragmentTab extends Fragment {
 
     private GridView gridView;
     private View parentView;
-
+    ArrayList<Article> articleArrayList = new ArrayList<>();
     public ArrayList<News> articleList;
     private ArticleAdapter adapter;
     @Override
@@ -108,7 +108,7 @@ public class AllNewsFragmentTab extends Fragment {
                                 // String articleList = String.valueOf(response.body());
                                 News news = response.body();
 
-                                ArrayList<Article> articleArrayList = new ArrayList<>();
+
                                 articleArrayList.addAll(news.getArticles());
 
 
