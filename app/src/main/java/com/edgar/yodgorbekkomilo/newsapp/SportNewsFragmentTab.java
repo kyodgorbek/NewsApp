@@ -35,6 +35,7 @@ public class SportNewsFragmentTab extends Fragment {
     View parentView2;
     private ArticleAdapter adapter;
     private View view2;
+    
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
