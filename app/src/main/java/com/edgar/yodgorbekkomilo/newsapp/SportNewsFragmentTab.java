@@ -84,7 +84,7 @@ public class SportNewsFragmentTab extends Fragment {
             /**
              * Calling JSON
              */
-            Call<News> call = api.getAllNews();
+            Call<News> call = api.getSportNews();
 
             /**
              * Enqueue Callback will be call when get response...

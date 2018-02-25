@@ -86,7 +86,7 @@ public class TechNewsFragmentTab extends Fragment {
             /**
              * Calling JSON
              */
-            Call<News> call = api.getAllNews();
+            Call<News> call = api.getTechNews();
 
             /**
              * Enqueue Callback will be call when get response...
