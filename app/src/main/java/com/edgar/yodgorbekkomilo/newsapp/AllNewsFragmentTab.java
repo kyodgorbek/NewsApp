@@ -38,6 +38,7 @@ public class AllNewsFragmentTab extends Fragment {
     ArrayList<Article> articleArrayList = new ArrayList<>();
     public ArrayList<News> articleList;
     private ArticleAdapter adapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.all_news_fragment_tab, container, false);
@@ -65,76 +66,75 @@ public class AllNewsFragmentTab extends Fragment {
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
 
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(@NonNull final View view) {
-
-                /**
-                 * Checking Internet Connection
-                 */
-                if (InternetConnection.checkConnection(getActivity().getApplicationContext())) {
-                    final ProgressDialog dialog;
-                    /**
-                     * Progress Dialog for User Interaction
-                     */
-                    dialog = new ProgressDialog(getActivity());
-                    dialog.setTitle(getString(R.string.string_getting_json_title));
-                    dialog.setMessage(getString(R.string.string_getting_json_message));
-                    dialog.show();
-
-                    //Creating an object of our api interface
-                    ApiService api = RetroClient.getApiService();
-
-                    /**
-                     * Calling JSON
-                     */
-                    Call<News> call = api.getAllNews();
-
-                    /**
-                     * Enqueue Callback will be call when get response...
-                     */
-                    call.enqueue(new Callback<News>() {
-                        @Override
-                        public void onResponse(Call<News> call, Response<News> response) {
-                            //Dismiss Dialog
-                            dialog.dismiss();
-
-                            if (response.isSuccessful()) {
-                                /**
-                                 * Got Successfully
-                                 */
-                                // String articleList = String.valueOf(response.body());
-                                News news = response.body();
 
 
-                                articleArrayList.addAll(news.getArticles());
+        /**
+         * Checking Internet Connection
+         */
+        if (InternetConnection.checkConnection(getActivity().getApplicationContext())) {
+            final ProgressDialog dialog;
+            /**
+             * Progress Dialog for User Interaction
+             */
+            dialog = new ProgressDialog(getActivity());
+            dialog.setTitle(getString(R.string.string_getting_json_title));
+            dialog.setMessage(getString(R.string.string_getting_json_message));
+            dialog.show();
+
+            //Creating an object of our api interface
+            ApiService api = RetroClient.getApiService();
+
+            /**
+             * Calling JSON
+             */
+            Call<News> call = api.getAllNews();
+
+            /**
+             * Enqueue Callback will be call when get response...
+             */
+            call.enqueue(new Callback<News>() {
+                @Override
+                public void onResponse(Call<News> call, Response<News> response) {
+                    //Dismiss Dialog
+                    dialog.dismiss();
+
+                    if (response.isSuccessful()) {
+                        /**
+                         * Got Successfully
+                         */
+                        // String articleList = String.valueOf(response.body());
+                        News news = response.body();
 
 
-                                /**
-                                 * Binding that List to Adapter
-                                 */adapter = new ArticleAdapter(getActivity(), articleArrayList);
-                                gridView.setAdapter(adapter);
+                        articleArrayList.addAll(news.getArticles());
 
-                            } else {
-                                Snackbar.make(parentView, R.string.string_some_thing_wrong, Snackbar.LENGTH_LONG).show();
 
-                            }
-                        }
+                        /**
+                         * Binding that List to Adapter
+                         */adapter = new ArticleAdapter(getActivity(), articleArrayList);
+                        gridView.setAdapter(adapter);
 
-                        @Override
-                        public void onFailure(Call<News> call, Throwable t) {
-                            dialog.dismiss();
-                        }
-                    });
+                    } else {
+                        Snackbar.make(parentView, R.string.string_some_thing_wrong, Snackbar.LENGTH_LONG).show();
 
-                } else {
-                    Snackbar.make(parentView, R.string.string_internet_connection_not_available, Snackbar.LENGTH_LONG).show();
-
+                    }
                 }
-            }
-        });
+
+                @Override
+                public void onFailure(Call<News> call, Throwable t) {
+                    dialog.dismiss();
+                }
+            });
+
+        } else {
+            Snackbar.make(parentView, R.string.string_internet_connection_not_available, Snackbar.LENGTH_LONG).show();
+
+        }
         return view;
     }
 }
+
+
+
+
+
