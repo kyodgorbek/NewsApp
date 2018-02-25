@@ -82,7 +82,7 @@ public class TechNewsFragmentTab extends Fragment {
 
             //Creating an object of our api interface
             ApiService api = RetroClient.getApiService();
-  
+
             /**
              * Calling JSON
              */
