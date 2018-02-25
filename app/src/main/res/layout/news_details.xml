@@ -29,9 +29,10 @@
                 android:id="@+id/photo_container"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/photo_placeholder">
+                >
                 <!--suppress AndroidLintContentDescription -->
-                <com.example.xyzreader.ui.ThreeTwoImageView
+                <com.edgar.yodgorbekkomilo.newsapp.ThreeTwoImageView
+
                     android:id="@+id/photo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -43,7 +44,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="112dp"
-                    android:background="@drawable/photo_background_protection" />
+                     />
 
                 <LinearLayout
                     android:id="@+id/meta_bar"
@@ -51,20 +52,15 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:orientation="vertical"
-                    android:paddingLeft="@dimen/detail_inner_horiz_margin"
-                    android:paddingRight="@dimen/detail_inner_horiz_margin"
-                    android:paddingTop="@dimen/detail_metabar_vert_padding"
-                    android:background="@drawable/photo_background_protection"
-                    android:paddingBottom="@dimen/detail_metabar_vert_padding"
-                    android:layout_marginBottom="@dimen/detail_metabar_vert_padding">
+                   >
 
                     <TextView
                         android:id="@+id/article_title"
                         style="?android:attr/textAppearanceLarge"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
-                        android:fontFamily="@assets/Roboto-BoldItalic"
+
+
                         android:textColor="#fff"
                         android:textStyle="bold"
                         android:textSize="20sp"
@@ -78,7 +74,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="#8fff"
                         android:textSize="16sp"
-                        android:fontFamily="@assets/Roboto-BoldItalic"/>
+                        />
                 </LinearLayout>
 
             </FrameLayout>
@@ -90,7 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:theme="@style/ThemeOverlay.AppCompat.Light"
-                app:contentInsetStart="@dimen/detail_body_top_margin"
+
                 app:layout_collapseMode="pin"/>
 
 
@@ -112,28 +108,20 @@
             style="?android:attr/textAppearanceMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
-            android:layout_marginRight="@dimen/detail_inner_horiz_margin"
-            android:paddingBottom="@dimen/detail_body_bottom_margin"
             android:textColor="@android:color/black"
-            android:textColorLink="@color/colorPrimaryAccent"
+
             android:textSize="14sp"
-            android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier" />
+            />
 
 
     </android.support.v4.widget.NestedScrollView>
 
     <android.support.design.widget.FloatingActionButton android:id="@+id/share_fab"
-        android:stateListAnimator="@anim/fab_state_list_anim"
-        android:background="@drawable/add_fab_background"
-        android:layout_gravity="bottom|end"
-        android:layout_marginRight="@dimen/fab_margin"
-        android:layout_marginBottom="@dimen/fab_margin"
+
         android:layout_width="56dp"
         android:layout_height="56dp"
-        android:src="@drawable/ic_share"
 
         android:elevation="6dp"
-        android:contentDescription="@string/action_share" />
+        />
 
 </android.support.design.widget.CoordinatorLayout>
