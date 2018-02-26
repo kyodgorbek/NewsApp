@@ -59,7 +59,7 @@ public class AllNewsFragmentTab extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Snackbar.make(parentView, articleList.get(position).getStatus() + " => " + articleList.get(position).getTotalResults(), Snackbar.LENGTH_LONG).show();
-                Intent i = new Intent(this, NewsDetailActivity.class);
+                Intent i = new Intent(getContext(), NewsDetailActivity.class);
                 i.putExtra("myDataKey", articleArrayList.get(position));
                 startActivity(i);
 
