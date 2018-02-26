@@ -2,6 +2,7 @@ package com.edgar.yodgorbekkomilo.newsapp;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 
@@ -15,7 +16,7 @@ public class NewsDetailActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news_details);
-
+        TextView textView = (TextView)findViewById(R.id.article_title); 
         Article article = (Article) getIntent().getParcelableExtra("myDataKey");
     }
 }
