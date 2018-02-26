@@ -51,7 +51,7 @@ public class AllNewsFragmentTab extends Fragment {
         /**
          * Getting List and Setting List Adapter
          *
-         * 
+         *
          */
 
         final GridView gridView = (GridView) view.findViewById(R.id.listView);
