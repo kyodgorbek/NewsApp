@@ -16,7 +16,10 @@ public class NewsDetailActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news_details);
-        TextView textView = (TextView)findViewById(R.id.article_title); 
+
         Article article = (Article) getIntent().getParcelableExtra("myDataKey");
+        TextView textView = (TextView)findViewById(R.id.article_title);
+        
     }
+
 }
