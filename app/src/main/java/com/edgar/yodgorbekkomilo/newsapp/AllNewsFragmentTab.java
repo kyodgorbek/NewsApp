@@ -58,7 +58,7 @@ public class AllNewsFragmentTab extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Snackbar.make(parentView, articleArrayList.get(position).getStatus() + " => " + articleArrayList.get(position).getTotalResults(), Snackbar.LENGTH_LONG).show();
+//                Snackbar.make(parentView, articleArrayList.get(position).getStatus() + " => " + articleArrayList.get(position).getTotalResults(), Snackbar.LENGTH_LONG).show();
                 Intent i = new Intent(getContext(), NewsDetailActivity.class);
                 i.putExtra("myDataKey", articleArrayList.get(position));
                 startActivity(i);
