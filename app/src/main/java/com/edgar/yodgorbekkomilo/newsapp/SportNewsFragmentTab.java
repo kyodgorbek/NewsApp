@@ -1,6 +1,7 @@
 package com.edgar.yodgorbekkomilo.newsapp;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -54,7 +55,10 @@ public class SportNewsFragmentTab extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Snackbar.make(parentView2, articleSport.get(position).getStatus() + " => " + articleSport.get(position).getTotalResults(), Snackbar.LENGTH_LONG).show();
+                Intent i = new Intent(getContext(), NewsDetailActivity.class);
+                i.putExtra("myDataKey", articleArrayList.get(position));
+                startActivity(i);
+
             }
         });
 
