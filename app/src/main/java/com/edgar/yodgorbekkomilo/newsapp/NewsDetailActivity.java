@@ -2,9 +2,11 @@ package com.edgar.yodgorbekkomilo.newsapp;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by yodgorbekkomilov on 2/25/18.
@@ -31,7 +33,8 @@ public class NewsDetailActivity extends Activity {
             textView2.setText(articleDescription);
 
         }
-
+ 
+        Picasso.with(this).load(article.getUrlToImage()).into((ImageView) findViewById(R.id.imageView));
     }
 
 }
