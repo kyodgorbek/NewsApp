@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.edgar.yodgorbekkomilo.newsapp.NewsList;
+
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.News;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Source;
