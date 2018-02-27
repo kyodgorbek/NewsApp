@@ -47,7 +47,7 @@ public class NewsDetailActivity extends AppCompatActivity {
             textView.setText(articleAuthor);
         }
 
-
+ 
         TextView textView2 = (TextView) findViewById(R.id.article_body);
         String articleDescription = article.getDescription();
         if (articleDescription != null) {
