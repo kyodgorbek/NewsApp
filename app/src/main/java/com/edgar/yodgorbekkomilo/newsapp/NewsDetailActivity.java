@@ -57,13 +57,21 @@ public class NewsDetailActivity extends AppCompatActivity {
 
         Picasso.with(this).load(article.getUrlToImage()).into((ImageView) findViewById(R.id.photo));
 
-        String articlePublisheAt = article.getPublishedAt();
-        TextView textView3 = (TextView) findViewById(R.id.textPublisher);
-        if (articlePublisheAt != null) {
-            textView2.setText(articlePublisheAt);
+     //   String articlePublisheAt = article.getPublishedAt();
+       // TextView textView3 = (TextView) findViewById(R.id.textPublisher);
+       // if (articlePublisheAt != null) {
+         //   textView3.setText(articlePublisheAt);
+ //<TextView
+   //     android:id="@+id/textPublisher"
+     //   style="?android:attr/textAppearanceLarge"
+       // android:layout_width="match_parent"
+       // android:layout_height="wrap_content"
+       // android:textColor="#fff"
+        //android:textStyle="bold"
+        //android:textSize="20sp"
+        //android:lineSpacingMultiplier="0.9"/>
 
-
-        }
+        //}
 
     }
 
