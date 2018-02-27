@@ -56,7 +56,7 @@ public class NewsDetailActivity extends AppCompatActivity {
         }
 
         Picasso.with(this).load(article.getUrlToImage()).into((ImageView) findViewById(R.id.photo));
-    } 
+    }
 
 
 
