@@ -22,7 +22,7 @@ public class NewsDetailActivity extends Activity {
         Article article = (Article) getIntent().getParcelableExtra("myDataKey");
         TextView textView = (TextView)findViewById(R.id.article_title);
         String articleTitle = article.getTitle();
-
+ 
         if (articleTitle != null) {
             textView.setText(articleTitle);
         }
