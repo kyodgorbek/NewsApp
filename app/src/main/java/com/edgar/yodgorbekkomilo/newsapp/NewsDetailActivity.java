@@ -29,8 +29,8 @@ public class NewsDetailActivity extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
 
         // Enable the Up button
-        ab.setDisplayHomeAsUpEnabled(true);
 
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         Article article = (Article) getIntent().getParcelableExtra("myDataKey");
         TextView textView = (TextView) findViewById(R.id.article_title);
