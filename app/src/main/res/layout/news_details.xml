@@ -75,6 +75,15 @@
                         android:textColor="#8fff"
                         android:textSize="16sp"
                         />
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        style="?android:attr/textAppearanceSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#8fff"
+                        android:textSize="16sp"
+                        />
                 </LinearLayout>
 
             </FrameLayout>

@@ -33,7 +33,7 @@ public class NewsDetailActivity extends Activity {
             textView2.setText(articleDescription);
 
         }
- 
+
         Picasso.with(this).load(article.getUrlToImage()).into((ImageView) findViewById(R.id.imageView));
     }
 
