@@ -56,8 +56,15 @@ public class NewsDetailActivity extends AppCompatActivity {
         }
 
         Picasso.with(this).load(article.getUrlToImage()).into((ImageView) findViewById(R.id.photo));
+
+        String articlePublisheAt = article.getPublishedAt();
+        TextView textView3 = (TextView) findViewById(R.id.textPublisher);
+        if (articlePublisheAt != null) {
+            textView2.setText(articlePublisheAt);
+
+
+        }
+
     }
-
-
 
 }
