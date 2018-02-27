@@ -34,7 +34,7 @@ public class NewsDetailActivity extends Activity {
 
         }
 
-        Picasso.with(this).load(article.getUrlToImage()).into((ImageView) findViewById(R.id.imageView));
+        Picasso.with(this).load(article.getUrlToImage()).into((ImageView) findViewById(R.id.photo));
     }
 
 }
