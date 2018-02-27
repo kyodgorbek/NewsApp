@@ -26,6 +26,14 @@ public class NewsDetailActivity extends Activity {
         if (articleTitle != null) {
             textView.setText(articleTitle);
         }
+        TextView textView1 = (TextView)findViewById(R.id.article_author);
+        String articleAuthor = article.getAuthor();
+
+
+        if (articleAuthor != null) {
+            textView.setText(articleAuthor);
+        }
+
 
         TextView textView2 = (TextView)findViewById(R.id.article_body);
         String articleDescription = article.getDescription();
