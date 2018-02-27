@@ -44,7 +44,7 @@ public class NewsDetailActivity extends AppCompatActivity {
 
 
         if (articleAuthor != null) {
-            textView.setText(articleAuthor);
+            textView1.setText(articleAuthor);
         }
 
 
