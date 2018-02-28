@@ -10,8 +10,6 @@ package com.edgar.yodgorbekkomilo.newsapp.Pojo;
         import com.google.gson.annotations.Expose;
         import com.google.gson.annotations.SerializedName;
 
-        import java.util.List;
-
 
 public class Article implements Parcelable {
 
@@ -94,7 +92,7 @@ public class Article implements Parcelable {
     }
 
 
-    protected Article(Parcel in) {
+    protected Article(String in) {
         source = (Source) in.readValue(Source.class.getClassLoader());
         author = in.readString();
         title = in.readString();
