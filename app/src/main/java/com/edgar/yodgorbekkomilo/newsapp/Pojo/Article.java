@@ -51,7 +51,7 @@ public class Article implements Parcelable {
         this.author = author;
     }
 
-    public String getTitle() {
+    public String getTitle(String string) {
         return title;
     }
 

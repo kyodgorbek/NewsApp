@@ -1,6 +1,5 @@
 package com.edgar.yodgorbekkomilo.newsapp;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -39,7 +38,7 @@ public class NewsDetailActivity extends AppCompatActivity {
 
         Article article = (Article) getIntent().getParcelableExtra("myDataKey");
         TextView textView = (TextView) findViewById(R.id.article_title);
-        String articleTitle = article.getTitle();
+        String articleTitle = article.getTitle((cursor.getString(0)));
 
         if (articleTitle != null) {
             textView.setText(articleTitle);
