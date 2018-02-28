@@ -6,4 +6,5 @@
     <string name="string_getting_json_message" />
     <string name="string_click_to_load" />
     <string name="news">News</string>
+    <string name="Overview">Overview</string>
 </resources>
