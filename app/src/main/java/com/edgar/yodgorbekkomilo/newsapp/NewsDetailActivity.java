@@ -1,10 +1,14 @@
 package com.edgar.yodgorbekkomilo.newsapp;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,7 +45,7 @@ public class NewsDetailActivity extends AppCompatActivity {
             textView.setText(articleTitle);
         }
         TextView textView1 = (TextView) findViewById(R.id.article_author);
-        String articleAuthor = article.getAuthor();
+        final String articleAuthor = article.getAuthor();
 
 
         if (articleAuthor != null) {
@@ -55,12 +59,21 @@ public class NewsDetailActivity extends AppCompatActivity {
             textView2.setText(articleDescription);
 
         }
-        TextView textView3 = (TextView) findViewById(R.id.article_url);
-        String articleUrl = article.getUrl();
+        Button button = (Button) findViewById(R.id.article_url);
+        final String articleUrl = article.getUrl();
         if (articleUrl != null) {
-            textView3.setText(articleUrl);
+            button.setText(articleUrl);
 
         }
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse(articleUrl));
+                startActivity(intent);
+            }
+        });
 
         Picasso.with(this).load(article.getUrlToImage()).into((ImageView) findViewById(R.id.photo));
 

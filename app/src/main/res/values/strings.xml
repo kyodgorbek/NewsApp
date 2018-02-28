@@ -7,4 +7,5 @@
     <string name="string_click_to_load" />
     <string name="news">News</string>
     <string name="Overview">Overview</string>
+    <string name="FullArticle">Read Full Article</string>
 </resources>
