@@ -13,7 +13,7 @@ public class FavoriteArticle extends Article {
 
      super(title);
 
- }
+ } 
 
  public String getTitle(String string){
   return getTitle((cursor.getString(0)));
