@@ -9,13 +9,13 @@ import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 public class FavoriteArticle extends Article {
 
 
- public FavoriteArticle(String title){
 
-     super(title);
 
- }
+    protected FavoriteArticle(String in) {
+        super(in);
+    }
 
- public String getTitle(String string){
+    public String getTitle(String string){
   return getTitle((cursor.getString(0)));
  }
 
