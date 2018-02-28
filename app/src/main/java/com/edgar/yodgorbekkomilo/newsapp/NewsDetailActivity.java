@@ -1,15 +1,19 @@
 package com.edgar.yodgorbekkomilo.newsapp;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 import com.squareup.picasso.Picasso;
@@ -19,7 +23,7 @@ import com.squareup.picasso.Picasso;
  */
 
 public class NewsDetailActivity extends AppCompatActivity {
-
+    ImageButton addToFavoritesBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +42,7 @@ public class NewsDetailActivity extends AppCompatActivity {
 
         Article article = (Article) getIntent().getParcelableExtra("myDataKey");
         TextView textView = (TextView) findViewById(R.id.article_title);
-        String articleTitle = article.getTitle((cursor.getString(0)));
+        final String articleTitle = article.getTitle((cursor.getString(0)));
 
         if (articleTitle != null) {
             textView.setText(articleTitle);
@@ -75,7 +79,27 @@ public class NewsDetailActivity extends AppCompatActivity {
         });
 
         Picasso.with(this).load(article.getUrlToImage()).into((ImageView) findViewById(R.id.photo));
+        addToFavoritesBtn = (ImageButton) findViewById(R.id.favorite_button);
+        addToFavoritesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ContentValues values = new ContentValues();
+                Log.i("sddm", "onClick: movie id:" + articleID);
+                Log.i("sddm", "onClick: movie name:" + articleName.getText().toString());
 
+                // implement the same old functioning using sqlite
+                DatabaseHandler databaseHandler = new DatabaseHandler(NewsDetailActivity.this);
+
+                databaseHandler.insertFavArticle(articleID, articleName.getText().toString());
+
+                /*
+                FavoriteMovie favoriteMovie = new FavoriteMovie(id, movieTitle.getText().toString());
+                favoriteMovie.save();
+*/
+                Toast.makeText(NewsDetailActivity.this, "Movie added to favorites list", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
      //   String articlePublisheAt = article.getPublishedAt();
        // TextView textView3 = (TextView) findViewById(R.id.textPublisher);
        // if (articlePublisheAt != null) {
@@ -91,6 +115,8 @@ public class NewsDetailActivity extends AppCompatActivity {
         //android:lineSpacingMultiplier="0.9"/>
 
         //}
+
+
 
     }
 
