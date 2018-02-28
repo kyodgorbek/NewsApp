@@ -55,6 +55,12 @@ public class NewsDetailActivity extends AppCompatActivity {
             textView2.setText(articleDescription);
 
         }
+        TextView textView3 = (TextView) findViewById(R.id.article_url);
+        String articleUrl = article.getUrl();
+        if (articleUrl != null) {
+            textView3.setText(articleUrl);
+
+        }
 
         Picasso.with(this).load(article.getUrlToImage()).into((ImageView) findViewById(R.id.photo));
 
