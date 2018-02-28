@@ -93,6 +93,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
+                    <ImageButton
+                        android:id="@+id/favorite_button"
+                        android:layout_width="10dp"
+                        android:layout_height="0dp"
+                        app:srcCompat="@drawable/ic_favorite"
+                        style="?android:attr/borderlessButtonStyle"
+                         />
+
+                    <ImageButton
+                        android:id="@+id/share_button"
+                        android:layout_width="10dp"
+                        android:layout_height="0dp"
+                        app:srcCompat="@drawable/ic_share"
+                        style="?android:attr/borderlessButtonStyle"
+                        />
+
                     <TextView
                         android:id="@+id/article_byline"
                         style="?android:attr/textAppearanceSmall"
