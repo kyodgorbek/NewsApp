@@ -18,6 +18,9 @@ import android.widget.Toast;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 import com.squareup.picasso.Picasso;
 
+import static com.edgar.yodgorbekkomilo.newsapp.DatabaseHandler.articleID;
+import static com.edgar.yodgorbekkomilo.newsapp.DatabaseHandler.articleName;
+
 /**
  * Created by yodgorbekkomilov on 2/25/18.
  */
@@ -42,7 +45,7 @@ public class NewsDetailActivity extends AppCompatActivity {
 
         Article article = (Article) getIntent().getParcelableExtra("myDataKey");
         TextView textView = (TextView) findViewById(R.id.article_title);
-        final String articleTitle = article.getTitle((cursor.getString(0)));
+        final String articleTitle = article.getTitle();
 
         if (articleTitle != null) {
             textView.setText(articleTitle);
@@ -85,12 +88,12 @@ public class NewsDetailActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ContentValues values = new ContentValues();
                 Log.i("sddm", "onClick: movie id:" + articleID);
-                Log.i("sddm", "onClick: movie name:" + articleName.getText().toString());
+                Log.i("sddm", "onClick: movie name:" + articleName.toString());
 
                 // implement the same old functioning using sqlite
                 DatabaseHandler databaseHandler = new DatabaseHandler(NewsDetailActivity.this);
 
-                databaseHandler.insertFavArticle(articleID, articleName.getText().toString());
+                databaseHandler.insertFavArticle(articleID, articleName.toString());
 
                 /*
                 FavoriteMovie favoriteMovie = new FavoriteMovie(id, movieTitle.getText().toString());
@@ -120,4 +123,5 @@ public class NewsDetailActivity extends AppCompatActivity {
 
     }
 
-}
+
+

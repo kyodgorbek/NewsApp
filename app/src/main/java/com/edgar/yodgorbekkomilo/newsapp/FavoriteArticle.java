@@ -1,6 +1,10 @@
 package com.edgar.yodgorbekkomilo.newsapp;
 
+import android.os.Parcel;
+
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
+
+import static java.lang.System.in;
 
 /**
  * Created by yodgorbekkomilov on 2/28/18.
@@ -9,19 +13,17 @@ import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 public class FavoriteArticle extends Article {
 
 
-
-
-    protected FavoriteArticle(String in) {
+    protected FavoriteArticle() {
         super(in);
     }
 
-    public String getTitle(String string){
-  return getTitle((cursor.getString(0)));
+    public String getTitle(){
+return getTitle();
  }
 
- public void  setTitle(){
+ public void  setTitle(String title){
+this.getTitle();
 
-     this.getTitle((cursor.getString(0)));
  }
 
 }
