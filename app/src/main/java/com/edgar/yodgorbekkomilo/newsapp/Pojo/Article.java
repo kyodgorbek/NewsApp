@@ -4,17 +4,29 @@ package com.edgar.yodgorbekkomilo.newsapp.Pojo;
  * Created by yodgorbekkomilov on 2/18/18.
  */
 
-        import android.os.Parcel;
-        import android.os.Parcelable;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-        import com.google.gson.annotations.Expose;
-        import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-        import java.io.InputStream;
+import java.io.InputStream;
 
 
 public class Article implements Parcelable {
 
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Article> CREATOR = new Parcelable.Creator<Article>() {
+        @Override
+        public Article createFromParcel(Parcel in) {
+            return new Article(in);
+        }
+
+        @Override
+        public Article[] newArray(int size) {
+            return new Article[size];
+        }
+    };
     @SerializedName("source")
     @Expose
     private Source source;
@@ -38,6 +50,16 @@ public class Article implements Parcelable {
     private String publishedAt;
 
     public Article(InputStream in) {
+    }
+
+    protected Article(Parcel in) {
+        source = (Source) in.readValue(Source.class.getClassLoader());
+        author = in.readString();
+        title = in.readString();
+        description = in.readString();
+        url = in.readString();
+        urlToImage = in.readString();
+        publishedAt = in.readString();
     }
 
     public Source getSource() {
@@ -96,17 +118,6 @@ public class Article implements Parcelable {
         this.publishedAt = publishedAt;
     }
 
-
-    protected Article(Parcel in) {
-        source = (Source) in.readValue(Source.class.getClassLoader());
-        author = in.readString();
-        title = in.readString();
-        description = in.readString();
-        url = in.readString();
-        urlToImage = in.readString();
-        publishedAt = in.readString();
-    }
-
     @Override
     public int describeContents() {
         return 0;
@@ -122,17 +133,4 @@ public class Article implements Parcelable {
         dest.writeString(urlToImage);
         dest.writeString(publishedAt);
     }
-
-    @SuppressWarnings("unused")
-    public static final Parcelable.Creator<Article> CREATOR = new Parcelable.Creator<Article>() {
-        @Override
-        public Article createFromParcel(Parcel in) {
-            return new Article(in);
-        }
-
-        @Override
-        public Article[] newArray(int size) {
-            return new Article[size];
-        }
-    };
 }
