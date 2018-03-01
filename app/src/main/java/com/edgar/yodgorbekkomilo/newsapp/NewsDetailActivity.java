@@ -67,10 +67,7 @@ public class NewsDetailActivity extends AppCompatActivity {
         }
         Button button = (Button) findViewById(R.id.article_url);
         final String articleUrl = article.getUrl();
-        if (articleUrl != null) {
-            button.setText(articleUrl);
 
-        }
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
