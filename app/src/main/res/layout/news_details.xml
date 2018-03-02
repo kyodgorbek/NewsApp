@@ -93,7 +93,7 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:scaleType="fitXY"
-                            android:tint="@android:color/holo_red_light"
+                            android:tint="@android:color/white"
                             app:srcCompat="@drawable/ic_favorite"
                             style="?android:attr/borderlessButtonStyle"
                             android:layout_toStartOf="@id/share_button" />
@@ -103,7 +103,7 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:scaleType="fitXY"
-                            android:tint="@android:color/holo_red_light"
+                            android:tint="@android:color/white"
                             app:srcCompat="@drawable/ic_share"
                             android:layout_gravity="end"
                             android:layout_alignParentEnd="true"
