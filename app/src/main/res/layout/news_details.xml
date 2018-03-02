@@ -67,6 +67,7 @@
                         android:textColor="#fff"
                         android:textStyle="bold"
                         android:textSize="20sp"
+                        android:layout_margin="16dp"
 
                         android:lineSpacingMultiplier="0.9" />
 
@@ -84,6 +85,7 @@
                             android:textStyle="bold"
                             android:textSize="20sp"
                             android:text="@string/Overview"
+                            android:layout_margin="16dp"
                             android:lineSpacingMultiplier="0.9"/>
 
                         <ImageButton
@@ -156,8 +158,8 @@
                 style="?android:attr/textAppearanceLarge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="0dp"
-                android:textColor="#fff"
+                android:layout_margin="16dp"
+                android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
                 android:textSize="20sp"
 
