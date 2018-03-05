@@ -41,10 +41,10 @@ public class NewsDetailActivity extends AppCompatActivity {
 
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
-                String shareBody = "Your body here";
-                String shareSub = "Your subject here";
-                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
-                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                String articleDescription = "Your body here";
+                String articleTitle = "Your subject here";
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, articleDescription);
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, articleTitle);
                 startActivity(Intent.createChooser(sharingIntent, "Share using"));
             }
         });
@@ -75,7 +75,7 @@ public class NewsDetailActivity extends AppCompatActivity {
             textView1.setText(articleAuthor);
         }
 
- 
+
         TextView textView2 = (TextView) findViewById(R.id.article_body);
         String articleDescription = article.getDescription();
         if (articleDescription != null) {
