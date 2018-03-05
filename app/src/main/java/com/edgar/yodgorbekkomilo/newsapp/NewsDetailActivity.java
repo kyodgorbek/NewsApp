@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -117,7 +118,21 @@ public class NewsDetailActivity extends AppCompatActivity {
 
     //}
 
+    FloatingActionButton share = (FloatingActionButton)findViewById(R.id.share_fab);
 
+   share.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+            sharingIntent.setType("text/plain");
+            String shareBody = "Your body here";
+            String shareSub = "Your subject here";
+            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, shareSub);
+            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+            startActivity(Intent.createChooser(sharingIntent, "Share using"));
+        }
+    });
 }
 
 
