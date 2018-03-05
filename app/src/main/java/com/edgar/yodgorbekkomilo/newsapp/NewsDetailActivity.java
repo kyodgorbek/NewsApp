@@ -33,6 +33,20 @@ public class NewsDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news_details);
+
+        Toolbar myChildToolbar =
+                (Toolbar) findViewById(R.id.detail_toolbar);
+        setSupportActionBar(myChildToolbar);
+
+        // Get a support ActionBar corresponding to this toolbar
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+
+        // Enable the Up button
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        final Article article = (Article) getIntent().getParcelableExtra("myDataKey");
         FloatingActionButton share = (FloatingActionButton)findViewById(R.id.share_fab);
 
         share.setOnClickListener(new View.OnClickListener() {
@@ -48,19 +62,6 @@ public class NewsDetailActivity extends AppCompatActivity {
                 startActivity(Intent.createChooser(sharingIntent, "Share using"));
             }
         });
-        Toolbar myChildToolbar =
-                (Toolbar) findViewById(R.id.detail_toolbar);
-        setSupportActionBar(myChildToolbar);
-
-        // Get a support ActionBar corresponding to this toolbar
-        ActionBar ab = getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
-
-        // Enable the Up button
-
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        Article article = (Article) getIntent().getParcelableExtra("myDataKey");
         TextView textView = (TextView) findViewById(R.id.article_title);
         final String articleTitle = article.getTitle();
 
