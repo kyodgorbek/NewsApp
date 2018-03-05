@@ -28,7 +28,7 @@ import static com.edgar.yodgorbekkomilo.newsapp.DatabaseHandler.articleName;
 
 public class NewsDetailActivity extends AppCompatActivity {
     ImageButton addToFavoritesBtn;
-
+   Article article;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +41,8 @@ public class NewsDetailActivity extends AppCompatActivity {
 
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
-                String articleDescription = "Your body here";
-                String articleTitle = "Your subject here";
+                String articleDescription = article.getDescription() ;
+                String articleTitle = article.getTitle();
                 sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, articleDescription);
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, articleTitle);
                 startActivity(Intent.createChooser(sharingIntent, "Share using"));
