@@ -43,7 +43,7 @@ public class NewsDetailActivity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
 
         // Enable the Up button
-
+ 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         final Article article = (Article) getIntent().getParcelableExtra("myDataKey");
