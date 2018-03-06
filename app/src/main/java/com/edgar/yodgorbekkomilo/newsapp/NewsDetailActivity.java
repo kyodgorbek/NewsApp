@@ -43,11 +43,25 @@ public class NewsDetailActivity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
 
         // Enable the Up button
- 
+
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         final Article article = (Article) getIntent().getParcelableExtra("myDataKey");
+
         FloatingActionButton share = (FloatingActionButton)findViewById(R.id.share_fab);
+        ImageButton shareButton = (ImageButton)findViewById(R.id.share_button);
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String articleDescription = article.getDescription() ;
+                String articleTitle = article.getTitle();
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, articleDescription);
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, articleTitle);
+                startActivity(Intent.createChooser(sharingIntent, "Share using"));
+            }
+        });
 
         share.setOnClickListener(new View.OnClickListener() {
             @Override
