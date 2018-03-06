@@ -75,8 +75,7 @@ public abstract class ArticleProvider extends BaseContentProvider {
 
         @Override
         public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
-            if (DE
-            BUG)
+            if (DEBUG)
                 Log.d(TAG, "update uri=" + uri + " values=" + values + " selection=" + selection + " selectionArgs=" + Arrays.toString(selectionArgs));
             return super.update(uri, values, selection, selectionArgs);
         }

@@ -35,7 +35,7 @@ public class ArticleContentValues extends AbstractContentValues {
          * @param context The context to use.
          * @param where   The selection to use (can be {@code null}).
          */
-        public int update(Context context, @Nullable AricleSelection where) {
+        public int update(Context context, @Nullable ArticleSelection where) {
             return context.getContentResolver().update(uri(), values(), where == null ? null : where.sel(), where == null ? null : where.args());
         }
 
