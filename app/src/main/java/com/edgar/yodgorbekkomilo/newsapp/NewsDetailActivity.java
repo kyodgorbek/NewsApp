@@ -42,7 +42,7 @@ public class NewsDetailActivity extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
 
-        // Enable the Up button
+        // Enable the Up button 
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
