@@ -1,4 +1,4 @@
-package com.edgar.yodgorbekkomilo.newsapp;
+package com.edgar.yodgorbekkomilo.newsapp.provider;
 
 import android.content.ContentProvider;
 import android.content.ContentProviderOperation;
