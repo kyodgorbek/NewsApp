@@ -102,8 +102,8 @@ public abstract class ArticleProvider extends BaseContentProvider {
             String id = null;
             int matchedId = URI_MATCHER.match(uri);
             switch (matchedId) {
-                case URI_TYPE_MOVIE:
-                case URI_TYPE_MOVIE_ID:
+                case URI_TYPE_ARTICLE:
+                case URI_TYPE_ARTICLE_ID:
                     res.table = ArticleColumns.TABLE_NAME;
                     res.idColumn = ArticleColumns._ID;
                     res.tablesWithJoins = ArticleColumns.TABLE_NAME;
@@ -117,7 +117,7 @@ public abstract class ArticleProvider extends BaseContentProvider {
             }
 
             switch (matchedId) {
-                case URI_TYPE_MOVIE_ID:
+                case URI_TYPE_ARTICLE_ID:
 
                     id = uri.getLastPathSegment();
             }

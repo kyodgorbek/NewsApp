@@ -25,7 +25,6 @@ public class ArticleColumns  implements BaseColumns{
 
     public static final String AUTHOR = "vote_average";
 
-    public static final String VOTE_COUNT = "vote_count";
 
 
 
