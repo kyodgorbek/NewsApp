@@ -60,7 +60,7 @@ public abstract class ArticleProvider extends BaseContentProvider {
             }
         return null;
         }
-
+ 
         @Override
         public Uri insert(Uri uri, ContentValues values) {
             if (DEBUG) Log.d(TAG, "insert uri=" + uri + " values=" + values);
