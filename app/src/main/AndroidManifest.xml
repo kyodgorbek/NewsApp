@@ -31,4 +31,9 @@
         </activity>
     </application>
 
+
+    <provider android:name="com.com.edgar.yodgorbekkomilo.newsapp.provider.ArticleProvider"
+        android:authorities="com.com.edgar.yodgorbekkomilo.newsapp.provider">
+    </provider>
+
 </manifest>
