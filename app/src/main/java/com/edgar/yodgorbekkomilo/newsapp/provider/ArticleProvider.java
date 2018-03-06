@@ -31,7 +31,7 @@ public abstract class ArticleProvider extends BaseContentProvider {
 
     private static final UriMatcher URI_MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
 
-    static {
+    {
         URI_MATCHER.addURI(AUTHORITY, ArticleColumns.TABLE_NAME, URI_TYPE_ARTICLE);
         URI_MATCHER.addURI(AUTHORITY, ArticleColumns.TABLE_NAME + "/#", URI_TYPE_ARTICLE_ID);
 
@@ -47,7 +47,7 @@ public abstract class ArticleProvider extends BaseContentProvider {
         }
 
         @Override
-        public String getType(Uri uri) {
+        public String getType(Uri uri){
             int match = URI_MATCHER.match(uri);
             switch (match) {
                 case URI_TYPE_ARTICLE:
@@ -55,10 +55,10 @@ public abstract class ArticleProvider extends BaseContentProvider {
                 case URI_TYPE_ARTICLE_ID:
                     return TYPE_CURSOR_ITEM + ArticleColumns.TABLE_NAME;
 
-
+                default:
 
             }
-            return null;
+        return null;
         }
 
         @Override
@@ -129,7 +129,7 @@ public abstract class ArticleProvider extends BaseContentProvider {
             } else {
                 res.selection = selection;
             }
-            return res;
+
         }
     }
 
