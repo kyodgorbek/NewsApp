@@ -17,7 +17,7 @@ public class ArticleSQLiteOpenHelper  extends SQLiteOpenHelper{
 
     public static final String DATABASE_FILE_NAME = "movies.db";
     // @formatter:off
-    public static final String SQL_CREATE_TABLE_MOVIE = "CREATE TABLE IF NOT EXISTS "
+    public static final String SQL_CREATE_TABLE_ARTICLE = "CREATE TABLE IF NOT EXISTS "
             + ArticleColumns.TABLE_NAME + " ( "
             + ArticleColumns._ID + " INTEGER PRIMARY KEY, "
             + ArticleColumns.TITLE + " TEXT NOT NULL, "
@@ -33,7 +33,7 @@ public class ArticleSQLiteOpenHelper  extends SQLiteOpenHelper{
 
     // @formatter:on
 
-    private ArticleSQLiteOpenHelper() {
+    private ArticleSQLiteOpenHelper(Context context) {
         super(context, DATABASE_FILE_NAME, null, DATABASE_VERSION);
         mContext = context;
         mOpenHelperCallbacks = new ArticleSQLiteOpenHelperCallbacks();
