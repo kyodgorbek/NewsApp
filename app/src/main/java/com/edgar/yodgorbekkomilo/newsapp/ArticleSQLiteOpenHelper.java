@@ -20,10 +20,10 @@ public class ArticleSQLiteOpenHelper  extends SQLiteOpenHelper{
     public static final String SQL_CREATE_TABLE_ARTICLE = "CREATE TABLE IF NOT EXISTS "
             + ArticleColumns.TABLE_NAME + " ( "
             + ArticleColumns._ID + " INTEGER PRIMARY KEY, "
-            + ArticleColumns.TITLE + " TEXT NOT NULL, "
+            + ArticleColumns.TITLE + " TEXT NOT NULL, " 
             + ArticleColumns.TITLE_DESCRIPTION + " TEXT, "
             + ArticleColumns.AUTHOR + " REAL, "+
-           ArticleColumns.IS_FAVOURITE + "TEXT," + " );";
+           ArticleColumns.IS_FAVOURITE + "FAVORITE" + " );";
 
     private static final String TAG = ArticleSQLiteOpenHelper.class.getSimpleName();
     private static final int DATABASE_VERSION = 1;
