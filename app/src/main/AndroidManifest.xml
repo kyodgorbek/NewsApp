@@ -30,8 +30,8 @@
             android:label="@string/app_name">
         </activity>
 
-        <provider android:name="com.com.edgar.yodgorbekkomilo.newsapp.provider.ArticleProvider"
-            android:authorities="com.com.edgar.yodgorbekkomilo.newsapp.provider">
+        <provider android:name="com.edgar.yodgorbekkomilo.newsapp.provider.ArticleProvider"
+            android:authorities="com.edgar.yodgorbekkomilo.newsapp.provider">
         </provider>
 
     </application>
