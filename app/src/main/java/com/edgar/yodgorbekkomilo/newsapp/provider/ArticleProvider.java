@@ -20,7 +20,7 @@ import static com.edgar.yodgorbekkomilo.newsapp.BuildConfig.DEBUG;
  * Created by yodgorbekkomilov on 3/1/18.
  */
 
-public abstract class ArticleProvider extends BaseContentProvider {
+public   class ArticleProvider extends BaseContentProvider {
 
     public static final String AUTHORITY = "com.edgar.yodgorbekkomilo.newsapp.provider";
     public static final String CONTENT_URI_BASE = "content://" + AUTHORITY;
