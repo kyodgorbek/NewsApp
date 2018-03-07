@@ -34,6 +34,7 @@ public class NewsDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news_details);
 
+
         Toolbar myChildToolbar =
                 (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(myChildToolbar);
@@ -111,24 +112,17 @@ public class NewsDetailActivity extends AppCompatActivity {
         });
 
         Picasso.with(this).load(article.getUrlToImage()).into((ImageView) findViewById(R.id.photo));
+
         addToFavoritesBtn = (ImageButton) findViewById(R.id.favorite_button);
         addToFavoritesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ContentValues values = new ContentValues();
-                Log.i("sddm", "onClick: movie id:" + articleID);
-                Log.i("sddm", "onClick: movie name:" + articleName.toString());
-
-                // implement the same old functioning using sqlite
-                DatabaseHandler databaseHandler = new DatabaseHandler(NewsDetailActivity.this);
-
-                databaseHandler.insertFavArticle(articleID, articleName.toString());
-
-                /*
-                FavoriteMovie favoriteMovie = new FavoriteMovie(id, movieTitle.getText().toString());
-                favoriteMovie.save();
-*/
-                Toast.makeText(NewsDetailActivity.this, "Movie added to favorites list", Toast.LENGTH_SHORT).show();
+                values.put(ArticleColumns._ID,"ArticleID");
+                values.put(ArticleColumns.TITLE, "title");
+                values.put(ArticleColumns.TITLE_DESCRIPTION, "title_description");
+                values.put(ArticleColumns.AUTHOR, "author");
+                values.put(ArticleColumns.IS_FAVOURITE, "is_favourite");
             }
         });
     }

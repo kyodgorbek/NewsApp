@@ -21,9 +21,9 @@ public class ArticleColumns  implements BaseColumns{
 
     public static final String TITLE = "title";
 
-    public static final String TITLE_DESCRIPTION = "overview";
+    public static final String TITLE_DESCRIPTION = "title_description";
 
-    public static final String AUTHOR = "vote_average";
+    public static final String AUTHOR = "author";
 
 
 
