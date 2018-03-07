@@ -22,8 +22,8 @@ public class ArticleSQLiteOpenHelper  extends SQLiteOpenHelper{
             + ArticleColumns._ID + " INTEGER PRIMARY KEY, "
             + ArticleColumns.TITLE + " TEXT NOT NULL, "
             + ArticleColumns.TITLE_DESCRIPTION + " TEXT, "
-            + ArticleColumns.AUTHOR + " REAL, "
-            + " );";
+            + ArticleColumns.AUTHOR + " REAL, "+
+           ArticleColumns.IS_FAVOURITE + "TEXT" + " );";
 
     private static final String TAG = ArticleSQLiteOpenHelper.class.getSimpleName();
     private static final int DATABASE_VERSION = 1;
