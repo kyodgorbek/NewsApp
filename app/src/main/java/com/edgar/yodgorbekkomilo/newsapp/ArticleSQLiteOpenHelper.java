@@ -19,7 +19,7 @@ public class ArticleSQLiteOpenHelper  extends SQLiteOpenHelper{
     // @formatter:off
     public static final String SQL_CREATE_TABLE_ARTICLE = "CREATE TABLE IF NOT EXISTS "
             + ArticleColumns.TABLE_NAME + " ( "
-            + ArticleColumns._ID + " INTEGER PRIMARY KEY, "
+            + ArticleColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + ArticleColumns.TITLE + " TEXT NOT NULL, "
             + ArticleColumns.TITLE_DESCRIPTION + " TEXT, "
             + ArticleColumns.AUTHOR + " TEXT, "+
