@@ -118,8 +118,8 @@ public class NewsDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ContentValues values = new ContentValues();
-                values.put(ArticleColumns._ID,"ArticleID");
-                values.put(ArticleColumns.TITLE, "title");
+                values.put(ArticleColumns._ID,"ArticleID"); //Value bro example 1
+                values.put(ArticleColumns.TITLE,  "title"); // name
                 values.put(ArticleColumns.TITLE_DESCRIPTION, "title_description");
                 values.put(ArticleColumns.AUTHOR, "author");
                 values.put(ArticleColumns.IS_FAVOURITE, "is_favourite");
