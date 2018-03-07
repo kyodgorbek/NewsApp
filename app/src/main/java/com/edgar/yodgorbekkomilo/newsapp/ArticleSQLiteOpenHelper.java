@@ -15,7 +15,7 @@ import android.util.Log;
 
 public class ArticleSQLiteOpenHelper  extends SQLiteOpenHelper{
 
-    public static final String DATABASE_FILE_NAME = "movies.db";
+    public static final String DATABASE_FILE_NAME = "article.db";
     // @formatter:off
     public static final String SQL_CREATE_TABLE_ARTICLE = "CREATE TABLE IF NOT EXISTS "
             + ArticleColumns.TABLE_NAME + " ( "
