@@ -22,7 +22,7 @@ public class ArticleSQLiteOpenHelper  extends SQLiteOpenHelper{
             + ArticleColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + ArticleColumns.TITLE + " TEXT NOT NULL, "
             + ArticleColumns.TITLE_DESCRIPTION + " TEXT, "
-            + ArticleColumns.AUTHOR + " TEXT, "+ 
+            + ArticleColumns.AUTHOR + " TEXT, "+
            ArticleColumns.IS_FAVOURITE + " TEXT" + " );";
 
     private static final String TAG = ArticleSQLiteOpenHelper.class.getSimpleName();
