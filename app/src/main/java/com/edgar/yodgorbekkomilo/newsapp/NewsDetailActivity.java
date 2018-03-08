@@ -118,11 +118,11 @@ public class NewsDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ContentValues values = new ContentValues();
-                values.put(ArticleColumns._ID); //Value bro example 1
-                values.put(ArticleColumns.TITLE,  ); // name
-                values.put(ArticleColumns.TITLE_DESCRIPTION, );
-                values.put(ArticleColumns.AUTHOR,);
-                values.put(ArticleColumns.IS_FAVOURITE);
+                values.put(ArticleColumns._ID, "INTEGER PRIMARY KEY AUTOINCREMENT"); //Value bro example 1
+                values.put(ArticleColumns.TITLE, article.getTitle() ); // name
+                values.put(ArticleColumns.TITLE_DESCRIPTION, article.getDescription());
+                values.put(ArticleColumns.AUTHOR, article.getAuthor());
+
                 getContentResolver().insert(ArticleColumns.CONTENT_URI, values);
             }
         });
