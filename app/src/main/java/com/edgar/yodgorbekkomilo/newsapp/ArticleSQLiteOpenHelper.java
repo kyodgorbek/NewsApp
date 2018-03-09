@@ -118,4 +118,4 @@ public class ArticleSQLiteOpenHelper  extends SQLiteOpenHelper{
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         mOpenHelperCallbacks.onUpgrade(mContext, db, oldVersion, newVersion);
     }
-} 
+}
