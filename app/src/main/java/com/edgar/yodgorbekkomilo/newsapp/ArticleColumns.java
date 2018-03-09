@@ -2,14 +2,13 @@ package com.edgar.yodgorbekkomilo.newsapp;
 
 import android.net.Uri;
 import android.provider.BaseColumns;
-
-import com.edgar.yodgorbekkomilo.newsapp.provider.ArticleProvider;
+        import com.edgar.yodgorbekkomilo.newsapp.provider.ArticleProvider;
 
 /**
  * Created by yodgorbekkomilov on 3/6/18.
  */
 
-public class ArticleColumns  implements BaseColumns{
+public class ArticleColumns  implements BaseColumns {
 
     public static final String TABLE_NAME = "article";
     public static final Uri CONTENT_URI = Uri.parse(ArticleProvider.CONTENT_URI_BASE + "/" + TABLE_NAME);
@@ -27,6 +26,8 @@ public class ArticleColumns  implements BaseColumns{
 
     public static final String IMAGE = "image";
 
+    public static final String LINK = "link";
+
 
     public static final String IS_FAVOURITE = "is_favourite";
 
@@ -39,6 +40,8 @@ public class ArticleColumns  implements BaseColumns{
             TITLE,
             TITLE_DESCRIPTION,
             AUTHOR,
+            IMAGE,
+            LINK,
             IS_FAVOURITE
     };
     // @formatter:on
@@ -50,10 +53,11 @@ public class ArticleColumns  implements BaseColumns{
             if (c.equals(TITLE_DESCRIPTION) || c.contains("." + TITLE_DESCRIPTION)) return true;
             if (c.equals(AUTHOR) || c.contains("." + AUTHOR)) return true;
             if (c.equals(IMAGE) || c.contains("." + IMAGE)) return true;
+            if (c.equals(LINK) || c.contains("." + LINK)) return true;
+
             if (c.equals(IS_FAVOURITE) || c.contains("." + IS_FAVOURITE)) return true;
         }
         return false;
     }
 
 }
-

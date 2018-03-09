@@ -1,11 +1,11 @@
 package com.edgar.yodgorbekkomilo.newsapp;
 
-import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -24,12 +24,7 @@ import java.util.ArrayList;
  * Created by yodgorbekkomilov on 3/9/18.
  */
 
-
-/**
- * Created by yodgorbekkomilov on 3/9/18.
- */
-
-public class FavoriteArticlesFragment extends android.support.v4.app.Fragment {
+public class FavoriteArticlesFragment extends Fragment {
 
     ArrayList<Article> articleList;
     CustomAdapter adapter;
@@ -59,8 +54,9 @@ public class FavoriteArticlesFragment extends android.support.v4.app.Fragment {
                     String description = cursor.getString(cursor.getColumnIndex(ArticleColumns.TITLE_DESCRIPTION));
                     String author = cursor.getString(cursor.getColumnIndex(ArticleColumns.AUTHOR));
                     String image = cursor.getString(cursor.getColumnIndex(ArticleColumns.IMAGE));
+                    String link = cursor.getString(cursor.getColumnIndex(ArticleColumns.LINK));
 
-                    articleList.add(new Article(title, description, author, image));
+                    articleList.add(new Article(title, description, author, image, link));
                     Log.i("check_data", title + " " + description + " " + author);
                 } while(cursor.moveToNext());
 
@@ -117,7 +113,8 @@ public class FavoriteArticlesFragment extends android.support.v4.app.Fragment {
             return articleList.size();
         }
 
-        public class CustomViewHolder extends RecyclerView.ViewHolder{
+        public class CustomViewHolder extends RecyclerView.ViewHolder
+                implements View.OnClickListener{
 
             ImageView image;
             TextView title;
@@ -129,6 +126,15 @@ public class FavoriteArticlesFragment extends android.support.v4.app.Fragment {
                 title = itemView.findViewById(R.id.textViewStatus);
                 authorName = itemView.findViewById(R.id.textViewTotalResults);
                 image = itemView.findViewById(R.id.imageView);
+
+                itemView.setOnClickListener(this);
+            }
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, NewsDetailActivity.class);
+                intent.putExtra("myDataKey", articleList.get(getAdapterPosition()));
+                context.startActivity(intent);
             }
         }
     }
