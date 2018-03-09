@@ -52,6 +52,13 @@ public class Article implements Parcelable {
     public Article(InputStream in) {
     }
 
+    public Article(String title, String description, String author, String image) {
+        this.title = title;
+        this.description = description;
+        this.author = author;
+        this.urlToImage = image;
+    }
+
     protected Article(Parcel in) {
         source = (Source) in.readValue(Source.class.getClassLoader());
         author = in.readString();

@@ -28,7 +28,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -47,7 +47,7 @@ import java.util.ArrayList;
  * Created by yodgorbekkomilov on 3/9/18.
  */
 
-public class FavoriteArticlesFragment extends android.support.v4.app.Fragment {
+public class FavoriteArticlesFragment extends Fragment {
 
     ArrayList<Article> articleList;
     CustomAdapter adapter;
