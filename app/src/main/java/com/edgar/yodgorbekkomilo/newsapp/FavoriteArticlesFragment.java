@@ -28,9 +28,21 @@ public class FavoriteArticlesFragment extends Fragment {
         if (cursor != null) {
             if (cursor.getCount() > 0) {
                 Log.i("favorites", cursor.toString());
+
+                cursor.moveToFirst();
+                do {
+
+                    String title = cursor.getString(cursor.getColumnIndex(ArticleColumns.TITLE));
+                    String description = cursor.getString(cursor.getColumnIndex(ArticleColumns.TITLE_DESCRIPTION));
+                    String author = cursor.getString(cursor.getColumnIndex(ArticleColumns.AUTHOR));
+
+                    Log.i("check_data", title + " " + description + " " + author);
+
+                } while(cursor.moveToNext());
+
             }
         }
 
-        return view; 
+        return view;
     }
 }
