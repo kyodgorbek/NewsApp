@@ -31,6 +31,6 @@ public class FavoriteArticlesFragment extends Fragment {
             }
         }
 
-        return view;
+        return view; 
     }
 }
