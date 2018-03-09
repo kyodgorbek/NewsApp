@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 tabLayout.addTab(tabLayout.newTab().setText("AllNews"));
                 tabLayout.addTab(tabLayout.newTab().setText(" TechNews"));
                 tabLayout.addTab(tabLayout.newTab().setText("SportNews"));
+                tabLayout.addTab(tabLayout.newTab().setText("Favorite"));
                 tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
                 final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
@@ -71,26 +72,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                 }
 
-
-
-
                 return false;
         }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
