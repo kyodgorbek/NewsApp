@@ -118,7 +118,7 @@ public class NewsDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ContentValues values = new ContentValues();
-                values.put(ArticleColumns._ID, "INTEGER PRIMARY KEY AUTOINCREMENT"); //Value bro example 1
+              //  values.put(ArticleColumns._ID, "INTEGER PRIMARY KEY AUTOINCREMENT"); //Value bro example 1
                 values.put(ArticleColumns.TITLE, article.getTitle() ); // name
                 values.put(ArticleColumns.TITLE_DESCRIPTION, article.getDescription());
                 values.put(ArticleColumns.AUTHOR, article.getAuthor());
@@ -127,21 +127,7 @@ public class NewsDetailActivity extends AppCompatActivity {
             }
         });
     }
-    //   String articlePublisheAt = article.getPublishedAt();
-    // TextView textView3 = (TextView) findViewById(R.id.textPublisher);
-    // if (articlePublisheAt != null) {
-    //   textView3.setText(articlePublisheAt);
-    //<TextView
-    //     android:id="@+id/textPublisher"
-    //   style="?android:attr/textAppearanceLarge"
-    // android:layout_width="match_parent"
-    // android:layout_height="wrap_content"
-    // android:textColor="#fff"
-    //android:textStyle="bold"
-    //android:textSize="20sp"
-    //android:lineSpacingMultiplier="0.9"/>
 
-    //}
 
 
 }
