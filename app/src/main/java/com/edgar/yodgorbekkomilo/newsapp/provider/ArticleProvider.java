@@ -30,12 +30,20 @@ public   class ArticleProvider extends BaseContentProvider {
     private static final int URI_TYPE_ARTICLE = 0;
     private static final int URI_TYPE_ARTICLE_ID = 1;
 
-    private static final UriMatcher URI_MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
+    private static final UriMatcher URI_MATCHER = buildUriMatcher();
 
 
     //  URI_MATCHER.addURI(AUTHORITY, ArticleColumns.TABLE_NAME, URI_TYPE_ARTICLE);
     //URI_MATCHER.addURI(AUTHORITY, ArticleColumns.TABLE_NAME + "/#", URI_TYPE_ARTICLE_ID);
 
+    private static UriMatcher buildUriMatcher() {
+        final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
+        final String authority = AUTHORITY;
+
+        matcher.addURI(authority, ArticleColumns.TABLE_NAME, URI_TYPE_ARTICLE);
+        matcher.addURI(authority, ArticleColumns.TABLE_NAME + "/#", URI_TYPE_ARTICLE_ID);
+        return matcher;
+    }
 
     @Override
     protected SQLiteOpenHelper createSqLiteOpenHelper() {
@@ -109,9 +117,6 @@ public   class ArticleProvider extends BaseContentProvider {
                 res.tablesWithJoins = ArticleColumns.TABLE_NAME;
                 res.orderBy = ArticleColumns.DEFAULT_ORDER;
                 break;
-
-
-
             default:
                 throw new IllegalArgumentException("The uri '" + uri + "' is not supported by this ContentProvider");
         }
@@ -135,6 +140,5 @@ public   class ArticleProvider extends BaseContentProvider {
     }
 
 }
-
 
 
