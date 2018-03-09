@@ -56,6 +56,11 @@ public class ArticleContentValues extends AbstractContentValues {
         return this;
     }
 
+    public ArticleContentValues putLink(@Nullable String value) {
+        mContentValues.put(ArticleColumns.LINK, value);
+        return this;
+    }
+
     public ArticleContentValues putTitleDescripton(@Nullable String value) {
         mContentValues.put(ArticleColumns.TITLE_DESCRIPTION, value);
         return this;
@@ -73,4 +78,3 @@ public class ArticleContentValues extends AbstractContentValues {
 
 
 }
-
