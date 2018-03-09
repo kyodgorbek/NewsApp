@@ -52,11 +52,12 @@ public class Article implements Parcelable {
     public Article(InputStream in) {
     }
 
-    public Article(String title, String description, String author, String image) {
+    public Article(String title, String description, String author, String image, String link) {
         this.title = title;
         this.description = description;
         this.author = author;
         this.urlToImage = image;
+        this.url = link;
     }
 
     protected Article(Parcel in) {
