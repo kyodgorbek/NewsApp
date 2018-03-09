@@ -31,6 +31,8 @@ public class PageAdapter extends FragmentStatePagerAdapter {
             case 2:
                 SportNewsFragmentTab sportNewsFragmentTab = new SportNewsFragmentTab();
                 return sportNewsFragmentTab;
+            case 3:
+                return new FavoriteArticlesFragment();
             default:
                 return null;
         }

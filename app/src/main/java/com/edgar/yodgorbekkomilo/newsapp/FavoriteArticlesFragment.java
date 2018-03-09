@@ -24,30 +24,12 @@ import java.util.ArrayList;
  * Created by yodgorbekkomilov on 3/9/18.
  */
 
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.Bundle;
-
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
-import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
 
 /**
  * Created by yodgorbekkomilov on 3/9/18.
  */
 
-public class FavoriteArticlesFragment extends Fragment {
+public class FavoriteArticlesFragment extends android.support.v4.app.Fragment {
 
     ArrayList<Article> articleList;
     CustomAdapter adapter;
