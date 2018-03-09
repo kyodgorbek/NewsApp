@@ -47,7 +47,7 @@ import java.util.ArrayList;
  * Created by yodgorbekkomilov on 3/9/18.
  */
 
-public class FavoriteArticlesFragment extends android.app.Fragment {
+public class FavoriteArticlesFragment extends android.support.v4.app.Fragment {
 
     ArrayList<Article> articleList;
     CustomAdapter adapter;
