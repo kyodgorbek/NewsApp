@@ -28,7 +28,7 @@ import static com.edgar.yodgorbekkomilo.newsapp.DatabaseHandler.articleName;
 
 public class NewsDetailActivity extends AppCompatActivity {
     ImageButton addToFavoritesBtn;
-   Article article;
+    Article article;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,10 +118,11 @@ public class NewsDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ContentValues values = new ContentValues();
-              //  values.put(ArticleColumns._ID, "INTEGER PRIMARY KEY AUTOINCREMENT"); //Value bro example 1
+                //  values.put(ArticleColumns._ID, "INTEGER PRIMARY KEY AUTOINCREMENT"); //Value bro example 1
                 values.put(ArticleColumns.TITLE, article.getTitle() ); // name
                 values.put(ArticleColumns.TITLE_DESCRIPTION, article.getDescription());
                 values.put(ArticleColumns.AUTHOR, article.getAuthor());
+                values.put(ArticleColumns.IMAGE, article.getUrlToImage());
 
                 getContentResolver().insert(ArticleColumns.CONTENT_URI, values);
             }
@@ -131,6 +132,4 @@ public class NewsDetailActivity extends AppCompatActivity {
 
 
 }
-
-
 

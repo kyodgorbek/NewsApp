@@ -25,7 +25,7 @@ public class ArticleColumns  implements BaseColumns{
 
     public static final String AUTHOR = "author";
 
-
+    public static final String IMAGE = "image";
 
 
     public static final String IS_FAVOURITE = "is_favourite";
@@ -49,13 +49,11 @@ public class ArticleColumns  implements BaseColumns{
             if (c.equals(TITLE) || c.contains("." + TITLE)) return true;
             if (c.equals(TITLE_DESCRIPTION) || c.contains("." + TITLE_DESCRIPTION)) return true;
             if (c.equals(AUTHOR) || c.contains("." + AUTHOR)) return true;
-
+            if (c.equals(IMAGE) || c.contains("." + IMAGE)) return true;
             if (c.equals(IS_FAVOURITE) || c.contains("." + IS_FAVOURITE)) return true;
         }
         return false;
     }
 
 }
-
-
 

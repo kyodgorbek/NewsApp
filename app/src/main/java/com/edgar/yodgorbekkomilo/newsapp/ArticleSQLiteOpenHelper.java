@@ -19,14 +19,15 @@ public class ArticleSQLiteOpenHelper  extends SQLiteOpenHelper{
     // @formatter:off
     public static final String SQL_CREATE_TABLE_ARTICLE = "CREATE TABLE IF NOT EXISTS "
             + ArticleColumns.TABLE_NAME + " ( "
-     + ArticleColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + ArticleColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + ArticleColumns.TITLE + " TEXT NOT NULL, "
             + ArticleColumns.TITLE_DESCRIPTION + " TEXT, "
-            + ArticleColumns.AUTHOR + " TEXT "+
+            + ArticleColumns.AUTHOR + " TEXT, "
+            + ArticleColumns.IMAGE + " TEXT " +
             " )";
 
     private static final String TAG = ArticleSQLiteOpenHelper.class.getSimpleName();
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static ArticleSQLiteOpenHelper sInstance;
     private final Context mContext;
     private final ArticleSQLiteOpenHelperCallbacks mOpenHelperCallbacks;
