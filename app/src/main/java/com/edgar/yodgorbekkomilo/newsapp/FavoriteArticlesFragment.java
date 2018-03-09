@@ -27,7 +27,7 @@ public class FavoriteArticlesFragment extends Fragment {
 
         if (cursor != null) {
             if (cursor.getCount() > 0) {
-                Log.i("favorites", cursor.toString);
+                Log.i("favorites", cursor.toString());
             }
         }
 
