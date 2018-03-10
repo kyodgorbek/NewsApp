@@ -76,4 +76,9 @@ public class ArticleWidgetProvider implements RemoteViewsService.RemoteViewsFact
         }
     }
 
+    public void onUpdate(Context context, ArticleWidgetProvider appWidgetManager, int[] appWidgetIds) {
+    }
+
+    public void updateAppWidget(int appWidgetId, RemoteViews views) {
+    }
 }

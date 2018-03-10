@@ -20,9 +20,9 @@ public class CollectionWidget extends ArticleWidgetProvider {
         super(context, intent);
     }
 
-    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
+    static void updateAppWidget(Context context, ArticleWidgetProvider appWidgetManager,
                                 int appWidgetId) {
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.);
+        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.article_widget_provider);
 //        views.setTextViewText(R.id.appwidget_text, widgetText);
 
         // Set up the collection
@@ -36,7 +36,7 @@ public class CollectionWidget extends ArticleWidgetProvider {
     }
 
     @Override
-    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+    public void onUpdate(Context context, ArticleWidgetProvider appWidgetManager, int[] appWidgetIds) {
         // There may be multiple widgets active, so update all of them
         for (int appWidgetId : appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId);
@@ -44,15 +44,7 @@ public class CollectionWidget extends ArticleWidgetProvider {
         super.onUpdate(context, appWidgetManager, appWidgetIds);
     }
 
-    @Override
-    public void onEnabled(Context context) {
-        // Enter relevant functionality for when the first widget is created
-    }
 
-    @Override
-    public void onDisabled(Context context) {
-        // Enter relevant functionality for when the last widget is disabled
-    }
 
     /**
      * Sets the remote adapter used to fill in the list items
