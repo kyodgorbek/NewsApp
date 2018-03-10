@@ -1,9 +1,11 @@
-package com.edgar.yodgorbekkomilo.newsapp;
+package com.edgar.yodgorbekkomilo.newsapp.widget;
 
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.widget.RemoteViews;
+
+import com.edgar.yodgorbekkomilo.newsapp.R;
 
 /**
  * Implementation of App Widget functionality.

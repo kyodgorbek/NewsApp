@@ -32,7 +32,7 @@
             android:name=".provider.ArticleProvider"
             android:authorities="com.edgar.yodgorbekkomilo.newsapp.provider"></provider>
 
-        <receiver android:name=".ArticleWidgetProvider">
+        <receiver android:name=".widget.ArticleWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
