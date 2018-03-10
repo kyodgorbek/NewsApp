@@ -10,4 +10,6 @@
     <string name="fullArticle">Read Full Article</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
+    <item name="widget_list" type="id" />
+    <item name="widget_list" type="id" />
 </resources>

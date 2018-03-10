@@ -1,45 +1,79 @@
 package com.edgar.yodgorbekkomilo.newsapp.widget;
 
-import android.appwidget.AppWidgetManager;
-import android.appwidget.AppWidgetProvider;
 import android.content.Context;
+import android.content.Intent;
 import android.widget.RemoteViews;
+import android.widget.RemoteViewsService;
 
-import com.edgar.yodgorbekkomilo.newsapp.R;
-
+import java.util.ArrayList;
+import java.util.List;
 /**
  * Implementation of App Widget functionality.
  */
-public class ArticleWidgetProvider extends AppWidgetProvider {
+public class ArticleWidgetProvider implements RemoteViewsService.RemoteViewsFactory {
 
-    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
-                                int appWidgetId) {
+    private static final String TAG = "ArticleWidgetProvider";
 
-        CharSequence widgetText = context.getString(R.string.appwidget_text);
-        // Construct the RemoteViews object
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.article_widget_provider);
-        views.setTextViewText(R.id.appwidget_text, widgetText);
+    List<String> mCollection = new ArrayList<>();
+    Context mContext = null;
 
-        // Instruct the widget manager to update the widget
-        appWidgetManager.updateAppWidget(appWidgetId, views);
+    public ArticleWidgetProvider(Context context, Intent intent) {
+        mContext = context;
     }
 
     @Override
-    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        // There may be multiple widgets active, so update all of them
-        for (int appWidgetId : appWidgetIds) {
-            updateAppWidget(context, appWidgetManager, appWidgetId);
+    public void onCreate() {
+        initData();
+    }
+
+    @Override
+    public void onDataSetChanged() {
+        initData();
+    }
+
+    @Override
+    public void onDestroy() {
+
+    }
+
+    @Override
+    public int getCount() {
+        return mCollection.size();
+    }
+
+    @Override
+    public RemoteViews getViewAt(int position) {
+        RemoteViews view = new RemoteViews(mContext.getPackageName(),
+                android.R.layout.simple_list_item_1);
+        view.setTextViewText(android.R.id.text1, mCollection.get(position));
+        return view;
+    }
+
+    @Override
+    public RemoteViews getLoadingView() {
+        return null;
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        return 1;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public boolean hasStableIds() {
+        return true;
+    }
+
+    private void initData() {
+        mCollection.clear();
+        for (int i = 1; i <= 10; i++) {
+            mCollection.add("ListView item " + i);
         }
     }
 
-    @Override
-    public void onEnabled(Context context) {
-        // Enter relevant functionality for when the first widget is created
-    }
-
-    @Override
-    public void onDisabled(Context context) {
-        // Enter relevant functionality for when the last widget is disabled
-    } 
 }
-
