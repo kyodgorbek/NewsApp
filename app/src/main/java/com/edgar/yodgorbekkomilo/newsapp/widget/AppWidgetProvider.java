@@ -28,7 +28,7 @@ public class AppWidgetProvider extends AppWidgetManager implements RemoteViewsSe
         this.intent = intent;
     }
 
-    
+
 
 
     @Override

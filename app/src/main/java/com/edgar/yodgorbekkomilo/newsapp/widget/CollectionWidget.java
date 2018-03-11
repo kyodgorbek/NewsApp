@@ -21,7 +21,7 @@ public class CollectionWidget extends AppWidgetProvider {
         super(context, intent);
     }
 
-    static void updateAppWidget(Context context, ArticleWidgetProvider appWidgetManager,
+    static void updateAppWidget(Context context, AppWidgetProvider appWidgetManager,
                                 int appWidgetId) {
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.article_widget_provider);
 //        views.setTextViewText(R.id.appwidget_text, widgetText);
@@ -37,7 +37,7 @@ public class CollectionWidget extends AppWidgetProvider {
     }
 
     @Override
-    public void onUpdate(Context context, ArticleWidgetProvider appWidgetManager, int[] appWidgetIds) {
+    public void onUpdate(Context context, AppWidgetProvider appWidgetManager, int[] appWidgetIds) {
         // There may be multiple widgets active, so update all of them
         for (int appWidgetId : appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId);
