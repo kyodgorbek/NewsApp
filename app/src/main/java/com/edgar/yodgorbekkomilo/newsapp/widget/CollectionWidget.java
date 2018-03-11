@@ -17,13 +17,9 @@ import com.edgar.yodgorbekkomilo.newsapp.R;
 
 public class CollectionWidget extends AppWidgetProvider {
 
-    public CollectionWidget(Context context, Intent intent) {
-        super(context, intent);
-    }
-
-    static void updateAppWidget(Context context, AppWidgetProvider appWidgetManager,
+    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.article_widget_provider);
+        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.collection_widget);
 //        views.setTextViewText(R.id.appwidget_text, widgetText);
 
         // Set up the collection
@@ -37,7 +33,7 @@ public class CollectionWidget extends AppWidgetProvider {
     }
 
     @Override
-    public void onUpdate(Context context, AppWidgetProvider appWidgetManager, int[] appWidgetIds) {
+    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         // There may be multiple widgets active, so update all of them
         for (int appWidgetId : appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId);
@@ -45,7 +41,15 @@ public class CollectionWidget extends AppWidgetProvider {
         super.onUpdate(context, appWidgetManager, appWidgetIds);
     }
 
+    @Override
+    public void onEnabled(Context context) {
+        // Enter relevant functionality for when the first widget is created
+    }
 
+    @Override
+    public void onDisabled(Context context) {
+        // Enter relevant functionality for when the last widget is disabled
+    }
 
     /**
      * Sets the remote adapter used to fill in the list items
@@ -54,7 +58,7 @@ public class CollectionWidget extends AppWidgetProvider {
      */
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     private static void setRemoteAdapter(Context context, @NonNull final RemoteViews views) {
-        views.setRemoteAdapter(R.id.appwidget_text,
+        views.setRemoteAdapter(R.id.widget_list,
                 new Intent(context, WidgetService.class));
     }
 
@@ -65,9 +69,8 @@ public class CollectionWidget extends AppWidgetProvider {
      */
     @SuppressWarnings("deprecation")
     private static void setRemoteAdapterV11(Context context, @NonNull final RemoteViews views) {
-        views.setRemoteAdapter(0, R.id.appwidget_text,
+        views.setRemoteAdapter(0, R.id.widget_list,
                 new Intent(context, WidgetService.class));
     }
 }
-
 
