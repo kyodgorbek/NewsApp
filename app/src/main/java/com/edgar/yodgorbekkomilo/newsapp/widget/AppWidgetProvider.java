@@ -1,5 +1,6 @@
 package com.edgar.yodgorbekkomilo.newsapp.widget;
 
+import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
@@ -7,19 +8,28 @@ import android.widget.RemoteViewsService;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
- * Implementation of App Widget functionality.
+ * Created by yodgorbekkomilov on 3/11/18.
  */
-public class ArticleWidgetProvider implements RemoteViewsService.RemoteViewsFactory {
+
+public class AppWidgetProvider extends AppWidgetManager implements RemoteViewsService.RemoteViewsFactory {
 
     private static final String TAG = "ArticleWidgetProvider";
 
     List<String> mCollection = new ArrayList<>();
     Context mContext = null;
+    Intent intent;
 
-    public ArticleWidgetProvider(Context context, Intent intent) {
+    public AppWidgetProvider(Context context, Intent intent) {
+
+
         mContext = context;
+        this.intent = intent;
     }
+
+    
+
 
     @Override
     public void onCreate() {
@@ -76,7 +86,7 @@ public class ArticleWidgetProvider implements RemoteViewsService.RemoteViewsFact
         }
     }
 
-    public void onUpdate(Context context, ArticleWidgetProvider appWidgetManager, int[] appWidgetIds) {
+    public void onUpdate(Context context, AppWidgetProvider appWidgetManager, int[] appWidgetIds) {
     }
 
     public void updateAppWidget(int appWidgetId, RemoteViews views) {

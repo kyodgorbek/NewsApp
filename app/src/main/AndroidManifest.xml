@@ -29,10 +29,10 @@
             android:parentActivityName=".MainActivity"></activity>
 
         <provider
-            android:name=".provider.ArticleProvider"
+            android:name=".provider.AppWidgetProvider"
             android:authorities="com.edgar.yodgorbekkomilo.newsapp.provider"></provider>
 
-        <receiver android:name=".widget.ArticleWidgetProvider">
+        <receiver android:name=".widget.CollectionWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>

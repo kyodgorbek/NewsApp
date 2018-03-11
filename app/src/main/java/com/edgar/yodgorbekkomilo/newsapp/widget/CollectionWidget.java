@@ -2,6 +2,7 @@ package com.edgar.yodgorbekkomilo.newsapp.widget;
 
 import android.annotation.TargetApi;
 import android.appwidget.AppWidgetManager;
+import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -14,7 +15,7 @@ import com.edgar.yodgorbekkomilo.newsapp.R;
  * Created by yodgorbekkomilov on 3/10/18.
  */
 
-public class CollectionWidget extends ArticleWidgetProvider {
+public class CollectionWidget extends AppWidgetProvider {
 
     public CollectionWidget(Context context, Intent intent) {
         super(context, intent);
