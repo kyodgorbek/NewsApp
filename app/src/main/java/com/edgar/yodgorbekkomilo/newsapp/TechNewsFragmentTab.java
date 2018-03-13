@@ -111,7 +111,7 @@ public class TechNewsFragmentTab extends Fragment {
                         // String articleList = String.valueOf(response.body());
                         News news = response.body();
 
-
+ 
                         articleArrayList.addAll(news.getArticles());
 
 
