@@ -139,7 +139,7 @@ public class TechNewsFragmentTab extends Fragment {
 
         Article techArticle=new Article();
         SharedPreferences appSharedPrefs = PreferenceManager
-                .getDefaultSharedPreferences(this,getApplicationContext());
+                .getDefaultSharedPreferences(this.getActivity());
         SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
         Gson gson = new Gson();
         String json = gson.toJson(techArticle);
