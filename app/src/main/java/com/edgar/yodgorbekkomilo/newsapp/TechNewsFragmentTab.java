@@ -2,6 +2,8 @@ package com.edgar.yodgorbekkomilo.newsapp;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,6 +22,7 @@ import com.edgar.yodgorbekkomilo.newsapp.Pojo.ApiService;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.News;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.RetroClient;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -133,6 +136,18 @@ public class TechNewsFragmentTab extends Fragment {
             Snackbar.make(parentView3, R.string.string_internet_connection_not_available, Snackbar.LENGTH_LONG).show();
 
         }
+
+        Article techArticle=new Article();
+        SharedPreferences appSharedPrefs = PreferenceManager
+                .getDefaultSharedPreferences(this,getApplicationContext());
+        SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(techArticle);
+        prefsEditor.putString("MyObject", json);
+        prefsEditor.commit();
+
+
+
         return view3;
     }
 }
