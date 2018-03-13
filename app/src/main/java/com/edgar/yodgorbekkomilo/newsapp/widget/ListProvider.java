@@ -62,7 +62,7 @@ public class ListProvider implements RemoteViewsService.RemoteViewsFactory {
     public void onDataSetChanged() {
         // Reading the Ingredients from the SharedPreferences
         SharedPreferences appSharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        String json = appSharedPreferences.getString("MyIngredients", "");
+        String json = appSharedPreferences.getString("MyObject", "");
         Gson gson = new Gson();
         article = gson.fromJson(json, new TypeToken<List<Article>>() {
         }.getType());
