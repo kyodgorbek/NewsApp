@@ -74,9 +74,9 @@ public class ListProvider implements RemoteViewsService.RemoteViewsFactory {
 
     }
 
-    @Override 
+    @Override
     public int getCount() {
-        if(article != null){
+        if( article == null){
 return  0;
         }
         return article.size();
