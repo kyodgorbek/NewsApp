@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:src="@drawable/article"
-        android:text="Nutilla Pie"
+        android:text="@string/article"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:visibility="gone" />
@@ -27,7 +27,6 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:src="@drawable/article"
-        android:text="@string/empty_string"
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:visibility="gone" />
