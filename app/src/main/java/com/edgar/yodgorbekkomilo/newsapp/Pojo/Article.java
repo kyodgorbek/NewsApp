@@ -49,7 +49,7 @@ public class Article implements Parcelable {
     @Expose
     private String publishedAt;
 
-    public Article() {
+    public Article(InputStream in) {
     }
 
     public Article(String title, String description, String author, String image, String link) {

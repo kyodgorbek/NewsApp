@@ -9,6 +9,7 @@ import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
+import com.edgar.yodgorbekkomilo.newsapp.Pojo.News;
 import com.edgar.yodgorbekkomilo.newsapp.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -64,7 +65,7 @@ public class ListProvider implements RemoteViewsService.RemoteViewsFactory {
         SharedPreferences appSharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         String json = appSharedPreferences.getString("MyObject", "");
         Gson gson = new Gson();
-        article = gson.fromJson(json, new TypeToken<List<Article>>() {
+        article = gson.fromJson(json, new TypeToken<List<News>>() {
         }.getType());
     }
 
