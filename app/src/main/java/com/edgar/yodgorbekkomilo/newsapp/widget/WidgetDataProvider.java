@@ -71,7 +71,7 @@ public class WidgetDataProvider extends AppWidgetProvider{
 
 
   return remoteViews;
- 
+
 
 }
 
