@@ -24,8 +24,9 @@ import java.util.List;
 public class ListProvider implements RemoteViewsService.RemoteViewsFactory {
 
 
-    public List<Article> articles = new ArrayList<Article>();
-    Object[] myArrayList = articles.toArray();
+
+    public List<Article> article = new ArrayList<Article>();
+    Object[] myArrayList = article.toArray();
 
     Context context = null;
 
@@ -63,7 +64,7 @@ public class ListProvider implements RemoteViewsService.RemoteViewsFactory {
         SharedPreferences appSharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         String json = appSharedPreferences.getString("MyIngredients", "");
         Gson gson = new Gson();
-        articles = gson.fromJson(json, new TypeToken<List<Article>>() {
+        article = gson.fromJson(json, new TypeToken<List<Article>>() {
         }.getType());
     }
 
@@ -73,18 +74,21 @@ public class ListProvider implements RemoteViewsService.RemoteViewsFactory {
 
     }
 
-    @Override
+    @Override 
     public int getCount() {
-        return articles.size();
+        if(article != null){
+return  0;
+        }
+        return article.size();
     }
 
 
     @Override
     public RemoteViews getViewAt(int position) {
         final RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.collection_widget);
-        Article article = articles.get(position);
+        Article articles = article.get(position);
 
-        remoteViews.setTextViewText(R.id.article, article.getTitle());
+        remoteViews.setTextViewText(R.id.article, articles.getTitle());
         return remoteViews;
     }
 
