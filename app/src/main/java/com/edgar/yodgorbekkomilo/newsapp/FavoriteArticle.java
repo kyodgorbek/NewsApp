@@ -16,7 +16,7 @@ public class FavoriteArticle extends Article {
     protected FavoriteArticle() {
         super(in);
     }
- 
+
     public String getTitle(){
 return getTitle();
  }
