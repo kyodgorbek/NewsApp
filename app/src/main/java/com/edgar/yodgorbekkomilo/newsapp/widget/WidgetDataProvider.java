@@ -86,7 +86,7 @@ public class WidgetDataProvider extends AppWidgetProvider{
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetId) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("MyIngredients", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MyDataKey", Context.MODE_PRIVATE);
 
         // RemoteViewsService.RemoteViewsFactory remoteViewsFactory
 
