@@ -59,12 +59,14 @@ public class WidgetDataProvider extends AppWidgetProvider{
         super.onUpdate(context, appWidgetManager, appWidgetId);
     }
 
+
+    private RemoteViews updateAppWidgetListView(Context context, int appWidgetId) {
         RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.collection_widget);
         Intent svcIntent = new Intent(context, WidgetService.class);
 
         svcIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
         svcIntent.setData(Uri.parse(svcIntent.toUri(Intent.URI_INTENT_SCHEME)));
-        remoteViews.setRemoteAdapter(appWidgetId, R.id.article., svcIntent);
+        remoteViews.setRemoteAdapter(appWidgetId, R.id.article, svcIntent);
         remoteViews.setEmptyView(com.edgar.yodgorbekkomilo.newsapp.widget.WidgetDataProvider.R.id.listViewWidget, com.edgar.yodgorbekkomilo.newsapp.widget.WidgetDataProvider.R.id.empty_view);
 
 
