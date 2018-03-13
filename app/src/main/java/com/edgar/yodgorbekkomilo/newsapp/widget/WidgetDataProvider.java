@@ -67,7 +67,7 @@ public class WidgetDataProvider extends AppWidgetProvider{
         svcIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
         svcIntent.setData(Uri.parse(svcIntent.toUri(Intent.URI_INTENT_SCHEME)));
         remoteViews.setRemoteAdapter(appWidgetId, R.id.article, svcIntent);
-        remoteViews.setEmptyView(com.edgar.yodgorbekkomilo.newsapp.widget.WidgetDataProvider.R.id.listViewWidget, com.edgar.yodgorbekkomilo.newsapp.widget.WidgetDataProvider.R.id.empty_view);
+        remoteViews.setEmptyView(R.id.listViewWidget, R.id.empty_view);
 
 
 
