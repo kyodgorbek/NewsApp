@@ -86,7 +86,7 @@ return  0;
 
     @Override
     public RemoteViews getViewAt(int position) {
-        final RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.collection_widget);
+        final RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.article_widget);
         Article articles = article.get(position);
 
         remoteViews.setTextViewText(R.id.article, articles.getTitle());
