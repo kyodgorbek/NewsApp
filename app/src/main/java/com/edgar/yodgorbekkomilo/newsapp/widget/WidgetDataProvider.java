@@ -61,7 +61,7 @@ public class WidgetDataProvider extends AppWidgetProvider{
 
 
     private RemoteViews updateAppWidgetListView(Context context, int appWidgetId) {
-        RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.collection_widget);
+        RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.article_widget);
         Intent svcIntent = new Intent(context, WidgetService.class);
 
         svcIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
