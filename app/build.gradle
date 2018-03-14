@@ -7,6 +7,8 @@ android {
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
+        flavorDimensions "default"
+
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -28,12 +30,7 @@ android {
     }
 
 }
-productFlavors{
 
-    paid{
-        minSdkVersion 21
-    }
-}
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.1.0'
