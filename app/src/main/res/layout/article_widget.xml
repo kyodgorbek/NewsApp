@@ -29,6 +29,6 @@
         android:src="@drawable/article"
         android:textColor="#ffffff"
         android:textSize="20sp"
-        android:visibility="gone" />
+         />
 
 </LinearLayout>
