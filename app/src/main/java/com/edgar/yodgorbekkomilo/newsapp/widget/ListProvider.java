@@ -4,6 +4,7 @@ import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.preference.PreferenceManager;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
@@ -13,7 +14,9 @@ import com.edgar.yodgorbekkomilo.newsapp.Pojo.News;
 import com.edgar.yodgorbekkomilo.newsapp.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,6 +93,12 @@ return  0;
         Article articles = article.get(position);
 
         remoteViews.setTextViewText(R.id.article, articles.getTitle());
+        try {
+            Bitmap bitmap = Picasso.with(context).load(articles.getUrlToImage()).get();
+            remoteViews.setImageViewBitmap(R.id.imageView, bitmap);
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
         return remoteViews;
     }
 
