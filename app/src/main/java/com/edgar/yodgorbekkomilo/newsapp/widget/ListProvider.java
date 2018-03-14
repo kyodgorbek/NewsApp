@@ -65,7 +65,7 @@ public class ListProvider implements RemoteViewsService.RemoteViewsFactory {
         SharedPreferences appSharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         String json = appSharedPreferences.getString("MyObject", "");
         Gson gson = new Gson();
-        article = gson.fromJson(json, new TypeToken<List<News>>() {
+        article = gson.fromJson(json, new TypeToken<List<Article>>() {
         }.getType());
     }
 
