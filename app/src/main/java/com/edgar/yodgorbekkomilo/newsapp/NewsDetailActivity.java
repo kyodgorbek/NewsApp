@@ -126,7 +126,7 @@ public class NewsDetailActivity extends AppCompatActivity {
                 values.put(ArticleColumns.IMAGE, article.getUrlToImage());
 
                 getContentResolver().insert(ArticleColumns.CONTENT_URI, values);
-                Snackbar.make(view, "Article added to Favorite", Snackbar.LENGTH_SHORT).show();
+               // Snackbar.make(view, "Article added to Favorite", Snackbar.LENGTH_SHORT).show();
             }
         });
     }
