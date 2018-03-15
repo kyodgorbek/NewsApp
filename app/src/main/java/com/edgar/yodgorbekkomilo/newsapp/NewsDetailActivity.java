@@ -140,7 +140,7 @@ public class NewsDetailActivity extends AppCompatActivity {
 
             favoriteButton.setImageResource(R.drawable.ic_favorite);
             favoriteButton.setContentDescription(getString(R.string.favorite_selected_news));
-            
+
 
         }
     }
