@@ -148,7 +148,7 @@ public class NewsDetailActivity extends AppCompatActivity {
 
 
      private void updateReadFullArticle(){
-        
+
         fullArticle.setContentDescription(getString(R.string.readFullArticle));
     }
     }
