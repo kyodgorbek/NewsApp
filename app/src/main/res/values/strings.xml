@@ -18,4 +18,5 @@
     <string name="textOverview">You selected News Overview</string>
     <string name="articleBody">You are reading article body</string>
     <string name="readFullArticle">You are pressing Read Full Article Button</string>
+    <string name="floatingAction">You are pressing Floating Action Button in order to share News</string>
 </resources>

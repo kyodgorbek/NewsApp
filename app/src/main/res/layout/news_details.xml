@@ -208,6 +208,7 @@
         android:layout_height="56dp"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:contentDescription="@string/floatingAction"
         android:elevation="6dp" />
 
 </android.support.design.widget.CoordinatorLayout>

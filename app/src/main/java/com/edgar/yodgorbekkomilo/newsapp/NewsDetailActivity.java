@@ -31,6 +31,7 @@ public class NewsDetailActivity extends AppCompatActivity {
     ImageButton addToFavoritesBtn;
     Article article;
      Button fullArticle;
+     FloatingActionButton floatingActionButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -150,6 +151,10 @@ public class NewsDetailActivity extends AppCompatActivity {
      private void updateReadFullArticle(){
 
         fullArticle.setContentDescription(getString(R.string.readFullArticle));
+    }
+    private void updateFloatingAction(){
+
+        floatingActionButton.setContentDescription(getString(R.string.readFullArticle));
     }
     }
 
