@@ -87,7 +87,7 @@
                             android:text="@string/Overview"
                             android:layout_margin="16dp"
                             android:lineSpacingMultiplier="0.9"/>
- 
+
                         <ImageButton
                             android:id="@+id/favorite_button"
                             android:layout_width="50dp"
@@ -108,6 +108,7 @@
                             app:srcCompat="@drawable/ic_share"
                             android:layout_gravity="end"
                             android:layout_alignParentEnd="true"
+                            android:contentDescription="@string/share_function"
                             style="?android:attr/borderlessButtonStyle" />
 
                     </RelativeLayout>
