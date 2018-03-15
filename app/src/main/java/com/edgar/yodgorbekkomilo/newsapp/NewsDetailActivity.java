@@ -30,6 +30,7 @@ import static com.edgar.yodgorbekkomilo.newsapp.DatabaseHandler.articleName;
 public class NewsDetailActivity extends AppCompatActivity {
     ImageButton addToFavoritesBtn;
     Article article;
+     Button fullArticle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -134,7 +135,7 @@ public class NewsDetailActivity extends AppCompatActivity {
 
 
     ImageView favoriteButton;
-    Button fullArticle = (Button)findViewById(R.id.article_url);
+
 
 
     private void updateImageButton() {
@@ -145,9 +146,10 @@ public class NewsDetailActivity extends AppCompatActivity {
 
         }
 
+
      private void updateReadFullArticle(){
-        String readFullArticle = "You are pressing Read Full Article Button";
-        fullArticle.setContentDescription(readFullArticle);
+        
+        fullArticle.setContentDescription(getString(R.string.readFullArticle));
     }
     }
 
