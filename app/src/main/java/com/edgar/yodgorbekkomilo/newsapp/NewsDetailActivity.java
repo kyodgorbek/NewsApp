@@ -133,7 +133,20 @@ public class NewsDetailActivity extends AppCompatActivity {
 
 
 
-}
+    ImageView favoriteButton;
+
+
+    private void updateImageButton() {
+
+            favoriteButton.setImageResource(R.drawable.ic_favorite);
+
+
+            favoriteButton.setContentDescription(getString(R.string.favorite_selected_news));
+
+        }
+    }
+
+
 
 
 
