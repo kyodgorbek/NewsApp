@@ -95,6 +95,7 @@
                             android:scaleType="fitXY"
                             android:tint="@android:color/white"
                             app:srcCompat="@drawable/ic_favorite"
+                            android:contentDescription="@string/favorite_selected_news"
                             style="?android:attr/borderlessButtonStyle"
                             android:layout_toStartOf="@id/share_button" />
 

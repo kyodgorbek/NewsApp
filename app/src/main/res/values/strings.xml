@@ -13,4 +13,5 @@
     <item name="widget_list" type="id" />
     <item name="widget_listitem" type="id" />
     <string name="article">Article</string>
+    <string name="favorite_selected_news">You Selected Favorite News</string>
 </resources>
