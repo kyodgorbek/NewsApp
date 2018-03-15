@@ -178,6 +178,7 @@
                 android:layout_weight="1"
                 android:textColor="@android:color/black"
                 android:textSize="14sp"
+                android:contentDescription="@string/articleBody"
                 android:fontFamily="sans-serif"
                 android:layout_margin="16dp"
 

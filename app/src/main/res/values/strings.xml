@@ -16,4 +16,5 @@
     <string name="favorite_selected_news">You Selected Favorite News</string>
     <string name="share_function">You are sharing News </string>
     <string name="textOverview">You selected News Overview</string>
+    <string name="articleBody">You are reading article body</string>
 </resources>
