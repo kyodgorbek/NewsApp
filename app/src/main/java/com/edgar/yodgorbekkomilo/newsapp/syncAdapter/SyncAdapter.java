@@ -118,6 +118,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         String author;
         String image;
         String link;
+        String favorite;
         for (int i = 0; i < c.getCount(); i++) {
             syncResult.stats.numEntries++;
 
@@ -128,14 +129,15 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
             author = c.getString(c.getColumnIndex(ArticleColumns.AUTHOR));
              image = c.getString(c.getColumnIndex(ArticleColumns.IMAGE));
             link = c.getString(c.getColumnIndex(ArticleColumns.LINK));
+            favorite = c.getString(c.getColumnIndex(ArticleColumns.IS_FAVOURITE));
             // Try to retrieve the local entry from network entries
-            found = networkEntries.get(id);
-            if (found != null) {
+            favorite = String.valueOf(networkEntries.get(id));
+            if (favorite != null) {
                 // The entry exists, remove from hash table to prevent re-inserting it
                 networkEntries.remove(id);
 
                 // Check to see if it needs to be updated
-                if (!title.equals(found.getTitle())
+                if (!title.equals(favorite.getTitle())
                         || !content.equals(found.getContent())
                         || !link.equals(found.getLink())) {
                     // Batch an update for the existing record
