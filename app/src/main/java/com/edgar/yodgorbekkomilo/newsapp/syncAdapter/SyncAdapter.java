@@ -97,9 +97,9 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
         // Parse the pretend json news feed
         String jsonFeed = download(rssFeedEndpoint);
-        JSONArray jsonArticles = new JSONArray(jsonFeed);
-        for (int i = 0; i < jsonArticles.length(); i++) {
-            News news = News.class(jsonArticles.getJSONObject(i));
+        JSONArray jsonNews = new JSONArray(jsonFeed);
+        for (int i = 0; i < jsonNews.length(); i++) {
+            News news = News.class(jsonNews.getJSONObject(i));
             networkEntries.put(news.getStatus(), news);
         }
 
