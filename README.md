@@ -105,5 +105,7 @@ Multiple notifications are stacked into a single notification object, where poss
 Use notifications only to indicate a context change relating to the user personally (such as an incoming message).
 
 Use notifications only to expose information/controls relating to an ongoing event (such as music playback or a phone call).
+
 Implement sharing functionality in your app, making use of intent extras to share rich content (i.e. a paragraph of content-specific text, a link and description, an image, etc).
+
 Create and use a custom view in your app that could not be achieved with the standard widgets provided by the core views on Android.
