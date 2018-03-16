@@ -87,13 +87,23 @@ It it performs short duration, on-demand requests(such as search), app uses an A
 
 App uses a Loader to move its data to its views(unless you are using Firebase).
 
+
+
 Suggestions to Make Your Project Stand Out!
+
+
 Make your app more delightful with material design patterns such as shared element transitions across activities and parallax scrolling where two or more items must scroll in the same activity.
+
 Implement notifications in your app. Remember the following when implementing notifications:
+
 Notifications should not contain advertising or content unrelated to the core function of the app.
+
 Notifications should be persistent only if related to ongoing events (such as music playback or a phone call).
+
 Multiple notifications are stacked into a single notification object, where possible.
+
 Use notifications only to indicate a context change relating to the user personally (such as an incoming message).
+
 Use notifications only to expose information/controls relating to an ongoing event (such as music playback or a phone call).
 Implement sharing functionality in your app, making use of intent extras to share rich content (i.e. a paragraph of content-specific text, a link and description, an image, etc).
 Create and use a custom view in your app that could not be achieved with the standard widgets provided by the core views on Android.
