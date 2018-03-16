@@ -23,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
 
 // I  used code below app showing empty screen
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.all_news_tab_title)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tech_news_tab_title)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.sport_news_tab_title)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.favorite_news_tab_title)));
        // tabLayout.getResources().getText(R.string.all_news_tab_title);
         //tabLayout.getResources().getText(R.string.tech_news_tab_title);
         //tabLayout.getResources().getText(R.string.sport_news_tab_title);
