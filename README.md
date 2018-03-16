@@ -1,6 +1,8 @@
 # NewsApp
  
 Udacity Android Developer Nanodegree CapstoneProject
+
+
 News App is an Android app that allows users to read their favorite technical and sport news
 headlines everyday and share it with their friends easily. This app is intended for anyone who is technology and sport lovers and wants to keep himself abreast with the latest technology and
 sports happenings in the world.
