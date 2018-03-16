@@ -60,8 +60,8 @@ public class FavoriteArticlesFragment extends Fragment {
                     Log.i("check_data", title + " " + description + " " + author);
                 } while (cursor.moveToNext());
 
-                adapter = new CustomAdapter(getActivity().getApplicationContext());
-                recycler.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+                adapter = new CustomAdapter(getActivity());
+                recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
                 recycler.setAdapter(adapter);
             }
         } else {
