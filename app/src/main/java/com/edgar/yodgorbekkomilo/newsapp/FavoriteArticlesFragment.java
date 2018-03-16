@@ -121,7 +121,7 @@ public class FavoriteArticlesFragment extends Fragment {
             TextView authorName;
 
             public CustomViewHolder(View itemView) {
-                super(itemView); 
+                super(itemView);
 
                 title = itemView.findViewById(R.id.textViewStatus);
                 authorName = itemView.findViewById(R.id.textViewTotalResults);
