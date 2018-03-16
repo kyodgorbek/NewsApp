@@ -53,11 +53,23 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
     }
 
     /**
+     * Manual force Android to perform a sync with our SyncAdapter.
+     */
+    public static void performSync() {
+        Bundle b = new Bundle();
+        b.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
+        b.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, true);
+        ContentResolver.requestSync(AccountGeneral.getAccount(),
+                ArticleColumns.TABLE_NAME, b);
+    }
+
+    /**
      * This method is run by the Android framework, on a new Thread, to perform a sync.
-     * @param account Current account
-     * @param extras Bundle extras
-     * @param authority Content authority
-     * @param provider {@link ContentProviderClient}
+     *
+     * @param account    Current account
+     * @param extras     Bundle extras
+     * @param authority  Content authority
+     * @param provider   {@link ContentProviderClient}
      * @param syncResult Object to write stats to
      */
     @Override
@@ -76,7 +88,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         } catch (JSONException ex) {
             Log.e(TAG, "Error synchronizing!", ex);
             syncResult.stats.numParseExceptions++;
-        } catch (RemoteException |OperationApplicationException ex) {
+        } catch (RemoteException | OperationApplicationException ex) {
             Log.e(TAG, "Error synchronizing!", ex);
             syncResult.stats.numAuthExceptions++;
         }
@@ -86,6 +98,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
     /**
      * Performs synchronization of our pretend news feed source.
+     *
      * @param syncResult Write our stats to this
      */
     private void syncNewsFeed(SyncResult syncResult) throws IOException, JSONException, RemoteException, OperationApplicationException {
@@ -99,7 +112,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         String jsonFeed = download(rssFeedEndpoint);
         JSONArray jsonNews = new JSONArray(jsonFeed);
         for (int i = 0; i < jsonNews.length(); i++) {
-            News news = News.class(jsonNews.getJSONObject(i));
+            News news = News.class (jsonNews.getJSONObject(i));
             networkEntries.put(news.getStatus(), news);
         }
 
@@ -127,7 +140,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
             title = c.getString(c.getColumnIndex(ArticleColumns.TITLE));
             titleDescription = c.getString(c.getColumnIndex(ArticleColumns.TITLE_DESCRIPTION));
             author = c.getString(c.getColumnIndex(ArticleColumns.AUTHOR));
-             image = c.getString(c.getColumnIndex(ArticleColumns.IMAGE));
+            image = c.getString(c.getColumnIndex(ArticleColumns.IMAGE));
             link = c.getString(c.getColumnIndex(ArticleColumns.LINK));
             favorite = c.getString(c.getColumnIndex(ArticleColumns.IS_FAVOURITE));
             // Try to retrieve the local entry from network entries
@@ -184,6 +197,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
     /**
      * A blocking method to stream the server's content and build it into a string.
+     *
      * @param url API call
      * @return String response
      */
@@ -195,7 +209,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         try {
             // Connect to the server using GET protocol
             URL server = new URL(url);
-            client = (HttpURLConnection)server.openConnection();
+            client = (HttpURLConnection) server.openConnection();
             client.connect();
 
             // Check for valid response code from the server
@@ -206,25 +220,19 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
             // Build the response or error as a string
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             StringBuilder sb = new StringBuilder();
-            for (String temp; ((temp = br.readLine()) != null);) {
+            for (String temp; ((temp = br.readLine()) != null); ) {
                 sb.append(temp);
             }
 
             return sb.toString();
         } finally {
-            if (is != null) { is.close(); }
-            if (client != null) { client.disconnect(); }
+            if (is != null) {
+                is.close();
+            }
+            if (client != null) {
+                client.disconnect();
+            }
         }
     }
-
-    /**
-     * Manual force Android to perform a sync with our SyncAdapter.
-     */
-    public static void performSync() {
-        Bundle b = new Bundle();
-        b.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
-        b.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, true);
-        ContentResolver.requestSync(AccountGeneral.getAccount(),
-                ArticleColumns.TABLE_NAME, b);
-    }
 }
+ 
