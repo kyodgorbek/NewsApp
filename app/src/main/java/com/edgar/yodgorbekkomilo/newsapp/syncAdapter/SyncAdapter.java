@@ -99,7 +99,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         String jsonFeed = download(rssFeedEndpoint);
         JSONArray jsonArticles = new JSONArray(jsonFeed);
         for (int i = 0; i < jsonArticles.length(); i++) {
-            News news = News.class(jsonArticles.optJSONObject(i));
+            News news = News.class(jsonArticles.getJSONObject(i));
             networkEntries.put(news.getStatus(), news);
         }
 
