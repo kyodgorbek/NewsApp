@@ -21,12 +21,17 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+// I  used code below app showing empty screen
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.getResources().getText(R.string.all_news_tab_title);
         tabLayout.getResources().getText(R.string.tech_news_tab_title);
         tabLayout.getResources().getText(R.string.sport_news_tab_title);
         tabLayout.getResources().getText(R.string.favorite_news_tab_title);
+// but working below code what is your suggestion
+       tabLayout.addTab(tabLayout.newTab().setText("AllNews"));
+        tabLayout.addTab(tabLayout.newTab().setText(" TechNews"));
+        tabLayout.addTab(tabLayout.newTab().setText("SportNews"));
+        tabLayout.addTab(tabLayout.newTab().setText("Favorite"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
