@@ -10,7 +10,6 @@ import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
-import com.edgar.yodgorbekkomilo.newsapp.Pojo.News;
 import com.edgar.yodgorbekkomilo.newsapp.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -26,7 +25,6 @@ import java.util.List;
 
 
 public class ListProvider implements RemoteViewsService.RemoteViewsFactory {
-
 
 
     public List<Article> article = new ArrayList<Article>();
@@ -80,8 +78,8 @@ public class ListProvider implements RemoteViewsService.RemoteViewsFactory {
 
     @Override
     public int getCount() {
-        if( article == null){
-return  0;
+        if (article == null) {
+            return 0;
         }
         return article.size();
     }
@@ -96,7 +94,7 @@ return  0;
         try {
             Bitmap bitmap = Picasso.with(context).load(articles.getUrlToImage()).get();
             remoteViews.setImageViewBitmap(R.id.imageView, bitmap);
-        } catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return remoteViews;

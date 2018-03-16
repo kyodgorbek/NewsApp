@@ -1,7 +1,5 @@
 package com.edgar.yodgorbekkomilo.newsapp;
 
-import android.os.Parcel;
-
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 
 import static java.lang.System.in;
@@ -17,13 +15,13 @@ public class FavoriteArticle extends Article {
         super(in);
     }
 
-    public String getTitle(){
-return getTitle();
- }
+    public String getTitle() {
+        return getTitle();
+    }
 
- public void  setTitle(String title){
-this.getTitle();
+    public void setTitle(String title) {
+        this.getTitle();
 
- }
+    }
 
 }

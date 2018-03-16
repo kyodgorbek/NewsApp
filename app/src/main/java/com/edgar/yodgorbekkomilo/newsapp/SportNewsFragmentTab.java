@@ -2,11 +2,9 @@ package com.edgar.yodgorbekkomilo.newsapp;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,9 +32,9 @@ import retrofit2.Response;
 public class SportNewsFragmentTab extends Fragment {
     public ArrayList<News> articleSport;
     View parentView2;
+    ArrayList<Article> articleArrayList = new ArrayList<>();
     private ArticleAdapter adapter;
     private View view2;
-    ArrayList<Article> articleArrayList = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -66,7 +64,6 @@ public class SportNewsFragmentTab extends Fragment {
         Toast toast = Toast.makeText(getActivity().getApplicationContext(), R.string.string_click_to_load, Toast.LENGTH_LONG);
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
-
 
 
         /**

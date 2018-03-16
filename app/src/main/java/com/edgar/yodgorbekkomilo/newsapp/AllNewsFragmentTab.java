@@ -2,18 +2,15 @@ package com.edgar.yodgorbekkomilo.newsapp;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.edgar.yodgorbekkomilo.newsapp.Adapter.ArticleAdapter;
@@ -34,10 +31,10 @@ import retrofit2.Response;
 
 public class AllNewsFragmentTab extends Fragment {
 
+    public ArrayList<News> articleList;
+    ArrayList<Article> articleArrayList = new ArrayList<>();
     private GridView gridView;
     private View parentView;
-    ArrayList<Article> articleArrayList = new ArrayList<>();
-    public ArrayList<News> articleList;
     private ArticleAdapter adapter;
 
     @Override
@@ -70,7 +67,6 @@ public class AllNewsFragmentTab extends Fragment {
         Toast toast = Toast.makeText(getActivity().getApplicationContext(), R.string.string_click_to_load, Toast.LENGTH_LONG);
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
-
 
 
         /**

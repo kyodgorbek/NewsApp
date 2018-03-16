@@ -5,23 +5,17 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 import com.squareup.picasso.Picasso;
-
-import static com.edgar.yodgorbekkomilo.newsapp.DatabaseHandler.articleID;
-import static com.edgar.yodgorbekkomilo.newsapp.DatabaseHandler.articleName;
 
 /**
  * Created by yodgorbekkomilov on 2/25/18.
@@ -30,8 +24,10 @@ import static com.edgar.yodgorbekkomilo.newsapp.DatabaseHandler.articleName;
 public class NewsDetailActivity extends AppCompatActivity {
     ImageButton addToFavoritesBtn;
     Article article;
-     Button fullArticle;
-     FloatingActionButton floatingActionButton;
+    Button fullArticle;
+    FloatingActionButton floatingActionButton;
+    ImageView favoriteButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,14 +48,14 @@ public class NewsDetailActivity extends AppCompatActivity {
 
         final Article article = (Article) getIntent().getParcelableExtra("myDataKey");
 
-        FloatingActionButton share = (FloatingActionButton)findViewById(R.id.share_fab);
-        ImageButton shareButton = (ImageButton)findViewById(R.id.share_button);
+        FloatingActionButton share = (FloatingActionButton) findViewById(R.id.share_fab);
+        ImageButton shareButton = (ImageButton) findViewById(R.id.share_button);
         shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
-                String articleDescription = article.getDescription() ;
+                String articleDescription = article.getDescription();
                 String articleTitle = article.getTitle();
                 sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, articleDescription);
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, articleTitle);
@@ -73,7 +69,7 @@ public class NewsDetailActivity extends AppCompatActivity {
 
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
-                String articleDescription = article.getDescription() ;
+                String articleDescription = article.getDescription();
                 String articleTitle = article.getTitle();
                 sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, articleDescription);
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, articleTitle);
@@ -122,41 +118,36 @@ public class NewsDetailActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ContentValues values = new ContentValues();
                 //  values.put(ArticleColumns._ID, "INTEGER PRIMARY KEY AUTOINCREMENT"); //Value bro example 1
-                values.put(ArticleColumns.TITLE, article.getTitle() ); // name
+                values.put(ArticleColumns.TITLE, article.getTitle()); // name
                 values.put(ArticleColumns.TITLE_DESCRIPTION, article.getDescription());
                 values.put(ArticleColumns.AUTHOR, article.getAuthor());
                 values.put(ArticleColumns.IMAGE, article.getUrlToImage());
 
                 getContentResolver().insert(ArticleColumns.CONTENT_URI, values);
-               // Snackbar.make(view, "Article added to Favorite", Snackbar.LENGTH_SHORT).show();
+                // Snackbar.make(view, "Article added to Favorite", Snackbar.LENGTH_SHORT).show();
             }
         });
     }
 
-
-
-    ImageView favoriteButton;
-
-
-
     private void updateImageButton() {
 
-            favoriteButton.setImageResource(R.drawable.ic_favorite);
-            favoriteButton.setContentDescription(getString(R.string.favorite_selected_news));
+        favoriteButton.setImageResource(R.drawable.ic_favorite);
+        favoriteButton.setContentDescription(getString(R.string.favorite_selected_news));
 
 
-        }
+    }
 
 
-     private void updateReadFullArticle(){
+    private void updateReadFullArticle() {
 
         fullArticle.setContentDescription(getString(R.string.readFullArticle));
     }
-    private void updateFloatingAction(){
+
+    private void updateFloatingAction() {
 
         floatingActionButton.setContentDescription(getString(R.string.readFullArticle));
     }
-    }
+}
 
 
 

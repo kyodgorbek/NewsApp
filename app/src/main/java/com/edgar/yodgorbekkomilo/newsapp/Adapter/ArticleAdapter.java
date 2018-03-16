@@ -9,9 +9,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
-import com.edgar.yodgorbekkomilo.newsapp.Pojo.News;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Source;
 import com.edgar.yodgorbekkomilo.newsapp.R;
 import com.squareup.picasso.Picasso;
@@ -26,15 +24,14 @@ import java.util.List;
 public class ArticleAdapter extends ArrayAdapter<Article> {
 
 
-    private  Integer results;
-
     List<Article> articleList;
-   private   Context context;
+    private Integer results;
+    private Context context;
     private LayoutInflater mInflater;
 
     // Constructors
-    public ArticleAdapter(Context context, ArrayList<Article> articleList){
-        super(context,0, articleList);
+    public ArticleAdapter(Context context, ArrayList<Article> articleList) {
+        super(context, 0, articleList);
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
         this.articleList = articleList;
@@ -60,12 +57,11 @@ public class ArticleAdapter extends ArrayAdapter<Article> {
         Article item = getItem(position);
 
         Source source = item.getSource();
-         vh.textViewStatus.setText(source.getName());
+        vh.textViewStatus.setText(source.getName());
         vh.textViewTotalResults.setText(item.getAuthor());
-        if(item.getUrlToImage() == null){
+        if (item.getUrlToImage() == null) {
             vh.imageView.setImageResource(R.drawable.news_error);
-        }
-        else {
+        } else {
             Picasso.with(context).load(String.valueOf(item.getUrlToImage())).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(vh.imageView);
         }
         return vh.rootView;

@@ -7,10 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.edgar.yodgorbekkomilo.newsapp.Pojo.News;
-
-import static android.support.v4.content.ContextCompat.startActivity;
-
 /**
  * Created by yodgorbekkomilov on 2/22/18.
  */

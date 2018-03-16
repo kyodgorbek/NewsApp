@@ -58,7 +58,7 @@ public class FavoriteArticlesFragment extends Fragment {
 
                     articleList.add(new Article(title, description, author, image, link));
                     Log.i("check_data", title + " " + description + " " + author);
-                } while(cursor.moveToNext());
+                } while (cursor.moveToNext());
 
                 adapter = new CustomAdapter(getActivity().getApplicationContext());
                 recycler.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
@@ -75,6 +75,7 @@ public class FavoriteArticlesFragment extends Fragment {
     private class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
 
         Context context;
+
         public CustomAdapter(Context context) {
             this.context = context;
         }
@@ -114,7 +115,7 @@ public class FavoriteArticlesFragment extends Fragment {
         }
 
         public class CustomViewHolder extends RecyclerView.ViewHolder
-                implements View.OnClickListener{
+                implements View.OnClickListener {
 
             ImageView image;
             TextView title;

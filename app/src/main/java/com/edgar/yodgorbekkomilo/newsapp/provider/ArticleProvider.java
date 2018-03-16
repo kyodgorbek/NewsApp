@@ -5,12 +5,10 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
-import android.provider.MediaStore;
 import android.util.Log;
 
 import com.edgar.yodgorbekkomilo.newsapp.ArticleColumns;
 import com.edgar.yodgorbekkomilo.newsapp.ArticleSQLiteOpenHelper;
-import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 
 import java.util.Arrays;
 
@@ -20,7 +18,7 @@ import static com.edgar.yodgorbekkomilo.newsapp.BuildConfig.DEBUG;
  * Created by yodgorbekkomilov on 3/1/18.
  */
 
-public   class ArticleProvider extends BaseContentProvider {
+public class ArticleProvider extends BaseContentProvider {
 
     public static final String AUTHORITY = "com.edgar.yodgorbekkomilo.newsapp.provider";
     public static final String CONTENT_URI_BASE = "content://" + AUTHORITY;
@@ -56,7 +54,7 @@ public   class ArticleProvider extends BaseContentProvider {
     }
 
     @Override
-    public String getType(Uri uri){
+    public String getType(Uri uri) {
         int match = URI_MATCHER.match(uri);
         switch (match) {
             case URI_TYPE_ARTICLE:

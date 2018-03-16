@@ -9,32 +9,27 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.RemoteViews;
-import android.widget.RemoteViewsService;
 
 import com.edgar.yodgorbekkomilo.newsapp.R;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by yodgorbekkomilov on 3/11/18.
  */
 
-public class WidgetDataProvider extends AppWidgetProvider{
-
-
+public class WidgetDataProvider extends AppWidgetProvider {
 
 
     public static String MY_WIDGET_UPDATE = "android.appwidget.action.MY_OWN_WIDGET_UPDATE";
+
     @Override
     public void onReceive(Context context, Intent intent) {
         // TODO Auto-generated method stub
         super.onReceive(context, intent);
 
-        if(MY_WIDGET_UPDATE.equals(intent.getAction())){
+        if (MY_WIDGET_UPDATE.equals(intent.getAction())) {
 
             Bundle extras = intent.getExtras();
-            if(extras!=null) {
+            if (extras != null) {
                 AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
                 ComponentName thisAppWidget = new ComponentName(context.getPackageName(), WidgetDataProvider.class.getName());
                 int[] appWidgetIds = appWidgetManager.getAppWidgetIds(thisAppWidget);
@@ -70,14 +65,10 @@ public class WidgetDataProvider extends AppWidgetProvider{
         remoteViews.setEmptyView(R.id.listViewWidget, R.id.empty_view);
 
 
+        return remoteViews;
 
 
-  return remoteViews;
-
-
-}
-
-
+    }
 
 
     // Instruct the widget manager to update the widget

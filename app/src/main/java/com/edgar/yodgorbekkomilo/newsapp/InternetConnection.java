@@ -11,7 +11,9 @@ import android.widget.Toast;
 
 public class InternetConnection {
 
-    /** CHECK WHETHER INTERNET CONNECTION IS AVAILABLE OR NOT */
+    /**
+     * CHECK WHETHER INTERNET CONNECTION IS AVAILABLE OR NOT
+     */
     public static boolean checkConnection(Context context) {
         final ConnectivityManager connMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 

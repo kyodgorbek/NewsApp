@@ -12,12 +12,29 @@ import com.google.gson.annotations.SerializedName;
 
 public class Source implements Parcelable {
 
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Source> CREATOR = new Parcelable.Creator<Source>() {
+        @Override
+        public Source createFromParcel(Parcel in) {
+            return new Source(in);
+        }
+
+        @Override
+        public Source[] newArray(int size) {
+            return new Source[size];
+        }
+    };
     @SerializedName("id")
     @Expose
     private Object id;
     @SerializedName("name")
     @Expose
     private String name;
+
+    protected Source(Parcel in) {
+        id = (Object) in.readValue(Object.class.getClassLoader());
+        name = in.readString();
+    }
 
     public Object getId() {
         return id;
@@ -35,12 +52,6 @@ public class Source implements Parcelable {
         this.name = name;
     }
 
-
-    protected Source(Parcel in) {
-        id = (Object) in.readValue(Object.class.getClassLoader());
-        name = in.readString();
-    }
-
     @Override
     public int describeContents() {
         return 0;
@@ -51,17 +62,4 @@ public class Source implements Parcelable {
         dest.writeValue(id);
         dest.writeString(name);
     }
-
-    @SuppressWarnings("unused")
-    public static final Parcelable.Creator<Source> CREATOR = new Parcelable.Creator<Source>() {
-        @Override
-        public Source createFromParcel(Parcel in) {
-            return new Source(in);
-        }
-
-        @Override
-        public Source[] newArray(int size) {
-            return new Source[size];
-        }
-    };
 }

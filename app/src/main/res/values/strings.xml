@@ -19,4 +19,8 @@
     <string name="articleBody">You are reading article body</string>
     <string name="readFullArticle">You are pressing Read Full Article Button</string>
     <string name="floatingAction">You are pressing Floating Action Button in order to share News</string>
+    <string name="all_news_tab_title">AllNews</string>
+    <string name="tech_news_tab_title">TechNews</string>
+    <string name="sport_news_tab_title">SportNews</string>
+    <string name="favorite_news_tab_title">Favorite</string>
 </resources>

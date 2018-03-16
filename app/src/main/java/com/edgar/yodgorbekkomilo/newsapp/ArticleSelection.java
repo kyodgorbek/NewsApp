@@ -15,7 +15,7 @@ import java.util.List;
  * Created by yodgorbekkomilov on 3/6/18.
  */
 
-public abstract class ArticleSelection <T extends ArticleSelection<?>> {
+public abstract class ArticleSelection<T extends ArticleSelection<?>> {
 
     private static final String EQ = "=?";
     private static final String PAREN_OPEN = "(";

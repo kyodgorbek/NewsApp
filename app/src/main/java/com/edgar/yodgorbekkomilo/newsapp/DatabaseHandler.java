@@ -14,17 +14,14 @@ import java.util.List;
  */
 
 public class DatabaseHandler extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 1;
-
-    // Database Name
-    private static final String FavoritesArticle = "favoritemovie";
-
-    // Contacts table name
-    private static final String FavoriteArticle = "favoritesmovie";
-
     // Contacts Table Columns names
     public static final String articleID = "id";
     public static final String articleName = "name";
+    private static final int DATABASE_VERSION = 1;
+    // Database Name
+    private static final String FavoritesArticle = "favoritemovie";
+    // Contacts table name
+    private static final String FavoriteArticle = "favoritesmovie";
 
 
     public DatabaseHandler(Context context) {
@@ -45,7 +42,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + movieID + " INTEGER PRIMARY KEY," + movieName + " TEXT,"
                 + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
-   */ }
+   */
+    }
 
     // Upgrading database
     @Override

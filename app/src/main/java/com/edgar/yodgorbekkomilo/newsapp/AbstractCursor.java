@@ -6,8 +6,6 @@ import android.database.CursorWrapper;
 import java.sql.Date;
 import java.util.HashMap;
 
-import static java.util.Objects.isNull;
-
 /**
  * Created by yodgorbekkomilov on 3/6/18.
  */

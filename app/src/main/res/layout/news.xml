@@ -3,12 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/news"
-    android:gravity="center" >
+    android:gravity="center">
+
     <TextView
         android:id="@+id/News"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/news"
-        android:textSize="28sp"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/white"
+        android:textSize="28sp" />
 </RelativeLayout>

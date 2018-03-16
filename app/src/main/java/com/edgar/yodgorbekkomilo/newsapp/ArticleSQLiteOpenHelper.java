@@ -13,7 +13,7 @@ import android.util.Log;
  * Created by yodgorbekkomilov on 3/6/18.
  */
 
-public class ArticleSQLiteOpenHelper  extends SQLiteOpenHelper{
+public class ArticleSQLiteOpenHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_FILE_NAME = "article.db";
     // @formatter:off

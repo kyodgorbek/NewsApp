@@ -2,13 +2,14 @@ package com.edgar.yodgorbekkomilo.newsapp;
 
 import android.net.Uri;
 import android.provider.BaseColumns;
-        import com.edgar.yodgorbekkomilo.newsapp.provider.ArticleProvider;
+
+import com.edgar.yodgorbekkomilo.newsapp.provider.ArticleProvider;
 
 /**
  * Created by yodgorbekkomilov on 3/6/18.
  */
 
-public class ArticleColumns  implements BaseColumns {
+public class ArticleColumns implements BaseColumns {
 
     public static final String TABLE_NAME = "article";
     public static final Uri CONTENT_URI = Uri.parse(ArticleProvider.CONTENT_URI_BASE + "/" + TABLE_NAME);

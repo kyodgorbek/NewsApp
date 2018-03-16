@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/draw_insets_frame_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/main.appbar"
@@ -29,8 +28,7 @@
             <FrameLayout
                 android:id="@+id/photo_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
+                android:layout_height="match_parent">
                 <!--suppress AndroidLintContentDescription -->
                 <com.edgar.yodgorbekkomilo.newsapp.ThreeTwoImageView
 
@@ -43,20 +41,17 @@
                     />
 
 
-
-
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/photo_background_protection"/>
+                    android:background="@drawable/photo_background_protection" />
 
                 <LinearLayout
                     android:id="@+id/meta_bar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    android:orientation="vertical"
-                    >
+                    android:orientation="vertical">
 
 
                     <TextView
@@ -64,12 +59,12 @@
                         style="?android:attr/textAppearanceLarge"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="#fff"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
                         android:layout_margin="16dp"
+                        android:lineSpacingMultiplier="0.9"
+                        android:textColor="#fff"
+                        android:textSize="20sp"
 
-                        android:lineSpacingMultiplier="0.9" />
+                        android:textStyle="bold" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -81,51 +76,50 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentStart="true"
                             android:layout_centerVertical="true"
-                            android:textColor="#fff"
-                            android:textStyle="bold"
-                            android:textSize="20sp"
-                            android:text="@string/Overview"
                             android:layout_margin="16dp"
                             android:contentDescription="@string/textOverview"
-                            android:lineSpacingMultiplier="0.9"/>
+                            android:lineSpacingMultiplier="0.9"
+                            android:text="@string/Overview"
+                            android:textColor="#fff"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
 
                         <ImageButton
                             android:id="@+id/favorite_button"
+                            style="?android:attr/borderlessButtonStyle"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
+                            android:layout_toStartOf="@id/share_button"
+                            android:contentDescription="@string/favorite_selected_news"
                             android:scaleType="fitXY"
                             android:tint="@android:color/white"
-                            app:srcCompat="@drawable/ic_favorite"
-                            android:contentDescription="@string/favorite_selected_news"
-                            style="?android:attr/borderlessButtonStyle"
-                            android:layout_toStartOf="@id/share_button" />
+                            app:srcCompat="@drawable/ic_favorite" />
 
                         <ImageButton
                             android:id="@+id/share_button"
+                            style="?android:attr/borderlessButtonStyle"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_gravity="end"
+                            android:contentDescription="@string/share_function"
                             android:scaleType="fitXY"
                             android:tint="@android:color/white"
-                            app:srcCompat="@drawable/ic_share"
-                            android:layout_gravity="end"
-                            android:layout_alignParentEnd="true"
-                            android:contentDescription="@string/share_function"
-                            style="?android:attr/borderlessButtonStyle" />
+                            app:srcCompat="@drawable/ic_share" />
 
                     </RelativeLayout>
+
                     <TextView
                         android:id="@+id/article_byline"
                         style="?android:attr/textAppearanceSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="#8fff"
-                        android:textSize="16sp"
-                        />
+                        android:textSize="16sp" />
 
                 </LinearLayout>
 
             </FrameLayout>
-
 
 
             <android.support.v7.widget.Toolbar
@@ -134,10 +128,7 @@
                 android:layout_height="?attr/actionBarSize"
                 android:theme="@style/ThemeOverlay.AppCompat.Light"
 
-                app:layout_collapseMode="pin"/>
-
-
-
+                app:layout_collapseMode="pin" />
 
 
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -162,42 +153,41 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"
-                android:textSize="20sp"
                 android:fontFamily="sans-serif-medium"
+                android:lineSpacingMultiplier="0.9"
                 android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
 
-                android:lineSpacingMultiplier="0.9" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/article_body"
                 style="?android:attr/textAppearanceMedium"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_margin="16dp"
                 android:layout_weight="1"
-                android:textColor="@android:color/black"
-                android:textSize="14sp"
                 android:contentDescription="@string/articleBody"
                 android:fontFamily="sans-serif"
-                android:layout_margin="16dp"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
 
                 />
+
             <Button
                 android:id="@+id/article_url"
                 style="?android:attr/textAppearanceMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:textColor="@android:color/black"
+                android:background="@color/colorPrimary"
                 android:contentDescription="@string/readFullArticle"
                 android:text="@string/fullArticle"
-                android:background="@color/colorPrimary"
-                android:textSize="14sp"
-                />
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
 
         </LinearLayout>
-
 
 
     </android.support.v4.widget.NestedScrollView>
