@@ -20,9 +20,11 @@ App is written solely in the Java Programming Language
 Core Platform Development
 
 MEETS SPECIFICATIONS
+
 App integrates a third-party library.
 
-App validates all input from servers and users. If data does not exist or is in the wrong format, the app logs this fact and does not crash.
+App validates all input from servers and users. 
+If data does not exist or is in the wrong format, the app logs this fact and does not crash.
 
 App includes support for accessibility. That includes content descriptions, navigation using a D-pad, and, if applicable, non-audio versions of audio cues.
 
@@ -33,6 +35,7 @@ App provides a widget to provide relevant information to the user on the home sc
 Google Play Services
 
 MEETS SPECIFICATIONS
+
 App integrates two or more Google services. Google service integrations can be a part of Google Play Services or Firebase.
 
 Each service imported in the build.gradle is used in the app.
@@ -76,6 +79,7 @@ Must implement at least one of the three
 If it regularly pulls or sends data to/from a web service or API, app updates data in its cache at regular intervals using a SyncAdapter or JobDispacter.
 OR
 If it needs to pull or send data to/from a web service or API only once, or on a per request basis (such as a search application), app uses an IntentService to do so.
+
 OR
 It it performs short duration, on-demand requests(such as search), app uses an AsyncTask.
 
