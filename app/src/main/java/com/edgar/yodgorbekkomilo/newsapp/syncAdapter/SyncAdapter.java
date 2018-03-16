@@ -115,8 +115,9 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
         String id;
         String title;
         String titleDescription;
+        String author;
+        String image;
         String link;
-        Article found;
         for (int i = 0; i < c.getCount(); i++) {
             syncResult.stats.numEntries++;
 
@@ -124,8 +125,9 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
             id = c.getString(c.getColumnIndex(ArticleColumns._ID));
             title = c.getString(c.getColumnIndex(ArticleColumns.TITLE));
             titleDescription = c.getString(c.getColumnIndex(ArticleColumns.TITLE_DESCRIPTION));
-            link = c.getString(c.getColumnIndex(ArticleContract.Articles.COL_LINK));
-
+            author = c.getString(c.getColumnIndex(ArticleColumns.AUTHOR));
+             image = c.getString(c.getColumnIndex(ArticleColumns.IMAGE));
+            link = c.getString(c.getColumnIndex(ArticleColumns.LINK));
             // Try to retrieve the local entry from network entries
             found = networkEntries.get(id);
             if (found != null) {
