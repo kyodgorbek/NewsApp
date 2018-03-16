@@ -62,7 +62,7 @@ public class FavoriteArticlesFragment extends Fragment {
 
                 adapter = new CustomAdapter(getActivity());
                 recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
-                recycler.setAdapter(adapter);
+                recycler.setAdapter(adapter); 
             }
         } else {
             Log.i("check_data", "cursor is null");
