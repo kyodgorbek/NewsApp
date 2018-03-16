@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+ 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.getResources().getText(R.string.all_news_tab_title);
         tabLayout.getResources().getText(R.string.tech_news_tab_title);
