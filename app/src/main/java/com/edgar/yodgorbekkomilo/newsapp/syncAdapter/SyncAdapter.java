@@ -15,6 +15,7 @@ import android.util.Log;
 
 import com.edgar.yodgorbekkomilo.newsapp.ArticleColumns;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
+import com.edgar.yodgorbekkomilo.newsapp.Pojo.News;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -88,18 +89,18 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
      * @param syncResult Write our stats to this
      */
     private void syncNewsFeed(SyncResult syncResult) throws IOException, JSONException, RemoteException, OperationApplicationException {
-        final String rssFeedEndpoint = "http://www.examplejsonnews.com";
+        final String rssFeedEndpoint = "https://newsapi.org/v2/everything/?q=bitcoin&apiKey=6dca4d1389634b61a9d3bb265f9928eb";
 
         // We need to collect all the network items in a hash table
         Log.i(TAG, "Fetching server entries...");
-        Map<String, Article> networkEntries = new HashMap<>();
+        Map<String, News> networkEntries = new HashMap<>();
 
         // Parse the pretend json news feed
         String jsonFeed = download(rssFeedEndpoint);
         JSONArray jsonArticles = new JSONArray(jsonFeed);
         for (int i = 0; i < jsonArticles.length(); i++) {
-            Article article = ArticleParser.parse(jsonArticles.optJSONObject(i));
-            networkEntries.put(article.getId(), article);
+            News news = News.class(jsonArticles.optJSONObject(i));
+            networkEntries.put(news.getStatus(), news);
         }
 
         // Create list for batching ContentProvider transactions
@@ -107,7 +108,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
 
         // Compare the hash table of network entries to all the local entries
         Log.i(TAG, "Fetching local entries...");
-        Cursor c = resolver.query(ArticleContract.Articles.CONTENT_URI, null, null, null, null, null);
+        Cursor c = resolver.query(ArticleColumns.CONTENT_URI, null, null, null, null, null);
         assert c != null;
         c.moveToFirst();
 
@@ -120,7 +121,7 @@ public class SyncAdapter extends AbstractThreadedSyncAdapter {
             syncResult.stats.numEntries++;
 
             // Create local article entry
-            id = c.getString(c.getColumnIndex(ArticleContract.Articles.COL_ID));
+            id = c.getString(c.getColumnIndex(ArticleColumns._ID));
             title = c.getString(c.getColumnIndex(ArticleContract.Articles.COL_TITLE));
             content = c.getString(c.getColumnIndex(ArticleContract.Articles.COL_CONTENT));
             link = c.getString(c.getColumnIndex(ArticleContract.Articles.COL_LINK));
