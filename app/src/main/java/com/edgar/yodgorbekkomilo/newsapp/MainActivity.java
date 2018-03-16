@@ -32,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
         //tabLayout.getResources().getText(R.string.sport_news_tab_title);
         //tabLayout.getResources().getText(R.string.favorite_news_tab_title);
 // but working below code what is your suggestion
-       tabLayout.addTab(tabLayout.newTab().setText("AllNews"));
-        tabLayout.addTab(tabLayout.newTab().setText(" TechNews"));
-        tabLayout.addTab(tabLayout.newTab().setText("SportNews"));
-        tabLayout.addTab(tabLayout.newTab().setText("Favorite"));
-        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+       //tabLayout.addTab(tabLayout.newTab().setText("AllNews"));
+        //tabLayout.addTab(tabLayout.newTab().setText(" TechNews"));
+       // tabLayout.addTab(tabLayout.newTab().setText("SportNews"));
+       // tabLayout.addTab(tabLayout.newTab().setText("Favorite"));
+        //tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         final PagerAdapter adapter = new PageAdapter
