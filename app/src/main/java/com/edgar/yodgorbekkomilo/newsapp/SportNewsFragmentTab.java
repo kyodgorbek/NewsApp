@@ -77,7 +77,7 @@ public class SportNewsFragmentTab extends Fragment {
             dialog = new ProgressDialog(getActivity());
             dialog.setTitle(getString(R.string.string_getting_json_title));
             dialog.setMessage(getString(R.string.string_getting_json_message));
-            dialog.show();
+            dialog.dismiss();
 
             //Creating an object of our api interface
             ApiService api = RetroClient.getApiService();
