@@ -3,8 +3,10 @@ package com.edgar.yodgorbekkomilo.newsapp;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,10 +27,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by yodgorbekkomilov on 2/21/18.
  */
- 
+
 public class AllNewsFragmentTab extends Fragment {
 
     public ArrayList<News> articleList;
@@ -36,10 +40,7 @@ public class AllNewsFragmentTab extends Fragment {
     public GridView gridView;
     private View parentView;
     private ArticleAdapter adapter;
-    int index = gridView.getFirstVisiblePosition();
-    View v = gridView.getChildAt(0);
-    int top = (v == null) ? 0 : (v.getTop() - gridView.getPaddingTop());
-
+    Parcelable state;
 
 
 // ...
@@ -49,10 +50,11 @@ public class AllNewsFragmentTab extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.all_news_fragment_tab, container, false);
-
+        state = gridView.onSaveInstanceState();
         articleList = new ArrayList<>();
 
         parentView = view.findViewById(R.id.parentLayout);
+
 
         /**
          * Getting List and Setting List Adapter
@@ -66,14 +68,13 @@ public class AllNewsFragmentTab extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                Snackbar.make(parentView, articleArrayList.get(position).getStatus() + " => " + articleArrayList.get(position).getTotalResults(), Snackbar.LENGTH_LONG).show();
                 Intent i = new Intent(getContext(), NewsDetailActivity.class);
-                gridView.setSelectionFromTop(index, top);
+
 
                 i.putExtra("myDataKey", articleArrayList.get(position));
                 startActivity(i);
 
             }
         });
-
 
         Toast toast = Toast.makeText(getActivity().getApplicationContext(), R.string.string_click_to_load, Toast.LENGTH_LONG);
         toast.setGravity(Gravity.CENTER, 0, 0);
@@ -92,6 +93,7 @@ public class AllNewsFragmentTab extends Fragment {
             dialog.setTitle(getString(R.string.string_getting_json_title));
             dialog.setMessage(getString(R.string.string_getting_json_message));
             dialog.dismiss();
+
 
 
             //Creating an object of our api interface
@@ -126,6 +128,9 @@ public class AllNewsFragmentTab extends Fragment {
                          * Binding that List to Adapter
                          */adapter = new ArticleAdapter(getActivity(), articleArrayList);
                         gridView.setAdapter(adapter);
+                        if(state != null) {
+                            gridView.onRestoreInstanceState(state);
+                        }
 
                     } else {
                         Snackbar.make(parentView, R.string.string_some_thing_wrong, Snackbar.LENGTH_LONG).show();
@@ -138,6 +143,8 @@ public class AllNewsFragmentTab extends Fragment {
                     dialog.dismiss();
                 }
             });
+
+
 
         } else {
             Snackbar.make(parentView, R.string.string_internet_connection_not_available, Snackbar.LENGTH_LONG).show();
