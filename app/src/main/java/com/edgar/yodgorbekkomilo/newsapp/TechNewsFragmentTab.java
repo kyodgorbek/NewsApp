@@ -57,7 +57,7 @@ public class TechNewsFragmentTab extends Fragment {
          *
          */
 
-        final GridView gridView = (GridView) view3.findViewById(R.id.listView);
+         gridView =  view3.findViewById(R.id.listView);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -122,7 +122,7 @@ public class TechNewsFragmentTab extends Fragment {
                         prefsEditor.putString("MyObject", json);
                         prefsEditor.commit();
 
- 
+
                         /**
                          * Binding that List to Adapter
                          */adapter = new ArticleAdapter(getActivity(), articleArrayList);

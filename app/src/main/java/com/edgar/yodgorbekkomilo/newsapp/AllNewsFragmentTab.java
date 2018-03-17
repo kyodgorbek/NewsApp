@@ -62,7 +62,7 @@ public class AllNewsFragmentTab extends Fragment {
          *
          */
 
-        final GridView gridView = (GridView) view.findViewById(R.id.listView);
+        gridView = view.findViewById(R.id.listView);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
