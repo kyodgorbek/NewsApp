@@ -13,13 +13,14 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity {
 
     private int position = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // recovering instantState
-        if(savedInstanceState != null){
+        if (savedInstanceState != null) {
             position = savedInstanceState.getInt("position_tab");
         }
 
@@ -32,15 +33,15 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tech_news_tab_title)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.sport_news_tab_title)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.favorite_news_tab_title)));
-       // tabLayout.getResources().getText(R.string.all_news_tab_title);
+        // tabLayout.getResources().getText(R.string.all_news_tab_title);
         //tabLayout.getResources().getText(R.string.tech_news_tab_title);
         //tabLayout.getResources().getText(R.string.sport_news_tab_title);
         //tabLayout.getResources().getText(R.string.favorite_news_tab_title);
 // but working below code what is your suggestion
-       //tabLayout.addTab(tabLayout.newTab().setText("AllNews"));
+        //tabLayout.addTab(tabLayout.newTab().setText("AllNews"));
         //tabLayout.addTab(tabLayout.newTab().setText(" TechNews"));
-       // tabLayout.addTab(tabLayout.newTab().setText("SportNews"));
-       // tabLayout.addTab(tabLayout.newTab().setText("Favorite"));
+        // tabLayout.addTab(tabLayout.newTab().setText("SportNews"));
+        // tabLayout.addTab(tabLayout.newTab().setText("Favorite"));
         //tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 position = tab.getPosition();
                 viewPager.setCurrentItem(position);
             }
+
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
 
@@ -83,14 +85,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState){
-    savedInstanceState.getInt("position_tab");
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.getInt("position_tab");
     }
 
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-            outState.putInt( "position_tab", position);
-            super.onSaveInstanceState(outState);
+        outState.putInt("position_tab", position);
+        super.onSaveInstanceState(outState);
     }
 }

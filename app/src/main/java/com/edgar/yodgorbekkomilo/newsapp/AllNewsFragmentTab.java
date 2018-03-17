@@ -33,9 +33,18 @@ public class AllNewsFragmentTab extends Fragment {
 
     public ArrayList<News> articleList;
     ArrayList<Article> articleArrayList = new ArrayList<>();
-    private GridView gridView;
+    public GridView gridView;
     private View parentView;
     private ArticleAdapter adapter;
+    int index = gridView.getFirstVisiblePosition();
+    View v = gridView.getChildAt(0);
+    int top = (v == null) ? 0 : (v.getTop() - gridView.getPaddingTop());
+
+
+
+// ...
+
+// restore index and position
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -57,6 +66,8 @@ public class AllNewsFragmentTab extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                Snackbar.make(parentView, articleArrayList.get(position).getStatus() + " => " + articleArrayList.get(position).getTotalResults(), Snackbar.LENGTH_LONG).show();
                 Intent i = new Intent(getContext(), NewsDetailActivity.class);
+                gridView.setSelectionFromTop(index, top);
+
                 i.putExtra("myDataKey", articleArrayList.get(position));
                 startActivity(i);
 

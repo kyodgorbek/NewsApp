@@ -25,7 +25,7 @@ import java.util.ArrayList;
  */
 
 public class FavoriteArticlesFragment extends Fragment {
-   public  static long currentVisiblePosition = 0;
+    public static long currentVisiblePosition = 0;
     ArrayList<Article> articleList;
     CustomAdapter adapter;
     RecyclerView recycler;
@@ -71,6 +71,22 @@ public class FavoriteArticlesFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onPause() {
+        // this variable should be static in class
+        currentVisiblePosition = ((LinearLayoutManager) recycler.getLayoutManager()).findFirstCompletelyVisibleItemPosition();
+
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        // this variable should be static in class
+        ((LinearLayoutManager) recycler.getLayoutManager()).scrollToPosition((int) currentVisiblePosition);
+        currentVisiblePosition = 0;
+
+        super.onResume();
+    }
 
     private class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
 
@@ -138,23 +154,6 @@ public class FavoriteArticlesFragment extends Fragment {
                 context.startActivity(intent);
             }
         }
-    }
-
-    @Override
-    public void onPause() {
-         // this variable should be static in class
-        currentVisiblePosition = ((LinearLayoutManager)recycler.getLayoutManager()).findFirstCompletelyVisibleItemPosition();
-
-        super.onPause();
-    }
-
-    @Override
-    public void onResume() {
-        // this variable should be static in class
-        ((LinearLayoutManager) recycler.getLayoutManager()).scrollToPosition((int) currentVisiblePosition);
-        currentVisiblePosition = 0;
-
-        super.onResume();
     }
 
 }
