@@ -25,7 +25,7 @@ import java.util.ArrayList;
  */
 
 public class FavoriteArticlesFragment extends Fragment {
-
+   public  static long currentVisiblePosition = 0;
     ArrayList<Article> articleList;
     CustomAdapter adapter;
     RecyclerView recycler;
@@ -139,5 +139,14 @@ public class FavoriteArticlesFragment extends Fragment {
             }
         }
     }
+
+    @Override
+    public void onPause() {
+         // this variable should be static in class
+        currentVisiblePosition = ((LinearLayoutManager)recycler.getLayoutManager()).findFirstCompletelyVisibleItemPosition();
+
+        super.onPause();
+    }
+
 
 }
