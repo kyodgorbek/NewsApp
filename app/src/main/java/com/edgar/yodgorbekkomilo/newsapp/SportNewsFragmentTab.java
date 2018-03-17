@@ -3,6 +3,7 @@ package com.edgar.yodgorbekkomilo.newsapp;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
@@ -35,10 +36,13 @@ public class SportNewsFragmentTab extends Fragment {
     ArrayList<Article> articleArrayList = new ArrayList<>();
     private ArticleAdapter adapter;
     private View view2;
+    Parcelable state3;
+    GridView gridView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view2 = inflater.inflate(R.layout.sport_news_fragment_tab, container, false);
+        state3= gridView.onSaveInstanceState();
         articleSport = new ArrayList<>();
 
         parentView2 = view2.findViewById(R.id.parentLayout);
@@ -111,6 +115,9 @@ public class SportNewsFragmentTab extends Fragment {
                          * Binding that List to Adapter
                          */adapter = new ArticleAdapter(getActivity(), articleArrayList);
                         gridView.setAdapter(adapter);
+                        if(state3 != null) {
+                            gridView.onRestoreInstanceState(state3);
+                        }
 
                     } else {
                         Snackbar.make(parentView2, R.string.string_some_thing_wrong, Snackbar.LENGTH_LONG).show();
