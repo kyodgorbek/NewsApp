@@ -36,7 +36,7 @@ public class SportNewsFragmentTab extends Fragment {
     ArrayList<Article> articleArrayList = new ArrayList<>();
     private ArticleAdapter adapter;
     private View view2;
-    Parcelable state3;
+    Parcelable state3; 
     GridView gridView;
 
     @Override
