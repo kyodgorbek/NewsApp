@@ -18,6 +18,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // recovering instantState
+        if(savedInstanceState != null){
+            position = savedInstanceState.getInt("position_tab");
+        }
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -78,12 +83,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
+    protected void onRestoreInstanceState(Bundle savedInstanceState){
+    savedInstanceState.getInt("position_tab");
     }
 
+
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
+    protected void onSaveInstanceState(Bundle outState) {
+            outState.putInt( "position_tab", position);
+            super.onSaveInstanceState(outState);
     }
 }
