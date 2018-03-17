@@ -28,7 +28,7 @@ import retrofit2.Response;
 /**
  * Created by yodgorbekkomilov on 2/21/18.
  */
-
+ 
 public class AllNewsFragmentTab extends Fragment {
 
     public ArrayList<News> articleList;
