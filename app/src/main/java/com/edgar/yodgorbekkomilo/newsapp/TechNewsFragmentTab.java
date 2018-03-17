@@ -122,7 +122,7 @@ public class TechNewsFragmentTab extends Fragment {
                         prefsEditor.putString("MyObject", json);
                         prefsEditor.commit();
 
-
+ 
                         /**
                          * Binding that List to Adapter
                          */adapter = new ArticleAdapter(getActivity(), articleArrayList);
