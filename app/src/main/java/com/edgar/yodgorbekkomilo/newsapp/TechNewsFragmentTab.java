@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -40,10 +41,12 @@ public class TechNewsFragmentTab extends Fragment {
     ArrayList<Article> articleArrayList = new ArrayList<>();
     private ArticleAdapter adapter;
     private View view3;
-
+    Parcelable state2;
+    GridView gridView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view3 = inflater.inflate(R.layout.tech_news_fragment_tab, container, false);
+        state2 = gridView.onSaveInstanceState();
         articleTech = new ArrayList<>();
 
         parentView3 = view3.findViewById(R.id.parentLayout);
@@ -124,6 +127,10 @@ public class TechNewsFragmentTab extends Fragment {
                          * Binding that List to Adapter
                          */adapter = new ArticleAdapter(getActivity(), articleArrayList);
                         gridView.setAdapter(adapter);
+                        if(state2 != null) {
+                            gridView.onRestoreInstanceState(state2);
+                        }
+
 
                     } else {
                         Snackbar.make(parentView3, R.string.string_some_thing_wrong, Snackbar.LENGTH_LONG).show();
