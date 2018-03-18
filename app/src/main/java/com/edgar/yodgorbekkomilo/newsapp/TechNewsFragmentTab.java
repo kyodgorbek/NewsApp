@@ -152,6 +152,10 @@ public class TechNewsFragmentTab extends Fragment {
 
         return view3;
     }
+    @Override
+    public void onSaveInstanceState(Bundle state2) {
+        super.onSaveInstanceState(state2);
+    }
 }
 
 

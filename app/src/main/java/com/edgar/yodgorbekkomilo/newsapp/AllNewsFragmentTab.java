@@ -148,6 +148,10 @@ public class AllNewsFragmentTab extends Fragment {
         }
         return view;
     }
+    @Override
+    public void onSaveInstanceState(Bundle state) {
+        super.onSaveInstanceState(state);
+    }
 }
 
 
