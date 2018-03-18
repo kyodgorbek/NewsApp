@@ -34,26 +34,26 @@ public class SportNewsFragmentTab extends Fragment {
     public ArrayList<News> articleSport;
     View parentView2;
     ArrayList<Article> articleArrayList = new ArrayList<>();
-    private ArticleAdapter adapter;
-    private View view2;
     Parcelable state3;
     GridView gridView;
+    private ArticleAdapter adapter;
+    private View view2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view2 = inflater.inflate(R.layout.sport_news_fragment_tab, container, false);
-        state3= gridView.onSaveInstanceState();
+
+        gridView = view2.findViewById(R.id.listView);
         articleSport = new ArrayList<>();
 
         parentView2 = view2.findViewById(R.id.parentLayout);
-
+        state3 = gridView.onSaveInstanceState();
         /**
          * Getting List and Setting List Adapter
          *
          *
          */
 
-        gridView =  view2.findViewById(R.id.listView);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -115,7 +115,7 @@ public class SportNewsFragmentTab extends Fragment {
                          * Binding that List to Adapter
                          */adapter = new ArticleAdapter(getActivity(), articleArrayList);
                         gridView.setAdapter(adapter);
-                        if(state3 != null) {
+                        if (state3 != null) {
                             gridView.onRestoreInstanceState(state3);
                         }
 

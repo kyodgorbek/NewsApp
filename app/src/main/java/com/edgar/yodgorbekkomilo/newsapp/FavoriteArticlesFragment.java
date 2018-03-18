@@ -33,7 +33,6 @@ public class FavoriteArticlesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_articles_favorite, container, false);
-
         recycler = view.findViewById(R.id.favorite_View);
 
         articleList = new ArrayList<>();

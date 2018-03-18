@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,8 +26,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static android.content.ContentValues.TAG;
-
 /**
  * Created by yodgorbekkomilov on 2/21/18.
  */
@@ -36,11 +33,11 @@ import static android.content.ContentValues.TAG;
 public class AllNewsFragmentTab extends Fragment {
 
     public ArrayList<News> articleList;
-    ArrayList<Article> articleArrayList = new ArrayList<>();
     public GridView gridView;
+    ArrayList<Article> articleArrayList = new ArrayList<>();
+    Parcelable state;
     private View parentView;
     private ArticleAdapter adapter;
-    Parcelable state;
 
 
 // ...
@@ -50,19 +47,19 @@ public class AllNewsFragmentTab extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.all_news_fragment_tab, container, false);
-        state = gridView.onSaveInstanceState();
+        gridView = view.findViewById(R.id.listView);
         articleList = new ArrayList<>();
 
         parentView = view.findViewById(R.id.parentLayout);
 
-
+        state = gridView.onSaveInstanceState();
         /**
          * Getting List and Setting List Adapter
          *
          *
          */
 
-        gridView = view.findViewById(R.id.listView);
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -93,7 +90,6 @@ public class AllNewsFragmentTab extends Fragment {
             dialog.setTitle(getString(R.string.string_getting_json_title));
             dialog.setMessage(getString(R.string.string_getting_json_message));
             dialog.dismiss();
-
 
 
             //Creating an object of our api interface
@@ -128,7 +124,7 @@ public class AllNewsFragmentTab extends Fragment {
                          * Binding that List to Adapter
                          */adapter = new ArticleAdapter(getActivity(), articleArrayList);
                         gridView.setAdapter(adapter);
-                        if(state != null) {
+                        if (state != null) {
                             gridView.onRestoreInstanceState(state);
                         }
 
@@ -143,7 +139,6 @@ public class AllNewsFragmentTab extends Fragment {
                     dialog.dismiss();
                 }
             });
-
 
 
         } else {
