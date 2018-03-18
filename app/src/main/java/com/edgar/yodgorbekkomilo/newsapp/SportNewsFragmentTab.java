@@ -135,7 +135,7 @@ public class SportNewsFragmentTab extends Fragment {
             Snackbar.make(parentView2, R.string.string_internet_connection_not_available, Snackbar.LENGTH_LONG).show();
 
         }
-
+ 
 
         return view2;
     }
