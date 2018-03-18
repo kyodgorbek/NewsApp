@@ -135,8 +135,15 @@ public class SportNewsFragmentTab extends Fragment {
             Snackbar.make(parentView2, R.string.string_internet_connection_not_available, Snackbar.LENGTH_LONG).show();
 
         }
+
+
         return view2;
     }
+    @Override
+    public void onSaveInstanceState(Bundle state3) {
+        super.onSaveInstanceState(state3);
+    }
+
 }
 
 
