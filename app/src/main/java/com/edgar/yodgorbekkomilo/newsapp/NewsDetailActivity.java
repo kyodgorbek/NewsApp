@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.squareup.picasso.Picasso;
 
@@ -28,12 +30,18 @@ public class NewsDetailActivity extends AppCompatActivity {
     Button fullArticle;
     FloatingActionButton floatingActionButton;
     ImageView favoriteButton;
-
+    AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news_details);
         MobileAds.initialize(this, "ca-app-pub-8685574034048422~2253041053");
+
+        mAdView = (AdView)findViewById(R.id.ad_view);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+
 
         Toolbar myChildToolbar =
                 (Toolbar) findViewById(R.id.detail_toolbar);
