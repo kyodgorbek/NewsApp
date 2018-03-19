@@ -31,6 +31,7 @@ import retrofit2.Response;
  */
 
 public class SportNewsFragmentTab extends Fragment {
+    private static final String GRIDVIEW_STATE =  "GRID_VIEW_STATE";
     public ArrayList<News> articleSport;
     View parentView2;
     ArrayList<Article> articleArrayList = new ArrayList<>();
@@ -40,6 +41,12 @@ public class SportNewsFragmentTab extends Fragment {
     private View view2;
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(GRIDVIEW_STATE, gridView.onSaveInstanceState());
+
+    }
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view2 = inflater.inflate(R.layout.sport_news_fragment_tab, container, false);
 
@@ -47,6 +54,7 @@ public class SportNewsFragmentTab extends Fragment {
         articleSport = new ArrayList<>();
 
         parentView2 = view2.findViewById(R.id.parentLayout);
+        if(savedInstanceState != null)
         state3 = gridView.onSaveInstanceState();
         /**
          * Getting List and Setting List Adapter
@@ -115,9 +123,8 @@ public class SportNewsFragmentTab extends Fragment {
                          * Binding that List to Adapter
                          */adapter = new ArticleAdapter(getActivity(), articleArrayList);
                         gridView.setAdapter(adapter);
-                        if (state3 != null) {
-                            gridView.onRestoreInstanceState(state3);
-                        }
+                        gridView.onRestoreInstanceState(GRIDVIEW_STATE);
+
 
                     } else {
                         Snackbar.make(parentView2, R.string.string_some_thing_wrong, Snackbar.LENGTH_LONG).show();
@@ -135,14 +142,11 @@ public class SportNewsFragmentTab extends Fragment {
             Snackbar.make(parentView2, R.string.string_internet_connection_not_available, Snackbar.LENGTH_LONG).show();
 
         }
- 
+
 
         return view2;
     }
-    @Override
-    public void onSaveInstanceState(Bundle state3) {
-        super.onSaveInstanceState(state3);
-    }
+
 
 }
 
