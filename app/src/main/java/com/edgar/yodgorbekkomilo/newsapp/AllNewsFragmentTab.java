@@ -125,8 +125,14 @@ public class AllNewsFragmentTab extends Fragment {
 
                         /**
                          * Binding that List to Adapter
-                         */adapter = new ArticleAdapter(getActivity(), articleArrayList);
-                        gridView.setAdapter(adapter);
+                         *
+                         *
+                         *
+                         */
+                        if(getActivity() != null) {
+                            adapter = new ArticleAdapter(getActivity(), articleArrayList);
+                            gridView.setAdapter(adapter);
+                        }
                         if (state != null) {
                             gridView.onRestoreInstanceState(state);
                         }
