@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
+import com.google.android.gms.ads.MobileAds;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -32,7 +33,7 @@ public class NewsDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news_details);
-
+        MobileAds.initialize(this, "ca-app-pub-8685574034048422~2253041053");
 
         Toolbar myChildToolbar =
                 (Toolbar) findViewById(R.id.detail_toolbar);
