@@ -85,17 +85,6 @@
                             android:textStyle="bold" />
 
                         <ImageButton
-                            android:id="@+id/favorite_button"
-                            style="?android:attr/borderlessButtonStyle"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:contentDescription="@string/favorite_selected_news"
-                            android:scaleType="fitXY"
-                            android:tint="@android:color/white"
-                            android:paddingBottom="10dp"
-                            app:srcCompat="@drawable/ic_favorite" />
-
-                        <ImageButton
                             android:id="@+id/share_button"
                             style="?android:attr/borderlessButtonStyle"
                             android:layout_width="50dp"
@@ -106,6 +95,18 @@
                             android:scaleType="fitXY"
                             android:tint="@android:color/white"
                             app:srcCompat="@drawable/ic_share" />
+
+                        <ImageButton
+                            android:id="@+id/favorite_button"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_toStartOf="@id/share_button"
+                            android:contentDescription="@string/favorite_selected_news"
+                            android:scaleType="fitXY"
+                            android:tint="@android:color/white"
+                            app:srcCompat="@drawable/ic_favorite" />
+
 
                     </RelativeLayout>
 
