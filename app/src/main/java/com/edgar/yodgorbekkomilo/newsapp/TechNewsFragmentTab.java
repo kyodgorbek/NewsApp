@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
@@ -76,6 +77,15 @@ public class TechNewsFragmentTab extends Fragment {
         toast.show();
 
 
+
+
+
+        return view3;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         /**
          * Checking Internet Connection
          */
@@ -150,10 +160,9 @@ public class TechNewsFragmentTab extends Fragment {
             Snackbar.make(parentView3, R.string.string_internet_connection_not_available, Snackbar.LENGTH_LONG).show();
 
         }
-
-
-        return view3;
+        // Place the code here
     }
+
     @Override
     public void onSaveInstanceState(Bundle state) {
         super.onSaveInstanceState(state);
