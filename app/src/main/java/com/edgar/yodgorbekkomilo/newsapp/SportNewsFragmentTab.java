@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
@@ -74,6 +75,16 @@ public class SportNewsFragmentTab extends Fragment {
         toast.show();
 
 
+
+
+
+        return view2;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        // Place the code here
         /**
          * Checking Internet Connection
          */
@@ -136,9 +147,6 @@ public class SportNewsFragmentTab extends Fragment {
             Snackbar.make(parentView2, R.string.string_internet_connection_not_available, Snackbar.LENGTH_LONG).show();
 
         }
-
-
-        return view2;
     }
     @Override
     public void onSaveInstanceState(Bundle state) {
