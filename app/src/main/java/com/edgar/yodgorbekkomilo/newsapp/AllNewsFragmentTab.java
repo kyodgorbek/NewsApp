@@ -39,7 +39,7 @@ public class AllNewsFragmentTab extends Fragment {
     Parcelable state;
     private View parentView;
     private ArticleAdapter adapter;
-
+    private static final String GRID_STATE =  "GRID_VIEW_STATE";
 
 // ...
 
@@ -53,7 +53,9 @@ public class AllNewsFragmentTab extends Fragment {
 
         parentView = view.findViewById(R.id.parentLayout);
 
-        state = gridView.onSaveInstanceState();
+        if(savedInstanceState != null){
+            state = savedInstanceState.getParcelable(GRID_STATE);
+        }
         /**
          * Getting List and Setting List Adapter
          *
@@ -151,6 +153,7 @@ public class AllNewsFragmentTab extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle state) {
         super.onSaveInstanceState(state);
+        state.putParcelable(GRID_STATE, gridView.onSaveInstanceState());
     }
 }
 

@@ -44,7 +44,9 @@ public class SportNewsFragmentTab extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view2 = inflater.inflate(R.layout.sport_news_fragment_tab, container, false);
-
+        if(savedInstanceState != null){
+            state3 = savedInstanceState.getParcelable(GRIDVIEW_STATE);
+        }
         gridView = view2.findViewById(R.id.listView);
         articleSport = new ArrayList<>();
 
@@ -139,8 +141,9 @@ public class SportNewsFragmentTab extends Fragment {
         return view2;
     }
     @Override
-    public void onSaveInstanceState(Bundle state3) {
-        super.onSaveInstanceState(state3);
+    public void onSaveInstanceState(Bundle state) {
+        super.onSaveInstanceState(state);
+        state.putParcelable(GRIDVIEW_STATE, gridView.onSaveInstanceState());
     }
 }
 
