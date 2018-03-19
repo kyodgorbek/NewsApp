@@ -40,12 +40,7 @@ public class SportNewsFragmentTab extends Fragment {
     private ArticleAdapter adapter;
     private View view2;
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putParcelable(GRIDVIEW_STATE, gridView.onSaveInstanceState());
 
-    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view2 = inflater.inflate(R.layout.sport_news_fragment_tab, container, false);
@@ -54,7 +49,6 @@ public class SportNewsFragmentTab extends Fragment {
         articleSport = new ArrayList<>();
 
         parentView2 = view2.findViewById(R.id.parentLayout);
-        if(savedInstanceState != null)
         state3 = gridView.onSaveInstanceState();
         /**
          * Getting List and Setting List Adapter
@@ -99,9 +93,6 @@ public class SportNewsFragmentTab extends Fragment {
              */
             Call<News> call = api.getSportNews();
 
-            /**
-             * Enqueue Callback will be call when get response...
-             */
             call.enqueue(new Callback<News>() {
                 @Override
                 public void onResponse(Call<News> call, Response<News> response) {
@@ -123,8 +114,9 @@ public class SportNewsFragmentTab extends Fragment {
                          * Binding that List to Adapter
                          */adapter = new ArticleAdapter(getActivity(), articleArrayList);
                         gridView.setAdapter(adapter);
-                        gridView.onRestoreInstanceState(state3);
-
+                        if(state3 == null) {
+                            gridView.onRestoreInstanceState(state3);
+                        }
 
                     } else {
                         Snackbar.make(parentView2, R.string.string_some_thing_wrong, Snackbar.LENGTH_LONG).show();
@@ -146,9 +138,13 @@ public class SportNewsFragmentTab extends Fragment {
 
         return view2;
     }
-
-
+    @Override
+    public void onSaveInstanceState(Bundle state3) {
+        super.onSaveInstanceState(state3);
+    }
 }
+
+
 
 
 
