@@ -123,7 +123,7 @@ public class SportNewsFragmentTab extends Fragment {
                          * Binding that List to Adapter
                          */adapter = new ArticleAdapter(getActivity(), articleArrayList);
                         gridView.setAdapter(adapter);
-                        gridView.onRestoreInstanceState(GRIDVIEW_STATE);
+                        gridView.onRestoreInstanceState(state3);
 
 
                     } else {
