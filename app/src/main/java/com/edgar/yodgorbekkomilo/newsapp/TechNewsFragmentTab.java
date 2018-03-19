@@ -43,14 +43,16 @@ public class TechNewsFragmentTab extends Fragment {
     GridView gridView;
     private ArticleAdapter adapter;
     private View view3;
-
+    private static final String GRID_VIEW_STATE = "GRID_VIEW_STATE";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view3 = inflater.inflate(R.layout.tech_news_fragment_tab, container, false);
         gridView = view3.findViewById(R.id.listView);
         articleTech = new ArrayList<>();
         parentView3 = view3.findViewById(R.id.parentLayout);
-        state2 = gridView.onSaveInstanceState();
+        if(savedInstanceState != null){
+            state2 = savedInstanceState.getParcelable(GRID_VIEW_STATE);
+        }
         /**
          * Getting List and Setting List Adapter
          *
@@ -127,9 +129,7 @@ public class TechNewsFragmentTab extends Fragment {
                          * Binding that List to Adapter
                          */adapter = new ArticleAdapter(getActivity(), articleArrayList);
                         gridView.setAdapter(adapter);
-                        if (state2 != null) {
-                            gridView.onRestoreInstanceState(state2);
-                        }
+
 
 
                     } else {
@@ -153,8 +153,10 @@ public class TechNewsFragmentTab extends Fragment {
         return view3;
     }
     @Override
-    public void onSaveInstanceState(Bundle state2) {
-        super.onSaveInstanceState(state2);
+    public void onSaveInstanceState(Bundle state) {
+        super.onSaveInstanceState(state);
+        state.putParcelable(GRID_VIEW_STATE, gridView.onSaveInstanceState());
+
     }
 }
 
