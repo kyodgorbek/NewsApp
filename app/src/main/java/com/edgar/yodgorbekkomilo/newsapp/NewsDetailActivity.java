@@ -35,7 +35,7 @@ public class NewsDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news_details);
-        MobileAds.initialize(this, "ca-app-pub-8685574034048422~2253041053");
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
 
         mAdView = (AdView)findViewById(R.id.ad_view);
         AdRequest adRequest = new AdRequest.Builder().build();
