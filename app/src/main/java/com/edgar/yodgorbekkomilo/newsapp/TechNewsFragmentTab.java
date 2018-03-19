@@ -129,7 +129,9 @@ public class TechNewsFragmentTab extends Fragment {
                          * Binding that List to Adapter
                          */adapter = new ArticleAdapter(getActivity(), articleArrayList);
                         gridView.setAdapter(adapter);
-
+                        if(state2 != null) {
+                            gridView.onRestoreInstanceState(state2);
+                        }
 
 
                     } else {

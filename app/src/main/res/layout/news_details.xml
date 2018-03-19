@@ -92,6 +92,7 @@
                             android:contentDescription="@string/favorite_selected_news"
                             android:scaleType="fitXY"
                             android:tint="@android:color/white"
+                            android:paddingBottom="10dp"
                             app:srcCompat="@drawable/ic_favorite" />
 
                         <ImageButton
