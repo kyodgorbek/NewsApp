@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
@@ -48,6 +49,7 @@ public class AllNewsFragmentTab extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.all_news_fragment_tab, container, false);
+
         gridView = view.findViewById(R.id.listView);
         articleList = new ArrayList<>();
 
@@ -81,19 +83,26 @@ public class AllNewsFragmentTab extends Fragment {
         toast.show();
 
 
+
         /**
          * Checking Internet Connection
          */
+
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         if (InternetConnection.checkConnection(getActivity().getApplicationContext())) {
             final ProgressDialog dialog;
-            /**
-             * Progress Dialog for User Interaction
-             */
+/**
+ * Progress Dialog for User Interaction
+ */
             dialog = new ProgressDialog(getActivity());
             dialog.setTitle(getString(R.string.string_getting_json_title));
             dialog.setMessage(getString(R.string.string_getting_json_message));
             dialog.dismiss();
-
 
             //Creating an object of our api interface
             ApiService api = RetroClient.getApiService();
@@ -154,8 +163,9 @@ public class AllNewsFragmentTab extends Fragment {
             Snackbar.make(parentView, R.string.string_internet_connection_not_available, Snackbar.LENGTH_LONG).show();
 
         }
-        return view;
+        // Place the code here
     }
+
     @Override
     public void onSaveInstanceState(Bundle state) {
         super.onSaveInstanceState(state);
