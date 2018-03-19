@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +34,7 @@ public class FavoriteArticlesFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_articles_favorite, container, false);
+        final View view = inflater.inflate(R.layout.fragment_articles_favorite, container, false);
         recycler = view.findViewById(R.id.favorite_View);
 
         articleList = new ArrayList<>();
@@ -62,12 +64,43 @@ public class FavoriteArticlesFragment extends Fragment {
                 adapter = new CustomAdapter(getActivity());
                 recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
                 recycler.setAdapter(adapter);
+                ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
+                        0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT
+                ) {
+                    @Override
+                    public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                        return false;
+                    }
+
+                    @Override
+                    public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                        int position = viewHolder.getAdapterPosition();
+                        Article article = articleList.get(position);
+                        articleList.remove(position);
+                        adapter.notifyItemRemoved(position);
+                        showSnackBar(view, position, article);
+                    }
+                });
+
+                helper.attachToRecyclerView(recycler);
             }
+
         } else {
             Log.i("check_data", "cursor is null");
         }
 
         return view;
+    }
+
+    private void showSnackBar(View v, final int position, final Article article) {
+        Snackbar.make(v, "Item removed", Snackbar.LENGTH_LONG)
+                .setAction("Undo", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        articleList.add(position, article);
+                        adapter.notifyItemInserted(position);
+                    }
+                }).show();
     }
 
     @Override

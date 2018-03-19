@@ -89,7 +89,6 @@
                             style="?android:attr/borderlessButtonStyle"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-
                             android:contentDescription="@string/favorite_selected_news"
                             android:scaleType="fitXY"
                             android:tint="@android:color/white"
