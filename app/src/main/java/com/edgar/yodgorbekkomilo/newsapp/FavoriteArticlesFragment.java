@@ -81,7 +81,7 @@ public class FavoriteArticlesFragment extends Fragment {
     @Override
     public void onResume() {
         // this variable should be static in class
-        ((LinearLayoutManager) recycler.getLayoutManager()).scrollToPosition((int) currentVisiblePosition);
+        recycler.getLayoutManager().scrollToPosition((int) currentVisiblePosition);
         currentVisiblePosition = 0;
 
         super.onResume();
