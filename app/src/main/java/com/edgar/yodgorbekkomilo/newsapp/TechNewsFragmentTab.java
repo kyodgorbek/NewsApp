@@ -48,6 +48,7 @@ public class TechNewsFragmentTab extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view3 = inflater.inflate(R.layout.tech_news_fragment_tab, container, false);
+
         gridView = view3.findViewById(R.id.listView);
         articleTech = new ArrayList<>();
         parentView3 = view3.findViewById(R.id.parentLayout);

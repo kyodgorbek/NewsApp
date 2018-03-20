@@ -20,6 +20,7 @@ import com.edgar.yodgorbekkomilo.newsapp.Pojo.ApiService;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.News;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.RetroClient;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.ArrayList;
 
@@ -40,6 +41,7 @@ public class AllNewsFragmentTab extends Fragment {
     Parcelable state;
     private View parentView;
     private ArticleAdapter adapter;
+    private FirebaseAnalytics mFirebaseAnalytics;
     private static final String GRID_STATE =  "GRID_VIEW_STATE";
 
 // ...
@@ -49,7 +51,30 @@ public class AllNewsFragmentTab extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.all_news_fragment_tab, container, false);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        News news = new News();
+        news.setStatus("status");
+        news.setTotalResults(Integer.valueOf("totalResults"));
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, news.getStatus());
+        bundle.putInt(FirebaseAnalytics.Param.ITEM_NAME, news.getTotalResults());
+        //Logs an app event.
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
+        //Sets whether analytics collection is enabled for this app on this device.
+        mFirebaseAnalytics.setAnalyticsCollectionEnabled(true);
+
+        //Sets the minimum engagement time required before starting a session. The default value is 10000 (10 seconds). Let's make it 20 seconds just for the fun
+        mFirebaseAnalytics.setMinimumSessionDuration(20000);
+
+        //Sets the duration of inactivity that terminates the current session. The default value is 1800000 (30 minutes).
+        mFirebaseAnalytics.setSessionTimeoutDuration(500);
+
+        //Sets the user ID property.
+        mFirebaseAnalytics.setUserId(String.valueOf(news.getStatus()));
+
+        //Sets a user property to a given value.
+        mFirebaseAnalytics.setUserProperty("Total results", String.valueOf(news.getTotalResults()));
         gridView = view.findViewById(R.id.listView);
         articleList = new ArrayList<>();
 
