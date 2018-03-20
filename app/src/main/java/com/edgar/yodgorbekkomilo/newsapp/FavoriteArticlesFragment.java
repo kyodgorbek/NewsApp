@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.Loader;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -26,7 +28,7 @@ import java.util.ArrayList;
  * Created by yodgorbekkomilov on 3/9/18.
  */
 
-public class FavoriteArticlesFragment extends Fragment {
+public class FavoriteArticlesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
     public static long currentVisiblePosition = 0;
     ArrayList<Article> articleList;
     CustomAdapter adapter;
@@ -118,6 +120,21 @@ public class FavoriteArticlesFragment extends Fragment {
         currentVisiblePosition = 0;
 
         super.onResume();
+    }
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        return null;
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+
     }
 
     private class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
