@@ -52,14 +52,14 @@ public class AllNewsFragmentTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.all_news_fragment_tab, container, false);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(getContext());
-        News news = new News();
-        news.setStatus("status");
-        news.setTotalResults(Integer.valueOf("totalResults"));
+
+
+
         Bundle bundle = new Bundle();
-        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, news.getStatus());
-        bundle.putInt(FirebaseAnalytics.Param.ITEM_NAME, news.getTotalResults());
-        //Logs an app event.
+        bundle.putInt(FirebaseAnalytics.Param.VALUE, articleArrayList.size());
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+        //Logs an app event.
+
 
         //Sets whether analytics collection is enabled for this app on this device.
         mFirebaseAnalytics.setAnalyticsCollectionEnabled(true);
@@ -71,10 +71,7 @@ public class AllNewsFragmentTab extends Fragment {
         mFirebaseAnalytics.setSessionTimeoutDuration(500);
 
         //Sets the user ID property.
-        mFirebaseAnalytics.setUserId(String.valueOf(news.getStatus()));
 
-        //Sets a user property to a given value.
-        mFirebaseAnalytics.setUserProperty("Total results", String.valueOf(news.getTotalResults()));
         gridView = view.findViewById(R.id.listView);
         articleList = new ArrayList<>();
 
