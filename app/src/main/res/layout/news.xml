@@ -12,4 +12,10 @@
         android:text="@string/news"
         android:textColor="@android:color/white"
         android:textSize="28sp" />
+
+    <ImageView
+        android:id="@+id/imageViewBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/news"/>
 </RelativeLayout>
