@@ -27,7 +27,7 @@ public class NewsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news);
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
 
         new mTask().execute();
         TextView textView = (TextView) findViewById(R.id.News);
