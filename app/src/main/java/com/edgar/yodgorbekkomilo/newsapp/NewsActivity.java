@@ -35,7 +35,7 @@ public class NewsActivity extends AppCompatActivity {
         news.setStatus("status");
         news.setTotalResults(Integer.valueOf("totalResults"));
         Bundle bundle = new Bundle();
-        bundle.putInt(FirebaseAnalytics.Param.ITEM_ID, Integer.parseInt(news.getStatus()));
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, news.getStatus());
         bundle.putInt(FirebaseAnalytics.Param.ITEM_NAME, news.getTotalResults());
         //Logs an app event.
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
