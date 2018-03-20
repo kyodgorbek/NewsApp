@@ -47,11 +47,11 @@ public class AllNewsFragmentTab extends Fragment {
 // ...
 
 // restore index and position
- 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.all_news_fragment_tab, container, false);
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(getContext());
         News news = new News();
         news.setStatus("status");
         news.setTotalResults(Integer.valueOf("totalResults"));
