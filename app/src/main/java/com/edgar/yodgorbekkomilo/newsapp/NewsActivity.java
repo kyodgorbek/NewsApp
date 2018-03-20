@@ -60,10 +60,10 @@ public class NewsActivity extends AppCompatActivity {
             return tempBMP;
         }
 
-        protected void onProgressUpdate(Progress... values) {
+        protected void onProgressUpdate(ProgressBar... values) {
             // Executes whenever publishProgress is called from doInBackground
             // Used to update the progress indicator
-            progressBar.setProgress(values[0]);
+            progressBar.setProgress(values);
         }
 
         protected void onPostExecute(Bitmap result) {
