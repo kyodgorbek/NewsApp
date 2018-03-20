@@ -48,7 +48,14 @@ public class NewsActivity extends AppCompatActivity {
 
         //Sets the duration of inactivity that terminates the current session. The default value is 1800000 (30 minutes).
         mFirebaseAnalytics.setSessionTimeoutDuration(500);
-        
+
+        //Sets the user ID property.
+        mFirebaseAnalytics.setUserId(String.valueOf(news.getStatus()));
+
+        //Sets a user property to a given value.
+        mFirebaseAnalytics.setUserProperty("Total results", String.valueOf(news.getTotalResults()));
+
+
 
         textView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
