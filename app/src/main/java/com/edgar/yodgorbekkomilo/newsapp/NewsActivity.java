@@ -7,11 +7,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
+import com.edgar.yodgorbekkomilo.newsapp.Pojo.News;
+import com.google.firebase.analytics.FirebaseAnalytics;
+
+import java.util.ArrayList;
+
 /**
  * Created by yodgorbekkomilov on 2/22/18.
  */
 
+
 public class NewsActivity extends AppCompatActivity {
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     private TextView textView;
 
@@ -19,8 +27,28 @@ public class NewsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
         new mTask().execute();
         TextView textView = (TextView) findViewById(R.id.News);
+        News news = new News();
+        news.setStatus("status");
+        news.setTotalResults(Integer.valueOf("totalResults"));
+        Bundle bundle = new Bundle();
+        bundle.putInt(FirebaseAnalytics.Param.ITEM_ID, Integer.parseInt(news.getStatus()));
+        bundle.putInt(FirebaseAnalytics.Param.ITEM_NAME, news.getTotalResults());
+        //Logs an app event.
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+
+        //Sets whether analytics collection is enabled for this app on this device.
+        mFirebaseAnalytics.setAnalyticsCollectionEnabled(true);
+
+        //Sets the minimum engagement time required before starting a session. The default value is 10000 (10 seconds). Let's make it 20 seconds just for the fun
+        mFirebaseAnalytics.setMinimumSessionDuration(20000);
+
+        //Sets the duration of inactivity that terminates the current session. The default value is 1800000 (30 minutes).
+        mFirebaseAnalytics.setSessionTimeoutDuration(500);
+        
 
         textView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
