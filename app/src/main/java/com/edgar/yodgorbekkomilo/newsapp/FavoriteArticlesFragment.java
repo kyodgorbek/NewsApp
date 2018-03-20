@@ -30,6 +30,7 @@ import java.util.ArrayList;
 
 public class FavoriteArticlesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
     public static long currentVisiblePosition = 0;
+    public static final int LOADER_ID = 0;
     ArrayList<Article> articleList;
     CustomAdapter adapter;
     RecyclerView recycler;
@@ -38,6 +39,7 @@ public class FavoriteArticlesFragment extends Fragment implements LoaderManager.
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_articles_favorite, container, false);
         recycler = view.findViewById(R.id.favorite_View);
+        getLoaderManager().initLoader(LOADER_ID, null, this);
 
         articleList = new ArrayList<>();
         String uri = ArticleColumns.CONTENT_URI.toString();
