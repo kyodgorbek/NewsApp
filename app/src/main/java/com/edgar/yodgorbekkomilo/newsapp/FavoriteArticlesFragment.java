@@ -1,6 +1,7 @@
 package com.edgar.yodgorbekkomilo.newsapp;
 
 import android.content.Context;
+import android.content.CursorLoader;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -126,6 +127,10 @@ public class FavoriteArticlesFragment extends Fragment implements LoaderManager.
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        String locationSetting = Utility.getPreferredLocation(getActivity());
+        String sortOrder = WeatherContract.WeatherEntry.COLUMN_DATE + " ASC";
+        Uri weatherForLocationUri = ArticleColumns.ALL_COLUMNS(locationSetting, System.currentTimeMillis());
+        return new CursorLoader(getActivity(), ArticleColumns.CONTENT_URI, null, null, null, sortOrder);
         return null;
     }
 
