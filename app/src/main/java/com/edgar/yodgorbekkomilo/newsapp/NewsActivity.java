@@ -36,9 +36,9 @@ public class NewsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news);
 
-        ImageView imageView = (ImageView) findViewById(R.id.imageViewBackground);
+         imageView = (ImageView) findViewById(R.id.imageViewBackground);
         progressBar = findViewById(R.id.progressBar);
-        TextView textView = (TextView)findViewById(R.id.News) ;
+        textView = (TextView)findViewById(R.id.News) ;
         new MyAsyncTask().execute();
 
         textView.setOnClickListener(new View.OnClickListener() {
