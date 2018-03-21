@@ -1,5 +1,6 @@
 package com.edgar.yodgorbekkomilo.newsapp;
 
+import android.content.ContentUris;
 import android.content.Context;
 
 import android.content.Intent;
@@ -22,7 +23,9 @@ import android.widget.TextView;
 
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 import com.squareup.picasso.Picasso;
+
 import android.support.v4.content.CursorLoader;
+
 import java.util.ArrayList;
 
 /**
@@ -36,63 +39,44 @@ public class FavoriteArticlesFragment extends Fragment implements LoaderManager.
     CustomAdapter adapter;
     RecyclerView recycler;
 
+    View view;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_articles_favorite, container, false);
+        view = inflater.inflate(R.layout.fragment_articles_favorite, container, false);
         recycler = view.findViewById(R.id.favorite_View);
         getLoaderManager().initLoader(LOADER_ID, null, this);
 
+//        String uri = ArticleColumns.CONTENT_URI.toString();
         articleList = new ArrayList<>();
-        String uri = ArticleColumns.CONTENT_URI.toString();
+        adapter = new CustomAdapter(getActivity());
+        recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recycler.setAdapter(adapter);
 
-        Cursor cursor =
-                getActivity().getApplicationContext().getContentResolver().query(Uri.parse(uri), null, null,
-                        null, null);
-
-        if (cursor != null) {
-            if (cursor.getCount() > 0) {
-                Log.i("check_data", cursor.toString());
-
-                cursor.moveToFirst();
-                do {
-
-                    String title = cursor.getString(cursor.getColumnIndex(ArticleColumns.TITLE));
-                    String description = cursor.getString(cursor.getColumnIndex(ArticleColumns.TITLE_DESCRIPTION));
-                    String author = cursor.getString(cursor.getColumnIndex(ArticleColumns.AUTHOR));
-                    String image = cursor.getString(cursor.getColumnIndex(ArticleColumns.IMAGE));
-                    String link = cursor.getString(cursor.getColumnIndex(ArticleColumns.LINK));
-
-                    articleList.add(new Article(title, description, author, image, link));
-                    Log.i("check_data", title + " " + description + " " + author);
-                } while (cursor.moveToNext());
-
-                adapter = new CustomAdapter(getActivity());
-                recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
-                recycler.setAdapter(adapter);
-                ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
-                        0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT
-                ) {
-                    @Override
-                    public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-                        return false;
-                    }
-
-                    @Override
-                    public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                        int position = viewHolder.getAdapterPosition();
-                        Article article = articleList.get(position);
-                        articleList.remove(position);
-                        adapter.notifyItemRemoved(position);
-                        showSnackBar(view, position, article);
-                    }
-                });
-
-                helper.attachToRecyclerView(recycler);
+        ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
+                0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT
+        ) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView,
+                                  RecyclerView.ViewHolder viewHolder,
+                                  RecyclerView.ViewHolder target) {
+                return false;
             }
 
-        } else {
-            Log.i("check_data", "cursor is null");
-        }
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                Log.i("fav_article", "position from onSwiped: " + position);
+
+                Article article = articleList.get(position);
+                articleList.remove(position);
+
+                adapter.notifyItemRemoved(position);
+                showSnackBar(view, position, article);
+            }
+        });
+
+        helper.attachToRecyclerView(recycler);
 
         return view;
     }
@@ -119,8 +103,8 @@ public class FavoriteArticlesFragment extends Fragment implements LoaderManager.
     @Override
     public void onResume() {
         // this variable should be static in class
-        recycler.getLayoutManager().scrollToPosition((int) currentVisiblePosition);
-        currentVisiblePosition = 0;
+//        recycler.getLayoutManager().scrollToPosition((int) currentVisiblePosition);
+//        currentVisiblePosition = 0;
 
         super.onResume();
     }
@@ -130,7 +114,7 @@ public class FavoriteArticlesFragment extends Fragment implements LoaderManager.
         return new CursorLoader(
                 getContext(),
                 ArticleColumns.CONTENT_URI,
-                ArticleColumns.ALL_COLUMNS,
+                null,
                 null,
                 null,
                 null);
@@ -139,8 +123,26 @@ public class FavoriteArticlesFragment extends Fragment implements LoaderManager.
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        if (data != null && !data.isEmpty() ){
+        if (data != null) {
+            if (data.getCount() > 0) {
+                data.moveToFirst();
+                Log.i("fav_article", data.toString());
+                do {
 
+                    String title = data.getString(data.getColumnIndex(ArticleColumns.TITLE));
+                    String description = data.getString(data.getColumnIndex(ArticleColumns.TITLE_DESCRIPTION));
+                    String author = data.getString(data.getColumnIndex(ArticleColumns.AUTHOR));
+                    String image = data.getString(data.getColumnIndex(ArticleColumns.IMAGE));
+                    String link = data.getString(data.getColumnIndex(ArticleColumns.LINK));
+                    articleList.add(new Article(title, description, author, image, link));
+                    Log.i("fav_tab", title + " position: " + data.getPosition());
+                } while (data.moveToNext());
+
+                adapter.notifyDataSetChanged();
+
+            } else {
+                Log.i("fav_article", "cursor is null");
+            }
         }
     }
 
@@ -152,7 +154,6 @@ public class FavoriteArticlesFragment extends Fragment implements LoaderManager.
     private class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
 
         Context context;
-
         public CustomAdapter(Context context) {
             this.context = context;
         }
