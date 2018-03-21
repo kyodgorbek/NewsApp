@@ -63,7 +63,7 @@ public class NewsActivity extends AppCompatActivity {
         protected void onProgressUpdate(Integer... values) {
             // Executes whenever publishProgress is called from doInBackground
             // Used to update the progress indicator
-            progressBar.setProgress(values);
+            progressBar.setProgress(values[0]);
         }
 
         protected void onPostExecute(Bitmap result) {
