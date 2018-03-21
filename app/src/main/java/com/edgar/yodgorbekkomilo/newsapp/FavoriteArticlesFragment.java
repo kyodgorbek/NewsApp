@@ -139,7 +139,9 @@ public class FavoriteArticlesFragment extends Fragment implements LoaderManager.
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        if (data != null && !data.isEmpty() ){
 
+        }
     }
 
     @Override
