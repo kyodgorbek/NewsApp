@@ -160,7 +160,6 @@
                 android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="20sp"
-
                 android:textStyle="bold" />
 
             <TextView

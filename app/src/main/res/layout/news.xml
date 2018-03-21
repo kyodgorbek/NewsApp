@@ -5,17 +5,19 @@
     android:background="@drawable/news"
     android:gravity="center">
 
-    <TextView
-        android:id="@+id/News"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/news"
-        android:textColor="@android:color/white"
-        android:textSize="28sp" />
 
     <ImageView
         android:id="@+id/imageViewBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/news"/>
+    <TextView
+        android:id="@+id/News"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/news"
+        android:textColor="@android:color/white"
+        android:layout_centerInParent="true"
+        android:textSize="28sp" />
+
 </RelativeLayout>

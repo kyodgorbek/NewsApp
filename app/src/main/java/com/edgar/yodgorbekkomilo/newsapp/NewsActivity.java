@@ -38,7 +38,7 @@ public class NewsActivity extends AppCompatActivity {
 
         ImageView imageView = (ImageView) findViewById(R.id.imageViewBackground);
         TextView textView = (TextView)findViewById(R.id.News) ;
- 
+
 
         textView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
