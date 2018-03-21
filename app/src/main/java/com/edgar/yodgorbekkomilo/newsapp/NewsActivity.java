@@ -47,7 +47,7 @@ public class NewsActivity extends AppCompatActivity {
         });
     }
 
-    private class MyAsyncTask extends AsyncTask<String, Progress, Bitmap> {
+    private class MyAsyncTask extends AsyncTask<String, Integer, Bitmap> {
         protected void onPreExecute() {
             // Runs on the UI thread before doInBackground
             // Good for toggling visibility of a progress indicator
@@ -60,7 +60,7 @@ public class NewsActivity extends AppCompatActivity {
             return tempBMP;
         }
 
-        protected void onProgressUpdate(Progress... values) {
+        protected void onProgressUpdate(Integer... values) {
             // Executes whenever publishProgress is called from doInBackground
             // Used to update the progress indicator
             progressBar.setProgress(values);
