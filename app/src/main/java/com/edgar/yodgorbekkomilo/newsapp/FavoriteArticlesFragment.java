@@ -1,7 +1,7 @@
 package com.edgar.yodgorbekkomilo.newsapp;
 
 import android.content.Context;
-import android.content.CursorLoader;
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -22,7 +22,7 @@ import android.widget.TextView;
 
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 import com.squareup.picasso.Picasso;
-
+import android.support.v4.content.CursorLoader;
 import java.util.ArrayList;
 
 /**
@@ -127,14 +127,14 @@ public class FavoriteArticlesFragment extends Fragment implements LoaderManager.
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        new CursorLoader(
+        return new CursorLoader(
                 getContext(),
                 ArticleColumns.CONTENT_URI,
                 ArticleColumns.ALL_COLUMNS,
                 null,
                 null,
                 null);
-        return null;
+
     }
 
     @Override
