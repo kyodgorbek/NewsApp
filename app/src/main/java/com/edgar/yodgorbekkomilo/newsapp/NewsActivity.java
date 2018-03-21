@@ -35,11 +35,11 @@ public class NewsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news);
-        new MyAsyncTask().execute();
+
         ImageView imageView = (ImageView) findViewById(R.id.imageViewBackground);
         progressBar = findViewById(R.id.progressBar);
         TextView textView = (TextView)findViewById(R.id.News) ;
-
+        new MyAsyncTask().execute();
 
         textView.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
