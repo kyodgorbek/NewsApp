@@ -37,6 +37,7 @@ import retrofit2.Response;
 public class TechNewsFragmentTab extends Fragment {
 
 
+    private static final String GRID_VIEW_STATE = "GRID_VIEW_STATE";
     public ArrayList<News> articleTech;
     View parentView3;
     ArrayList<Article> articleArrayList = new ArrayList<>();
@@ -44,7 +45,7 @@ public class TechNewsFragmentTab extends Fragment {
     GridView gridView;
     private ArticleAdapter adapter;
     private View view3;
-    private static final String GRID_VIEW_STATE = "GRID_VIEW_STATE";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view3 = inflater.inflate(R.layout.tech_news_fragment_tab, container, false);
@@ -52,7 +53,7 @@ public class TechNewsFragmentTab extends Fragment {
         gridView = view3.findViewById(R.id.listView);
         articleTech = new ArrayList<>();
         parentView3 = view3.findViewById(R.id.parentLayout);
-        if(savedInstanceState != null){
+        if (savedInstanceState != null) {
             state2 = savedInstanceState.getParcelable(GRID_VIEW_STATE);
         }
         /**
@@ -76,9 +77,6 @@ public class TechNewsFragmentTab extends Fragment {
         Toast toast = Toast.makeText(getActivity().getApplicationContext(), R.string.string_click_to_load, Toast.LENGTH_LONG);
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
-
-
-
 
 
         return view3;
@@ -140,7 +138,7 @@ public class TechNewsFragmentTab extends Fragment {
                          * Binding that List to Adapter
                          */adapter = new ArticleAdapter(getActivity(), articleArrayList);
                         gridView.setAdapter(adapter);
-                        if(state2 != null) {
+                        if (state2 != null) {
                             gridView.onRestoreInstanceState(state2);
                         }
 

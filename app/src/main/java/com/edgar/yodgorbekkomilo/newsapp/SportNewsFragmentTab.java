@@ -32,7 +32,7 @@ import retrofit2.Response;
  */
 
 public class SportNewsFragmentTab extends Fragment {
-    private static final String GRIDVIEW_STATE =  "GRID_VIEW_STATE";
+    private static final String GRIDVIEW_STATE = "GRID_VIEW_STATE";
     public ArrayList<News> articleSport;
     View parentView2;
     ArrayList<Article> articleArrayList = new ArrayList<>();
@@ -45,7 +45,7 @@ public class SportNewsFragmentTab extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view2 = inflater.inflate(R.layout.sport_news_fragment_tab, container, false);
-        if(savedInstanceState != null){
+        if (savedInstanceState != null) {
             state3 = savedInstanceState.getParcelable(GRIDVIEW_STATE);
         }
         gridView = view2.findViewById(R.id.listView);
@@ -73,9 +73,6 @@ public class SportNewsFragmentTab extends Fragment {
         Toast toast = Toast.makeText(getActivity().getApplicationContext(), R.string.string_click_to_load, Toast.LENGTH_LONG);
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
-
-
-
 
 
         return view2;
@@ -127,7 +124,7 @@ public class SportNewsFragmentTab extends Fragment {
                          * Binding that List to Adapter
                          */adapter = new ArticleAdapter(getActivity(), articleArrayList);
                         gridView.setAdapter(adapter);
-                        if(state3 == null) {
+                        if (state3 == null) {
                             gridView.onRestoreInstanceState(state3);
                         }
 
@@ -148,6 +145,7 @@ public class SportNewsFragmentTab extends Fragment {
 
         }
     }
+
     @Override
     public void onSaveInstanceState(Bundle state) {
         super.onSaveInstanceState(state);

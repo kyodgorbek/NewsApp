@@ -35,6 +35,7 @@ import retrofit2.Response;
 
 public class AllNewsFragmentTab extends Fragment {
 
+    private static final String GRID_STATE = "GRID_VIEW_STATE";
     public ArrayList<News> articleList;
     public GridView gridView;
     ArrayList<Article> articleArrayList = new ArrayList<>();
@@ -42,7 +43,6 @@ public class AllNewsFragmentTab extends Fragment {
     private View parentView;
     private ArticleAdapter adapter;
     private FirebaseAnalytics mFirebaseAnalytics;
-    private static final String GRID_STATE =  "GRID_VIEW_STATE";
 
 // ...
 
@@ -52,7 +52,6 @@ public class AllNewsFragmentTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.all_news_fragment_tab, container, false);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(getContext());
-
 
 
         Bundle bundle = new Bundle();
@@ -77,7 +76,7 @@ public class AllNewsFragmentTab extends Fragment {
 
         parentView = view.findViewById(R.id.parentLayout);
 
-        if(savedInstanceState != null){
+        if (savedInstanceState != null) {
             state = savedInstanceState.getParcelable(GRID_STATE);
         }
         /**
@@ -103,7 +102,6 @@ public class AllNewsFragmentTab extends Fragment {
         Toast toast = Toast.makeText(getActivity().getApplicationContext(), R.string.string_click_to_load, Toast.LENGTH_LONG);
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
-
 
 
         /**
@@ -160,7 +158,7 @@ public class AllNewsFragmentTab extends Fragment {
                          *
                          *
                          */
-                        if(getActivity() != null) {
+                        if (getActivity() != null) {
                             adapter = new ArticleAdapter(getActivity(), articleArrayList);
                             gridView.setAdapter(adapter);
                         }

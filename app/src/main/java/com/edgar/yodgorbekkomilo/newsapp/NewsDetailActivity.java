@@ -31,16 +31,16 @@ public class NewsDetailActivity extends AppCompatActivity {
     FloatingActionButton floatingActionButton;
     ImageView favoriteButton;
     AdView mAdView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news_details);
         MobileAds.initialize(this, "ca-app-pub-3940256099942544~3347511713");
 
-        mAdView = (AdView)findViewById(R.id.ad_view);
+        mAdView = (AdView) findViewById(R.id.ad_view);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
 
 
         Toolbar myChildToolbar =

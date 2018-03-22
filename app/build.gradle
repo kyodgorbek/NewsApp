@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'NewsAppJon'
+            keyPassword 'helloworld'
+            storeFile file('/Users/yodgorbekkomilov/Desktop/NewsAppFolder/NewsAppJon')
+            storePassword 'Adilnoz19925'
+        }
+    }
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.edgar.yodgorbekkomilo.newsapp"
@@ -8,9 +16,9 @@ android {
         targetSdkVersion 26
         versionCode 1
         flavorDimensions "default"
-
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.config
     }
     buildTypes {
         release {
@@ -18,8 +26,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
-
+    productFlavors {
+    }
 }
 
 dependencies {
@@ -36,6 +44,5 @@ dependencies {
     compile 'com.android.support:design:26.1.0'
     compile 'com.google.android.gms:play-services-ads:11.8.0'
     compile 'com.google.firebase:firebase-core:11.8.0'
-
 }
 apply plugin: 'com.google.gms.google-services'

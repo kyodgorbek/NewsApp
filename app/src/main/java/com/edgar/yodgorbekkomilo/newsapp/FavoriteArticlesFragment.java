@@ -1,15 +1,13 @@
 package com.edgar.yodgorbekkomilo.newsapp;
 
-import android.content.ContentUris;
 import android.content.Context;
-
 import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
+import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,8 +22,6 @@ import android.widget.TextView;
 import com.edgar.yodgorbekkomilo.newsapp.Pojo.Article;
 import com.squareup.picasso.Picasso;
 
-import android.support.v4.content.CursorLoader;
-
 import java.util.ArrayList;
 
 /**
@@ -33,8 +29,8 @@ import java.util.ArrayList;
  */
 
 public class FavoriteArticlesFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
-    public static long currentVisiblePosition = 0;
     public static final int LOADER_ID = 0;
+    public static long currentVisiblePosition = 0;
     ArrayList<Article> articleList;
     CustomAdapter adapter;
     RecyclerView recycler;
@@ -154,6 +150,7 @@ public class FavoriteArticlesFragment extends Fragment implements LoaderManager.
     private class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
 
         Context context;
+
         public CustomAdapter(Context context) {
             this.context = context;
         }
