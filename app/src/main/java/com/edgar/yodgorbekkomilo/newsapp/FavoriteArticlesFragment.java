@@ -76,7 +76,6 @@ public class FavoriteArticlesFragment extends Fragment implements LoaderManager.
 
         return view;
     }
-
     private void showSnackBar(View v, final int position, final Article article) {
         Snackbar.make(v, R.string.item_removed, Snackbar.LENGTH_LONG)
                  .setAction(R.string.undo, new View.OnClickListener() {
@@ -87,7 +86,7 @@ public class FavoriteArticlesFragment extends Fragment implements LoaderManager.
                     }
                 }).show();
     }
-
+ 
     @Override
     public void onPause() {
         // this variable should be static in class
