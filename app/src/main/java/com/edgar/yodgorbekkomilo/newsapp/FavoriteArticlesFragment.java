@@ -71,7 +71,7 @@ public class FavoriteArticlesFragment extends Fragment implements LoaderManager.
                 showSnackBar(view, position, article);
             }
         });
-
+ 
         helper.attachToRecyclerView(recycler);
 
         return view;
