@@ -25,5 +25,5 @@
     <string name="favorite_news_tab_title">Favorite</string>
     <string name="tech_news_widget">TechNewsWidget</string>
     <string name="item_removed">Item Removed</string>
-    <string name="undo">Undo</string>
+    <string name="undo">Undo</string> 
 </resources>

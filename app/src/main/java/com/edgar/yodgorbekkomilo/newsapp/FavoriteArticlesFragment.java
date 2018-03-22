@@ -86,7 +86,7 @@ public class FavoriteArticlesFragment extends Fragment implements LoaderManager.
                     }
                 }).show();
     }
- 
+
     @Override
     public void onPause() {
         // this variable should be static in class
