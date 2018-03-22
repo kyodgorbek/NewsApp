@@ -78,7 +78,7 @@ public class FavoriteArticlesFragment extends Fragment implements LoaderManager.
     }
 
     private void showSnackBar(View v, final int position, final Article article) {
-        Snackbar.make(v, "Item removed", Snackbar.LENGTH_LONG)
+        Snackbar.make(v, R.string.item_removed, Snackbar.LENGTH_LONG)
                 .setAction("Undo", new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
