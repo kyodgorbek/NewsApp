@@ -126,7 +126,7 @@ public class TechNewsFragmentTab extends Fragment {
                         articleArrayList.addAll(news.getArticles());
 
                         SharedPreferences appSharedPrefs = PreferenceManager
-                                .getDefaultSharedPreferences(getActivity());
+                                .getDefaultSharedPreferences(getContext());
                         SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
                         Gson gson = new Gson();
                         String json = gson.toJson(news.getArticles());
