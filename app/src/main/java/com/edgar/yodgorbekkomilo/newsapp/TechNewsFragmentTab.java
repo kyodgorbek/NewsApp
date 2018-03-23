@@ -108,11 +108,10 @@ public class TechNewsFragmentTab extends Fragment {
 
             /**
              * Enqueue Callback will be call when get response...
-             */  final    SharedPreferences appSharedPrefs = PreferenceManager
+             */  final SharedPreferences appSharedPrefs = PreferenceManager
                     .getDefaultSharedPreferences(getContext());
             adapter = new ArticleAdapter(getActivity().getApplicationContext(), articleArrayList);
             SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
-
             call.enqueue(new Callback<News>() {
                 @Override
                 public void onResponse(Call<News> call, Response<News> response) {
@@ -132,7 +131,8 @@ public class TechNewsFragmentTab extends Fragment {
 
                         Gson gson = new Gson();
                         String json = gson.toJson(news.getArticles());
-
+                        prefsEditor.putString("MyObject", json);
+                        prefsEditor.commit();
 
 
                         /**
