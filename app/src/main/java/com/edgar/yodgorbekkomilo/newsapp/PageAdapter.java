@@ -3,6 +3,7 @@ package com.edgar.yodgorbekkomilo.newsapp;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 
@@ -10,8 +11,8 @@ import android.support.v4.app.FragmentStatePagerAdapter;
  * Created by yodgorbekkomilov on 2/21/18.
  */
 
-public class PageAdapter extends FragmentStatePagerAdapter {
-    int mNumOfTabs; 
+public class PageAdapter extends FragmentPagerAdapter {
+    int mNumOfTabs;
 
     public PageAdapter(FragmentManager fm, int NumOfTabs) {
         super(fm);
