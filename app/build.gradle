@@ -4,7 +4,7 @@ android {
     signingConfigs {
         config {
             keyAlias 'key0'
-            keyPassword 'Adilnoz19925'
+            keyPassword 'Ayodgor19895'
             storeFile file('helloworld.jks')
             storePassword 'Adilnoz19925'
         }
