@@ -59,6 +59,14 @@ public class SportNewsFragmentTab extends Fragment {
          *
          */
 
+
+
+        return view2;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -74,13 +82,6 @@ public class SportNewsFragmentTab extends Fragment {
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
 
-
-        return view2;
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
         // Place the code here
         /**
          * Checking Internet Connection
