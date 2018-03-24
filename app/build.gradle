@@ -4,9 +4,9 @@ android {
     signingConfigs {
         config {
             keyAlias 'key0'
-            keyPassword 'Aziyoda1990'
+            keyPassword 'Adilnoz1992'
             storeFile file('yodgor.jks')
-            storePassword 'Adilnoz1992'
+            storePassword 'Aziyoda1990'
         }
     }
     compileSdkVersion 26

@@ -94,7 +94,7 @@
                             android:layout_gravity="end"
                             android:contentDescription="@string/share_function"
                             android:scaleType="fitXY"
-                            android:tint="@android:color/white"
+                            android:tint="@android:color/black"
                             app:srcCompat="@drawable/ic_share" />
 
                         <ImageButton
@@ -105,7 +105,7 @@
                             android:layout_toStartOf="@id/share_button"
                             android:contentDescription="@string/favorite_selected_news"
                             android:scaleType="fitXY"
-                            android:tint="@android:color/white"
+                            android:tint="@android:color/black"
                             app:srcCompat="@drawable/ic_favorite" />
 
 
