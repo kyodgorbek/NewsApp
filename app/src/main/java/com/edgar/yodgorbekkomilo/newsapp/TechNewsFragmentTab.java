@@ -111,7 +111,7 @@ public class TechNewsFragmentTab extends Fragment {
              */
             SharedPreferences appSharedPrefs = PreferenceManager
                     .getDefaultSharedPreferences(getContext());
-           final SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
+            final SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
             adapter = new ArticleAdapter(getActivity(), articleArrayList);
             call.enqueue(new Callback<News>() {
                 @Override

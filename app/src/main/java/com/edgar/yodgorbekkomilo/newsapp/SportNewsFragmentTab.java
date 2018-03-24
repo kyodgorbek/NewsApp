@@ -60,7 +60,6 @@ public class SportNewsFragmentTab extends Fragment {
          */
 
 
-
         return view2;
     }
 
