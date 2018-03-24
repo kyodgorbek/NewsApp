@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'NewsAppJon'
             keyPassword 'helloworld'
-            storeFile file('/Users/yodgorbekkomilov/Desktop/NewsAppFolder/NewsAppJon')
+            storeFile file('helloworld.jks')
             storePassword 'Adilnoz19925'
         }
     }
